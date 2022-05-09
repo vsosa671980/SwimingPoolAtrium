@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/styles/Main.css}" rel="stylesheet" />
+</head>
+<body>
+
+
+	<div class="Table">
+
+	<div class="tableUsers">
+	<h1>Users</h1>
+	
+	<button class="button green">Create User</button>
+	</div>
+		<table>
+
+			<tr class="blue">
+
+				<th >Name</th>
+				<th >Surname</th>
+				<th >Phone</th>
+				<th >birthdate</th>
+				<th >Email</th>
+				<th> Status</th>
+				
+				<th >AgeUser</th>
+
+			</tr>
+
+			<tr  th:each="u : ${user}">
+				<td th:text="${u.name}">Name</td>
+				<td th:text="${u.surname}">Surname</td>
+				<td th:text="${u.Phone}">Phone</td>
+				<td th:text="${u.birthdate}">age</td>
+				<td th:text="${u.email}">Email</td>
+				<td th:text="${u.status}">status</td>
+				<td th:text="${u.age}">status</td>
+				
+				<td><a th:href = "@{/user/updateUser/} + ${u.idusers} " th:text="Update"></a></td>
+				<td><a th:href = "@{/user/deleteUser/} + ${u.idusers} " th:text="Delete"></a></td>
+				
+			</tr>
+
+		</table>
+
+
+		<div id="mainSearch">
+
+			<tr>
+         
+				<th>Booking Name</th>
+				<th>Booking Day</th>
+				<th>Booking Hour</th>
+				<th>Booking User</th>
+				</tr>     
+			 
+			 </thead>
+			 
+			 
+			 <tr th:each="book: ${Bookings}">
+			 
+			 
+			 <td th:text="${book.name}"></td>
+			 <td th:text="${book.dayBook}"></td>
+			 <td th:text="${book.hourBook}"></td>
+			 <td th:text="${book.idusers.name}"></td>
+			
+			 
+			 
+		
+			 </tr>
+
+
+
+
+		</div>
+
+    <a th:href="@{/}">Home</a>
+	
+
+
+
+
+
+
+	</div>
+
+</body>
+</html>

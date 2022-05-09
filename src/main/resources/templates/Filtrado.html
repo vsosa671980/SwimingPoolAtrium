@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/styles/Main.css}" rel="stylesheet" />
+</head>
+<body>
+
+
+<h1>Formulario de Busqueda por id</h1>
+
+<a th:href="@{/}">Home</a>
+
+
+<form th:action="@{/user/busqueda}">
+
+<input type="search" placeholder="Introzca la id/user/busqueda" name="value">
+
+<button type="submit">Busqueda</button>
+
+
+
+</form>
+
+
+
+
+
+
+
+</div>
+
+
+</body>
+</html>

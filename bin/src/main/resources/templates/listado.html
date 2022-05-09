@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+
+	
+	<h1>Files</h1>
+	
+	
+  
+</div>
+	
+
+		<table>
+
+			<tr class="blue">
+
+				<th >Filename</th>
+				<th >img</th>
+				<th >id</th>
+				
+			</tr>
+
+			<tr  th:each="lista : ${listado}">
+				
+				<td><img alt="" th:txt="${lista.img}" style="width: 150px"></td>
+				
+				<td th:text="${lista.img}"></td>
+				
+					
+			</tr>
+
+		</table>
+
+    
+
+
+
+
+
+	</div>
+
+</body>
+</html>

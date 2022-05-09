@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro:ital,wght@1,300&display=swap');
+body{
+font-family: 'Roboto', sans-serif;
+font-family: 'Source Sans Pro', sans-serif;
+}
+button{
+	
+	color:white;
+	border-radius:4px 4px;
+	cursor:pointer;
+	
+}
+.green{
+	background-color:green;
+	
+}
+
+.blue{
+	background-color:blue
+}
+
+th{
+	padding:10px;
+	margin:0px;
+	font-size: 1.5rem;
+	display:line;
+    
+}
+
+.tableUsers{
+	display:flex;
+	justify-content: space-around;
+}

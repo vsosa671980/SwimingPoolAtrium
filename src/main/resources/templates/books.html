@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/styles/Main.css}" rel="stylesheet" />
+</head>
+<body>
+
+	<div class="main-contaniner" >
+
+		<div class="MainBooks">
+
+			<div id="books-header">
+
+				<h1>Books</h1>
+
+			</div>
+
+			<div id="selectors">
+
+				<label for="serachUser">User: </label>
+				<input type="search" id="searhUser"> <br>
+				
+				<label for="searchByMonth">Month : </label>
+				<input type="search" id="searchByMonth"> <br>
+				
+				<label for="searchByCalle">Calle : </label>
+				<input type="search" id="searchBycalle"> <br>
+
+			</div>
+
+			<table>
+
+				<tr class="blue">
+
+					<th>Date</th>
+					<th>Hora</th>
+					<th>Calle</th>
+					<th>User</th>
+
+					<th>AgeUser</th>
+
+				</tr>
+
+			</table>
+
+		</div>
+
+		<a th:href="@{/}">Home</a>
+
+
+
+
+	</div>
+
+	</div>
+
+	<script src="../static/javascript/main.js"></script>
+
+</body>
+</html>

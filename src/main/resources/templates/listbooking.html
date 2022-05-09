@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>List of Booking</title>
+<link th:href="@{/styles/Main.css}" rel="stylesheet" />
+</head>
+<body>
+
+<nav th:replace="~{fragments::navHeader}"></nav>
+
+
+<h1>Bookings</h1>
+
+<p>Hola</p>
+
+
+<div class="MainListBooking" th:fragment="listbooks">
+
+   <div>
+      <h1>Lista de Reservas</h1>
+   
+   </div>
+
+   <table>
+   
+      <thead>
+      
+         <tr>
+         
+         <th>Booking Name</th>
+         <th>Booking Day</th>
+         <th>Booking Hour</th>
+         <th>Booking User</th>
+         <th>Booking Status</th>
+         </tr>     
+      
+      </thead>
+      
+      
+      <tr th:each="book: ${Bookings}">
+      
+      
+      <td class="td" th:text="${book.name}"></td>
+      <td th:text="${book.dayBook}"></td>
+      <td th:text="${book.hourBook}"></td>
+      <td th:text="${book.idusers.name}"></td>
+      <td th:text="book.bookingStatus"></td>
+     
+      
+      
+ 
+      </tr>
+     
+     
+   
+   </table>
+   
+    
+      <a th:href="@{/}">Home</a>
+      
+
+
+</div>
+
+
+
+
+
+
+	  <script src="/static/javascript/main.js"></script>
+
+</body>
+</html>

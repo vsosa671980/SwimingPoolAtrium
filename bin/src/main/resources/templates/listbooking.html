@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>List of Booking</title>
+<link th:href="@{/styles/Main.css}" rel="stylesheet" />
+</head>
+<body>
+
+
+<h1>Bookings</h1>
+
+<p>Hola</p>
+
+
+<div class="MainListBooking">
+
+   <table>
+   
+      <thead>
+      
+         <tr>
+         
+         <th>Booking Name</th>
+         <th>Booking Day</th>
+         <th>Booking Hour</th>
+         <th>Booking User</th>
+         </tr>     
+      
+      </thead>
+      
+      
+      <tr th:each="book: ${Bookings}">
+      
+      
+      <td th:text="${book.name}"></td>
+      <td th:text="${book.dayBook}"></td>
+      <td th:text="${book.hourBook}"></td>
+      <td th:text="${book.idusers.name}"></td>
+     
+      
+      
+ 
+      </tr>
+      
+      <a th:href="@{/}">Home</a>
+      
+      
+      
+   
+   </table>
+
+
+</div>
+
+
+
+
+
+
+	<script src="../static/javascript/main.js"></script>
+
+</body>
+</html>

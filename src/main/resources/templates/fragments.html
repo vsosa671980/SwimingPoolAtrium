@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/styles/Main.css}" rel="stylesheet" />
+
+</head>
+
+<header>
+
+	<nav class="container" th:fragment="navHeader">
+
+		<li><a th:href="@{/}">Home</a></li>
+
+		<li><a th:href="@{/user/reservas/listall}">Gestion de
+				Reservas</a></li>
+
+		<li><a th:href="@{/user/listusers}">Gestion de Usuarios</a></li> <a
+			href="">Gestion Clases</a>
+
+		<li><a href="">Gestion ocupacion</a></li>
+
+		<li><a href="">Gestion Tienda</a></li>
+
+
+	</nav>
+
+</header>
+
+
+
+	<div>
+
+		<button>Crear Ususario</button>
+
+	</div>
+
+<div class="container-left" th:fragment="listusers">
+
+
+
+	<div id="table">
+		<table class="table">
+
+			<tr class="blue">
+
+				<th>Name</th>
+				<th>Surname</th>
+				<th>DNI</th>
+				<th>Phone</th>
+				<th>birthdate</th>
+				<th>Email</th>
+				<th>Status</th>
+
+				<th>AgeUser</th>
+
+			</tr>
+
+			<tr class="table rowUser " th:each="user : ${userslist}">
+				<td class="td" th:text="${user.name}">Name</td>
+				<td th:text="${user.surname}">Surname</td>
+				<td th:text="${user.DNI}">Surname</td>
+				<td th:text="${user.Phone}">Phone</td>
+				<td th:text="${user.birthdate}">age</td>
+				<td th:text="${user.email}">Email</td>
+				<td th:text="${user.status}">status</td>
+				<td th:text="${user.age}">status</td> 
+				<td><button th:text="Reseva" th:value="${user.idusers}"></button></td>
+
+				<td><a th:href="@{/user/updateUser/} + ${user.idusers} "
+					th:text="Update"></a></td>
+				<td><a th:href="@{/user/deleteUser/} + ${user.idusers} "
+					th:text="Delete"></a></td>
+
+				<td><a th:href="@{/booking/create/}+ ${user.idusers}"
+					th:text="Booking"></a></td>
+
+			</tr>
+
+		</table>
+		
+		<div id="insertBookings"></div>
+
+
+       </div>
+
+
+
+		</body>
+</html>
