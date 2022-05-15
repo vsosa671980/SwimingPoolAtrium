@@ -1,14 +1,10 @@
 package com.piscina.atrium.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import java.util.List;
 
+import javax.persistence.*;
+
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.ManyToAny;
 import org.springframework.stereotype.Component;
 
@@ -26,7 +22,7 @@ public class Booking {
 	private long idbookings;
 	
     @Column(name="type_booking")
-    private String typeBooking;  
+    private String name;  
 
 	@Column(name="day_booking")
 	private String dayBook;
@@ -41,41 +37,62 @@ public class Booking {
 	
 	
 
-	  //Indicate the relation witch Users Class ManyToONe
-	  @ManyToOne
+	  public String getBookingStatus() {
+		return bookingStatus;
+	}
+
+	public void setBookingStatus(String bookingStatus) {
+		this.bookingStatus = bookingStatus;
+	}
+
+	
+
+
+	//Indicate the relation witch Users Class ManyToONe
+	  @ManyToOne(cascade={CascadeType.PERSIST,CascadeType.MERGE})
 	  @JoinColumn(name = "idusers")
 	  private Users idusers;
-    
-
-	  //Relationship  with Streets
-	 
-	  @ManyToOne
-	  @JoinColumn(name =  "idStreet")
-	  private Street idStreet;
+	  
+	  
+	  //Relation witch Booking and Planning ManyToMany
+	  @ManyToMany(mappedBy = "bookings",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	  private List<Planning> plannings;
 
 
 	public Booking() {
 	}
 
-	public Booking( String typeBooking, String dayBook, String hourBook, Users idusers) {
+	public Booking( String name, String dayBook, String hourBook, Users idusers) {
 	
-		this.typeBooking = typeBooking;
+		this.name = name;
 		this.dayBook = dayBook;
 		this.hourBook = hourBook;
 		this.idusers = idusers;
 	}
 
 
-	public Booking(long idbookings, String typeBooking, String dayBook, String hourBook, Users idusers) {
+	public Booking(long idbookings, String name, String dayBook, String hourBook, Users idusers) {
 		this.idbookings = idbookings;
-		this.typeBooking = typeBooking;
+		this.name = name;
 		this.dayBook = dayBook;
 		this.hourBook = hourBook;
 		this.idusers = idusers;
 	}
+	
+	
 
 
 
+
+	public Booking(String name, String dayBook, String hourBook, String bookingStatus, Users idusers,
+			List<Planning> plannings) {
+		this.name = name;
+		this.dayBook = dayBook;
+		this.hourBook = hourBook;
+		this.bookingStatus = bookingStatus;
+		this.idusers = idusers;
+		this.plannings = plannings;
+	}
 
 	public long getIdbookings() {
 		return idbookings;
@@ -86,12 +103,14 @@ public class Booking {
 	}
 
 	
-	public String getTypeBooking() {
-		return typeBooking;
+
+
+	public String getName() {
+		return name;
 	}
 
-	public void setTypeBooking(String typeBooking) {
-		this.typeBooking = typeBooking;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getDayBook() {
@@ -117,6 +136,23 @@ public class Booking {
 	public void setIdusers(Users idusers) {
 		this.idusers = idusers;
 	}
+
+	public List<Planning> getPlannings() {
+		return plannings;
+	}
+
+	public void setPlannings(List<Planning> plannings) {
+		this.plannings = plannings;
+	}
+
+	@Override
+	public String toString() {
+		return "Booking [idbookings=" + idbookings + ", name=" + name + ", dayBook=" + dayBook + ", hourBook="
+				+ hourBook + ", bookingStatus=" + bookingStatus + ", idusers=" + idusers + ", plannings=" + plannings
+				+ "]";
+	}
+	
+	
 
 
 

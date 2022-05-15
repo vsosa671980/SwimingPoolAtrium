@@ -5,31 +5,74 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="997dfd95-b53e-48d7-b3e3-ded7d725604e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SwimingPool.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/SubscriptionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/ActyvityTypesDAo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/SubscriptionDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/ISubscription.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/SubscriptionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Planification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Planning.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Subscription/formSubscription.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Subscription/listSubscriptions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/StreetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/StreetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Street.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Street.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/bookingCreate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/bookingCreate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/bookinginsertform.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/listbooking.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/listbooking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/listusers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/listusers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com.swimingpool2/Swiming/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/maven/com.swimingpool2/Swiming/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/UsersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/UsersController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/StreetService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/StreetService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Booking.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Booking.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Street.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Street.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Users.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/bookingCreate.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/bookingCreate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/bookinginsertform.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/listbooking.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/listbooking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/listusers.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/listusers.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -44,27 +87,37 @@
     </option>
   </component>
   <component name="ProjectId" id="28o6lwlfMVJlz1RKzYza6Xw5kPR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "spring.configuration.checksum": "1bfe93af2adb8a722ddaf23840936263"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;1bfe93af2adb8a722ddaf23840936263&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="SwimingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="SwimingPool" />
@@ -84,6 +137,13 @@
       <updated>1651870755629</updated>
       <workItem from="1651870759734" duration="1242000" />
       <workItem from="1652039682673" duration="558000" />
+      <workItem from="1652203034334" duration="509000" />
+      <workItem from="1652369549588" duration="2029000" />
+      <workItem from="1652372577128" duration="88000" />
+      <workItem from="1652472470225" duration="547000" />
+      <workItem from="1652519477680" duration="3928000" />
+      <workItem from="1652525483075" duration="27000" />
+      <workItem from="1652566415999" duration="4534000" />
     </task>
     <servers />
   </component>
@@ -101,7 +161,10 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SwimingPool$SwimingApplication.ic" NAME="SwimingApplication Coverage Results" MODIFIED="1652040158764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SwimingPool$SwimingApplication.ic" NAME="SwimingApplication Coverage Results" MODIFIED="1652521632944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

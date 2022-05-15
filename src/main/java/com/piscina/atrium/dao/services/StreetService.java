@@ -29,9 +29,9 @@ public class StreetService implements IstreetService{
 	}
 
 	@Override
-	public Street insertStreet(Street street) {
-		// TODO Auto-generated method stub
-		return dao.save(street);
+	public void insertStreet(Street street) {
+	
+		 dao.save(street);
 	}
 	
 	

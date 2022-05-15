@@ -14,15 +14,19 @@
 
 		<li><a th:href="@{/}">Home</a></li>
 
-		<li><a th:href="@{/user/reservas/listall}">Gestion de
+		<li><a th:href="@{/users/reservas/listall}">Gestion de
 				Reservas</a></li>
 
-		<li><a th:href="@{/user/listusers}">Gestion de Usuarios</a></li> <a
+		<li><a th:href="@{/users/listusers}">Gestion de Usuarios</a></li> <a
 			href="">Gestion Clases</a>
+
+		<li><a href="">Gestion Calles</a></li>
 
 		<li><a href="">Gestion ocupacion</a></li>
 
 		<li><a href="">Gestion Tienda</a></li>
+
+	
 
 
 	</nav>
@@ -67,7 +71,7 @@
 				<td th:text="${user.email}">Email</td>
 				<td th:text="${user.status}">status</td>
 				<td th:text="${user.age}">status</td> 
-				<td><button th:text="Reseva" th:value="${user.idusers}"></button></td>
+				<td><button th:text="Resevas" th:value="${user.idusers}"></button></td>
 
 				<td><a th:href="@{/user/updateUser/} + ${user.idusers} "
 					th:text="Update"></a></td>

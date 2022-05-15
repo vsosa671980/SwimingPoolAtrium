@@ -18,16 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.piscina.atrium.dao.UsersDao;
@@ -37,6 +28,7 @@ import com.piscina.atrium.models.Users;
 import com.piscina.atrium.resources.AdminFiles;
 
 @Controller
+@RequestMapping("/users")
 public class UsersController {
 
 	@Autowired
@@ -46,7 +38,7 @@ public class UsersController {
 	private AdminFiles files;
 
 	// For list all Users
-	@GetMapping("/user/listusers")
+	@GetMapping("/listusers")
 	public String listUser(Model model,@RequestParam(name="value",required=false) String value) {
 		String userfilter = null;
 		if (value != null) {
@@ -56,16 +48,13 @@ public class UsersController {
 			model.addAttribute("userslist", serveruser.foundByName(value));
 			
 		}else {
-
-      
-		
 		model.addAttribute("filter", userfilter);
 		model.addAttribute("userslist", serveruser.listAllUsers());
 		}
 		return "listusers";
 	}
 	// For go to page form create user
-	@GetMapping("/user/insertUser")
+	@GetMapping("/insertUser")
 	public String insertUser(Users user, Model model) {
 
 		model.addAttribute("empleadoForm", new Users());
@@ -75,7 +64,7 @@ public class UsersController {
 	}
 
 	// For save news users
-	@PostMapping("/user/saveUser")
+	@PostMapping("/saveUser")
 	public String createUser(@Valid @ModelAttribute("empleadoForm") Users user, Errors error,
 			@RequestParam("file") MultipartFile multipart) {
 
@@ -107,7 +96,7 @@ public class UsersController {
 	// For Update user
 
 	// Automaticamente si existe el objeto inyecta y le asigna el id que le pasamos
-	@GetMapping("/user/updateUser/{idusers}")
+	@GetMapping("/updateUser/{idusers}")
 	public String updateUser(@PathVariable Long idusers, Model model) {
 
 		model.addAttribute("empleadoForm", serveruser.foundUserByid(idusers));
@@ -116,7 +105,7 @@ public class UsersController {
 	}
 	
 	// For delete Users
-	@GetMapping("/user/deleteUser/{id}")
+	@GetMapping("/deleteUser/{id}")
 	public String deleteUser(@ModelAttribute("empleadoForm") Users user, @PathVariable long id) {
 		
 		
@@ -129,7 +118,7 @@ public class UsersController {
 
 	}
 	
-	@GetMapping("/user/found")
+	@GetMapping("/found")
 	public String busqueda() {
 		
 		return "Filtrado";
@@ -137,7 +126,7 @@ public class UsersController {
 	
 	
 	//For find byId;
-	@GetMapping("/user/busqueda")
+	@GetMapping("/busqueda")
 	public String busquedaporid(Model modelo,@RequestParam(name="value" ,required=false) String value) {
 		
 		System.out.println(value);

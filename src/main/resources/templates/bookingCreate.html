@@ -17,10 +17,13 @@
            <label for="hourbook">Hour</label>
            <input type="time" name="hourBook" id="hourBook" th:field="*{hourBook}" >
 
-           <label for="idusers">User</label>
-           <input type="text" name="idusers"  th:field="*{idusers}"> 
            
-           <p th:text="user.name"></p>
+           <input type="hidden" name="idusers"  th:field="*{idusers}"> 
+           
+           <label for="idStreet">Calle</label>
+           <input type="text" name="idStreet"  th:field="*{idStreet}"> 
+           
+           
                   
            <input type="submit">
 

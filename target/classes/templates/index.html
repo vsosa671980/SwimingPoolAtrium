@@ -2,22 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
+  <link th:href="@{/styles/Main.css}" rel="stylesheet" />
 <title>Insert title here</title>
 </head>
 <body>
 
 
+<header>
 
+  <nav th:replace="~{fragments::navHeader}"></nav>
 
-
-
-<a th:href="@{/}">Home</a>
-<a th:href="@{/user/listusers}">Lista de Usuarios</a>
-<a th:href="@{/user/insertUser}">Crear usuario</a>
-<a th:href="@{/user/found}">Buscar Usuario</a>
-<a th:href="@{user/reservas/listall}">Listar las Reservas</a>
-
-<a th:href="@{booking/create}">Create Booking </a>
+</header>
 
 
 

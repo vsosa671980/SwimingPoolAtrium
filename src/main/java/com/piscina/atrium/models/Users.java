@@ -1,3 +1,4 @@
+
 package com.piscina.atrium.models;
 
 import java.time.LocalDate;
@@ -5,13 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -59,13 +54,57 @@ public class Users {
 
 	private int age;
 
-	// Relation witch Book table
-	@OneToMany(mappedBy = "idusers", cascade = CascadeType.ALL)
-	private List<Booking> reservas = new ArrayList<>();
-
+	// Relation witch Booking table OneToMany
+	@OneToMany(mappedBy = "idusers", fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	private List<Booking> bookings = new ArrayList<>();
+	
+	
+	//Relation ManyToMany witch Subscription Class
+	 @ManyToMany(mappedBy = "user")
+	 private List<Subscription> subscriptions  = new ArrayList<>();
+	
+ 
 	// Constructor empty
 
 	public Users() {
+	}
+
+	public Users(@NotBlank(message = "El nombre no puede estar vacio cenutrio") String name,
+			@NotBlank(message = "Tienes que indicar un apellido") String surname, @NotBlank String phone,
+			@NotBlank String dNI, String birthdate, @Email @NotEmpty String email, @NotBlank String status,
+			String password, String img, int age, List<Booking> bookings, List<Subscription> subscriptions) {
+		this.name = name;
+		this.surname = surname;
+		this.phone = phone;
+		DNI = dNI;
+		this.birthdate = birthdate;
+		this.email = email;
+		this.status = status;
+		this.password = password;
+		this.img = img;
+		this.age = age;
+		this.bookings = bookings;
+		this.subscriptions = subscriptions;
+	}
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
+	}
+
+	public List<Subscription> getSubscriptions() {
+		return subscriptions;
+	}
+
+	public void setSubscriptions(List<Subscription> subscriptions) {
+		this.subscriptions = subscriptions;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	public Users(long idusers, @NotBlank(message = "El nombre no puede estar vacio cenutrio") String name,
@@ -108,7 +147,7 @@ public class Users {
 	public String toString() {
 		return "Users [idusers=" + idusers + ", name=" + name + ", surname=" + surname + ", phone=" + phone
 				+ ", birthdate=" + birthdate + ", email=" + email + ", status=" + status + ", password=" + password
-				+ ", img=" + img + ", reservas=" + reservas + "]";
+				+ ", img=" + img + ", reservas=" + bookings+ "]";
 	}
 
 	public long getIdusers() {

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>Lista de Callles</h1>
+
+ 
+ 
+ <div th:fragment="listStreets">
+ 
+ 
+    <table>
+    
+    <thead>
+    
+ 
+    
+    </thead>
+    
+    
+    <tr th:each="street : ${streets}">
+    
+    <td th:text="${street.nameStreet}"></td>
+    <td th:text="${street.typeSwim}"></td>
+    <td th:text="${street.occupation}"></td>
+    
+    
+    
+    
+    
+    </tr>
+    
+    
+    
+    
+    
+   
+    
+    
+
+    
+    
+    
+    
+    
+    </table>
+ 
+ 
+ 
+ 
+ 
+ 
+ </div>
+
+
+
+
+
+
+
+
+
+
+<script src="/javascript/main.js"></script>
+
+</body>
+</html>

@@ -24,8 +24,14 @@
 
 
 			<div>
+			
+			   <form th:action="@{/users/insertUser}">
+			   
+			      <button type="submit" >Crear Ususario</button>
+			   
+			   </form>
 
-				<button>Crear Ususario</button>
+				
 
 			</div>
 
@@ -46,7 +52,7 @@
 
 
 
-		<form th:action="@{/user/listusers}">
+		<form th:action="@{/users/listusers}">
 
 			<input type="search" placeholder="Introzca la id/user/busqueda"
 				name="value">

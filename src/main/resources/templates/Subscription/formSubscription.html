@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>List Subscriptions</title>
+<link th:href="@{/styles/Main.css}" rel="stylesheet" />
+</head>
+<body>
+
+	<h1 id="listado">Listado de Subscripciones</h1>
+
+	<div id="insercion"></div>
+
+
+	<header>
+
+		<nav th:replace="~{fragments::navHeader}"></nav>
+
+	</header>
+	
+	<form th:action="@{/subscriptions/save}" th:object="${subscriptionForm}" method="post">
+	
+      
+	
+	<label for="typeSubscription">Tipo Subscripcion</label>
+	<input type ="text" th:field="*{typeSubscription}" name = "typeSubscription">
+	
+		
+	<label for="cost">Precio de Subscripcion</label>
+	<input  type ="text" th:field="*{cost}" name ="cost">
+	
+	
+		
+	<label for="state">Estado</label>
+	<input type="text" th:field="*{state}" name="state" >
+	
+		
+	<label for="duration">Duracion</label>
+	<input type ="text"th:field="*{duration}" name = "duration" >
+	
+		
+	<label for="payment">Pago</label>
+	<input  type="text" th:field="*{payment}" name = "payment">
+	
+	<label for="User">User</label>
+	<input  type="text" th:field="*{subscription.users.id}" name = "users.id">
+	
+	
+	
+	
+	<input type="submit" value = Guardar>
+	
+	
+	
+	</form>
+	
+	
+	</form>
+
+
+
+
+	<script src="/javascript/main.js"></script>
+	
+
+</body>
+</html>

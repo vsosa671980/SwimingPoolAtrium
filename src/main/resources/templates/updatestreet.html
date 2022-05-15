@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/styles/Main.css}" rel="stylesheet" />
+<script type="text/javascript" th:src="@{/javascript/main.js}"></script>
+<title>Insert title here</title>
+</head>
+<body>
+
+
+  <h1>STREETS</h1>
+
+    <form th:action="@{/street/insert}" method="post" th:object="${streetform}">
+
+      <label for="nameStreet"  >Nombre Calle : 
+      </label>
+      <input type="text" th:field="*{nameStreet}" name="nameStreet"  >
+      
+      
+      <label for="occupation"  >Ocupacion Maxima : 
+      </label>
+      <input type="text" th:field="*{occupation}" name="occupation"  >
+      
+      
+      <label for="typeSwim"  >Tipo de calle : 
+      </label>
+      <input type="text" th:field="*{typeSwim}" name="typeSwim"  >
+      
+      <input type="submit" value="Guardar">
+    </form>
+
+
+  
+  
+  
+  
+      
+  
+  
+  
+  
+
+
+</body>
+</html>

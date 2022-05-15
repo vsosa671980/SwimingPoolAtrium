@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+
+   <form action="@{street/insert}">
+   
+       <label >Numeracion de la Calle :</label>
+       <input type ="text" th:field="">
+       
+       
+       <label for="typeswim">Tipo de Actividad :</label>
+       
+       <select name="typeswim" id="swimactivity">
+           <option value="free">Free</option>
+           <option value="learn">learn</option>
+           <option value="acuaactivity">acuaactivity</option>
+   
+       </select>
+       
+       <label>Ocupacion Maxima :</label>
+       <input type="text">
+       
+       
+       <input type="Submit">   
+   
+   
+   
+   
+   </form>
+
+
+
+<script src="/javascript/main.js"></script>
+
+</body>
+</html>

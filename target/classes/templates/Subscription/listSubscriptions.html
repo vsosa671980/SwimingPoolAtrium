@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>List Subscriptions</title>
+<link th:href="@{/styles/Main.css}" rel="stylesheet" />
+</head>
+<body>
+
+	<h1 id="listado">Listado de Subscripciones</h1>
+
+	<div id="insercion"></div>
+
+
+	<header>
+
+		<nav th:replace="~{fragments::navHeader}"></nav>
+
+	</header>
+	
+	
+	  <div id="table">
+		<table class="table">
+
+			<tr class="blue">
+
+				<th>Tipo</th>
+				<th>coste</th>
+				<th>Estado</th>
+				<th>Duracion</th>
+				<th>Pago</th>
+					
+
+			</tr>
+
+			<tr class="table rowUser " th:each="user : ${subscriptions}">
+				
+				<td th:text="${user.typeSubscription}">Surname</td>
+				<td th:text="${user.cost}">Surname</td>
+				<td th:text="${user.state}">Phone</td>
+				<td th:text="${user.duration}">age</td>
+				<td th:text="${user.payment}">Email</td>
+			
+			
+	          </tr>
+	
+	
+	
+	
+	
+	</table>
+ 
+	
+	
+	
+	
+	</div>
+	
+
+</body>
+</html>
