@@ -3,11 +3,7 @@ package com.piscina.atrium.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.piscina.atrium.dao.services.SubscriptionService;
 import com.piscina.atrium.models.Subscription;
@@ -19,23 +15,28 @@ public class SubscriptionController {
 	
 	@Autowired
 	private SubscriptionService service;
-	
-	
-	@GetMapping("/list")
-	public String findSubscription(Model model) {
+
+
+	//Controller for view Subscriptions and create its
+
+
+
+	//For list the subscriptions
+	@GetMapping("/")
+	public String mainsSubsccriptions(Model model) {
 		
 		model.addAttribute("subscriptions", service.listSubscriptions());
-		
-		return "/Subscription/listSubscriptions";
+
+		return "/Subscription/subscription";
 	}
 	
 	
 	@GetMapping("/insert")
-	public String tableInsert(Model modelo, Subscription subscription) {
+	public String tableInsert(Model model, Subscription subscription) {
 		
-		  modelo.addAttribute("subscriptionForm", subscription);
+		  model.addAttribute("subscriptionForm", subscription);
 		
-		return "/Subscription/formSubscription";		
+		 return "fragments :: formSubscription ";		
 	}
 	
 	@PostMapping("/save")
@@ -44,7 +45,25 @@ public class SubscriptionController {
 		service.insertSubscription(subscription);
 		
 		
-		return "redirect:/Subscription/listsubscription";
+		return "redirect:/subscriptions/";
+	}
+	@GetMapping("/delete/{id}")
+		public String DeleteSubscription (@PathVariable Long id){
+
+		service.removeSubscription(id);
+
+		return "redirect:/subscriptions/";
+
+	}
+
+	@GetMapping("/update/{id}")
+	public String updateSubscription(@PathVariable Long id, Model model){
+
+		model.addAttribute("subscriptionForm",service.foundSubscription(id));
+
+
+		return "fragments :: formSubscription ";
+
 	}
 	
 }

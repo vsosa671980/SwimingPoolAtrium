@@ -55,7 +55,7 @@ public class Users {
 	private int age;
 
 	// Relation witch Booking table OneToMany
-	@OneToMany(mappedBy = "idusers", fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@OneToMany(mappedBy = "idusers", fetch = FetchType.EAGER)
 	private List<Booking> bookings = new ArrayList<>();
 	
 	

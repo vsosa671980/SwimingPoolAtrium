@@ -55,7 +55,7 @@ public class Booking {
 	  
 	  
 	  //Relation witch Booking and Planning ManyToMany
-	  @ManyToMany(mappedBy = "bookings",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	  @ManyToMany(mappedBy = "booking",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	  private List<Planning> plannings;
 
 

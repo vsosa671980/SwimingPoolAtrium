@@ -18,7 +18,7 @@ import antlr.collections.List;
 public interface UsersDao extends JpaRepository<Users, Long>{
 	
 	
-	@Query(value = "Select p FROM Users p WHERE p.name LIKE %?1% OR p.email LIKE %?1% ")
+	@Query(value = "Select p FROM Users p WHERE p.name LIKE %?1% OR p.DNI LIKE %?1% ")
 	ArrayList<Users> searchByname(String filtro);
 	
 	@Query(value = "Select p FROM Users p WHERE p.status LIKE %?1%")

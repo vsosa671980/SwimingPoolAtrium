@@ -6,6 +6,8 @@ font-family: 'Roboto', sans-serif;
 font-family: 'Source Sans Pro', sans-serif;
 justify-content: space-around;
 	align-items: center;
+	
+	
 }
 
 .container{
@@ -36,33 +38,31 @@ nav{
 }
 
 
-.btn{
 
-	color: white;
-	font-size: 1.2rem;
-	border-radius: 8px 8px;
-	padding: 5px;
-	cursor: pointer;
-	margin: 5px;
-}
-.btn-green{
 
-	background-color: darkolivegreen;
 
+table{
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: #F2F2F2 5px solid;
 }
 
+ th, td {
+    padding: 20px;
+  }
+  
+  
+    tbody tr:nth-child(2n-1) {
+    background-color: #F2F2F2;
+  }
+  
+  tbody tr:nth-child(2n) {
+    background-color: #FFFFFF;
+  }
+  
 
 
-.table{
-	
-	border:1px solid black;
-}
-
-.table td{
-	
-	border:1spx solid black;
-	padding: 20px;
-}
 
 .rowUser :hover{
 	
@@ -70,3 +70,38 @@ nav{
 	cursor:pointer;
 	
 }
+
+
+.imglogo{
+
+    width: 100px;
+}
+
+.mainContainerHeader{
+
+    background-color: #AED6F1;
+}
+
+
+.mainContainerSubscription{
+	display:flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#modalinsert::backdrop{
+	
+	background-color :rgba(0,0,0,.55)
+}
+
+#modalinsert{
+	
+	width:600px;
+}
+
+.buttonsForms{
+	display:flex;
+	align-items: center;
+	justify-content: space-around;
+}
+

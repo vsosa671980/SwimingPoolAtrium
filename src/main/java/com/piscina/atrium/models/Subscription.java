@@ -10,6 +10,7 @@ import lombok.Data;
 
 @Data
 @Entity
+@Table(name = "subscription")
 public class Subscription {
 	
     @Id
@@ -38,14 +39,8 @@ public class Subscription {
     private List<Payments> payments ;
     
     //Relation ManyToMany witch User Class
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},fetch = FetchType.LAZY)
-    @JoinTable(
-    		name ="subscription_Users",
-    		joinColumns =@JoinColumn(name = "id_subscription"),
-    		inverseJoinColumns = @JoinColumn(name="idusers")
-  		
-    		)    
-    private List<Users> user  = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.EAGER)
+    List<Users> user  = new ArrayList<>();
    
 
     public Subscription() {
@@ -63,6 +58,16 @@ public class Subscription {
 		this.payments = payments;
 		this.user = user;
 	}
+
+
+
+	public Subscription(String typeSubscription, double cost, int duration) {
+		this.typeSubscription = typeSubscription;
+		this.cost = cost;
+		this.duration = duration;
+	}
+
+
 
 
 

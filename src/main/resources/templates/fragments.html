@@ -11,21 +11,22 @@
 <header>
 
 	<nav class="container" th:fragment="navHeader">
-
+      
 		<li><a th:href="@{/}">Home</a></li>
 
 		<li><a th:href="@{/users/reservas/listall}">Gestion de
 				Reservas</a></li>
 
-		<li><a th:href="@{/users/listusers}">Gestion de Usuarios</a></li> <a
-			href="">Gestion Clases</a>
+		<li><a th:href="@{/users/listusers}">Gestion de Usuarios</a>
+		</li> 
+		
 
-		<li><a href="">Gestion Calles</a></li>
+		<li><a th:href="@{/subscriptions/}">Subscripciones</a></li>
 
 		<li><a href="">Gestion ocupacion</a></li>
 
 		<li><a href="">Gestion Tienda</a></li>
-
+     
 	
 
 
@@ -47,6 +48,8 @@
 
 	<div id="table">
 		<table class="table">
+		
+		<thead>
 
 			<tr class="blue">
 
@@ -59,8 +62,12 @@
 				<th>Status</th>
 
 				<th>AgeUser</th>
-
-			</tr>
+				
+		</tr>
+         </thead>
+         
+         <tbody>
+			
 
 			<tr class="table rowUser " th:each="user : ${userslist}">
 				<td class="td" th:text="${user.name}">Name</td>
@@ -73,23 +80,67 @@
 				<td th:text="${user.age}">status</td> 
 				<td><button th:text="Resevas" th:value="${user.idusers}"></button></td>
 
-				<td><a th:href="@{/user/updateUser/} + ${user.idusers} "
+				<td><a th:href="@{/users/updateUser/} + ${user.idusers} "
 					th:text="Update"></a></td>
-				<td><a th:href="@{/user/deleteUser/} + ${user.idusers} "
+				<td><a th:href="@{/users/deleteUser/} + ${user.idusers} "
 					th:text="Delete"></a></td>
 
 				<td><a th:href="@{/booking/create/}+ ${user.idusers}"
 					th:text="Booking"></a></td>
 
 			</tr>
+			
+			</tbody>
 
 		</table>
 		
+		</div>
+	</div>	
 		<div id="insertBookings"></div>
 
 
-       </div>
 
+
+       <div th:fragment="formSubscription">
+       
+      <dialog id= "modalinsert"  >
+      
+       <div><button id = "btnCerrar" class="btn btn-danger">Close</button></div>
+       
+       <form th:action="@{/subscriptions/save}" method="post" th:object = "${subscriptionForm}">
+       
+           <input type="hidden" name="idSubscription" th:field="*{idSubscription}">
+           
+           <div class="mb-4">
+           <label for ="typeSubscription" >Typo</label>
+          <input type="text" th:field="*{typeSubscription}" id="typeSubscription" class="form-control">
+           </div>
+           
+           <div class="mb-4">
+           <label for ="cost" >Precio</label>
+          <input type="text" th:field="*{cost}" id="cost" class="form-control">
+           </div>
+           
+           <div class="mb-4">
+           <label for ="duration" >Duracion</label>
+          <input type="text" th:field="*{duration}" id="duration"class="form-control" value="">
+           </div>
+           
+           <div class="buttonsForms">
+               <input type="Submit" class="btn btn-primary">    
+              
+           </div>
+     </form>  
+          
+         
+       
+            
+            
+         </dialog>
+                   
+         </div>
+          
+        
 
 
 		</body>

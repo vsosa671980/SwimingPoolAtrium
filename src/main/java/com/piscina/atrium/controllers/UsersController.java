@@ -89,7 +89,7 @@ public class UsersController {
 			
 			files.saveFile(multipart,id);
 
-			return "redirect:/user/listusers";
+			return "redirect:/users/listusers";
 		}
 	}
 
@@ -114,7 +114,7 @@ public class UsersController {
 //	    files.deleteFile(fichero);
 //	    
 		serveruser.deleteUser(id);
-		return "redirect:/user/listusers";
+		return "redirect:/users/listusers";
 
 	}
 	

@@ -68,12 +68,9 @@ public class Planning {
 			)
 	private List<Booking> booking = new ArrayList<Booking>();
 	
-	
-	
-	
-	
+
 	//Relaation witch Activities Class	
-	@OneToMany(mappedBy = "planning")
+	@OneToMany(mappedBy = "plannig")
 	private List<Activities> activities;
 	
    
