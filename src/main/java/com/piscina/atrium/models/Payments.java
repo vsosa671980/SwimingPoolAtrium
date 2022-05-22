@@ -4,14 +4,15 @@ import java.time.LocalDate;
 
 import javax.persistence.*;
 
+import org.apache.catalina.User;
 
 import lombok.CustomLog;
 import lombok.Data;
 
-@Data
+
 @Entity
 public class Payments {
-	
+  
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name="id_payment")
@@ -29,34 +30,54 @@ public class Payments {
    @Column(name = "pay")
    private double pay;
 
-    @ManyToOne(cascade={CascadeType.PERSIST,CascadeType.MERGE})
+    @ManyToOne()
     @JoinColumn(name = "id_subscription")
     private Subscription idSubscription ;
+    
+    @ManyToOne()
+    @JoinColumn(name="idusers")
+    private Users idu;
 
 
    public Payments() {
    }
 
 
-public Payments(String typePay, LocalDate datePay, String statePay, double pay) {
-    this.typePay = typePay;
-    this.datePay = datePay;
-    this.statePay = statePay;
-    this.pay = pay;
-
-}
-
-
-    public Payments(String typePay, LocalDate datePay, String statePay, double pay, Subscription idSubscription) {
+public Payments(Long idPayment, String typePay, LocalDate datePay, String statePay, double pay,
+		Subscription idSubscription, Users idu) {
+	this.idPayment = idPayment;
 	this.typePay = typePay;
 	this.datePay = datePay;
 	this.statePay = statePay;
 	this.pay = pay;
 	this.idSubscription = idSubscription;
+	this.idu = idu;
 }
 
 
-	public Long getIdPayment() {
+
+
+public Payments(String typePay, LocalDate datePay, String statePay, double pay, Subscription idSubscription,
+		Users idu) {
+	this.typePay = typePay;
+	this.datePay = datePay;
+	this.statePay = statePay;
+	this.pay = pay;
+	this.idSubscription = idSubscription;
+	this.idu = idu;
+}
+
+
+
+
+public Payments(LocalDate datePay, Subscription idSubscription, Users idu) {
+	this.datePay = datePay;
+	this.idSubscription = idSubscription;
+	this.idu = idu;
+}
+
+
+public Long getIdPayment() {
 	return idPayment;
 }
 
@@ -116,11 +137,20 @@ public void setIdSubscription(Subscription idSubscription) {
 }
 
 
-@Override
-public String toString() {
-	return "Payments [idPayment=" + idPayment + ", typePay=" + typePay + ", datePay=" + datePay + ", statePay="
-			+ statePay + ", pay=" + pay + ", idSubscription=" + idSubscription + "]";
+public Users getIdu() {
+	return idu;
 }
+
+
+public void setIdu(Users idu) {
+	this.idu = idu;
+}
+
+
+
+
+   
+
 
 
    

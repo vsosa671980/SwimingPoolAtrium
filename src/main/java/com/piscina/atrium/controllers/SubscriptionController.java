@@ -6,7 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.piscina.atrium.dao.services.SubscriptionService;
+import com.piscina.atrium.dao.services.UserService;
+import com.piscina.atrium.models.Payments;
 import com.piscina.atrium.models.Subscription;
+import com.piscina.atrium.models.Users;
+
+import java.time.Clock;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/subscriptions")
@@ -15,6 +22,10 @@ public class SubscriptionController {
 	
 	@Autowired
 	private SubscriptionService service;
+	
+	
+	@Autowired
+	private UserService serviceUser;
 
 
 	//Controller for view Subscriptions and create its
@@ -63,6 +74,60 @@ public class SubscriptionController {
 
 
 		return "fragments :: formSubscription ";
+
+	}
+
+	@GetMapping("/buy/{userid}")
+	public String listSubscriptions(@PathVariable Long userid, Model model){
+        
+		System.out.println(userid);
+		model.addAttribute("userId",userid);
+		model.addAttribute("subscriptions",service.listSubscriptions());
+		return "/Subscription/subscriptionsList";
+		
+		
+	}
+
+	@GetMapping("/comfirmbuy/")
+	public String ConfirmBuy(@RequestParam("user") Long idUser ,@RequestParam("subscription") Long idSubscription,Model model,Payments payment,Users user){
+			
+       System.out.println(idSubscription);
+       System.out.println(idUser);
+       Subscription sub = service.foundSubscription(idSubscription);
+       System.out.println(sub.getTypeSubscription());
+       model.addAttribute("namesubscription",sub);
+       
+       model.addAttribute("paymentForm",payment);
+       
+       LocalDate date = LocalDate.now();
+       
+       ArrayList <String> tipesPayments =new ArrayList<>();
+       
+       String typePaymentOne = "contado";
+       String typePaymentTwoo = "targeta";
+       
+       tipesPayments.add(typePaymentTwoo);
+       tipesPayments.add(typePaymentOne);
+       
+       payment.setDatePay(date);
+       payment.setIdSubscription(sub);
+       payment.setPay(sub.getCost());
+       
+       user = serviceUser.foundUserByid(idUser);
+       
+       payment.setIdu(user);
+       
+       
+       
+       
+       
+       
+       
+		
+		
+		return "paymentForm";
+
+
 
 	}
 	

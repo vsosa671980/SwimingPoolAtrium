@@ -55,9 +55,15 @@ public class Users {
 	private int age;
 
 	// Relation witch Booking table OneToMany
-	@OneToMany(mappedBy = "idusers", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "idusers")
 	private List<Booking> bookings = new ArrayList<>();
 	
+	
+	@OneToMany(mappedBy = "idu")
+	private List<Payments> payment = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "user")
+	private List<Bonos> bonos = new ArrayList<>();
 	
 	//Relation ManyToMany witch Subscription Class
 	 @ManyToMany(mappedBy = "user")

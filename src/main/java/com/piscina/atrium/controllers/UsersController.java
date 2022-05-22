@@ -24,6 +24,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.piscina.atrium.dao.UsersDao;
 import com.piscina.atrium.dao.services.UserService;
 import com.piscina.atrium.dao.services.UsersServices;
+import com.piscina.atrium.dao.services.bonosService;
+import com.piscina.atrium.models.Bonos;
 import com.piscina.atrium.models.Users;
 import com.piscina.atrium.resources.AdminFiles;
 
@@ -36,6 +38,9 @@ public class UsersController {
 
 	@Autowired
 	private AdminFiles files;
+	
+	@Autowired
+	private bonosService bono;
 
 	// For list all Users
 	@GetMapping("/listusers")
@@ -50,7 +55,22 @@ public class UsersController {
 		}else {
 		model.addAttribute("filter", userfilter);
 		model.addAttribute("userslist", serveruser.listAllUsers());
+		
 		}
+		
+		ArrayList<Bonos> bonos = bono.listBonos();
+		
+		for (Bonos bonos2 : bonos) {
+			 
+			bonos2.setState();
+			System.out.println(bonos2.getState());
+			
+			bono.insertBonos(bonos2); 
+		}
+		
+		
+		
+		
 		return "listusers";
 	}
 	// For go to page form create user

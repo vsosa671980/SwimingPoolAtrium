@@ -49,7 +49,7 @@ public class Booking {
 
 
 	//Indicate the relation witch Users Class ManyToONe
-	  @ManyToOne(cascade={CascadeType.PERSIST,CascadeType.MERGE})
+	  @ManyToOne()
 	  @JoinColumn(name = "idusers")
 	  private Users idusers;
 	  

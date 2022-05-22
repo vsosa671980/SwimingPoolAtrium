@@ -59,7 +59,9 @@
        <thead>
 
        <tr>
-
+           
+           
+           <th>Usuario</th>
            <th>Typo Subscripcion</th>
            <th>Coste Subscripcion</th>
            <th>Duracion Subscripcion</th>
@@ -68,7 +70,8 @@
 
        <tr th:each="subscription : ${subscriptions}">
 
-           <td th:text = "${subscription.typeSubscription}"></td>
+           <td th:text="${userId}"></td>
+           <td th:text ="${subscription.typeSubscription}"></td>
            <td th:text="${subscription.cost}"></td>
            <td th:text="${subscription.duration}"></td>
            <td><button th:value ="${subscription.idSubscription} "class="updateButton">Modificar</button></td>

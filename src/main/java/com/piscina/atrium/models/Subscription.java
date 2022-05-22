@@ -2,13 +2,14 @@ package com.piscina.atrium.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.*;
 
 import lombok.Data;
 
 
-@Data
+
 @Entity
 @Table(name = "subscription")
 public class Subscription {
@@ -35,11 +36,11 @@ public class Subscription {
     
     
     //Relation witch Payment Class
-    @OneToMany(mappedBy = "idSubscription",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @OneToMany(mappedBy = "idSubscription")
     private List<Payments> payments ;
     
     //Relation ManyToMany witch User Class
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany()
     List<Users> user  = new ArrayList<>();
    
 
@@ -142,13 +143,13 @@ public class Subscription {
 
 
 	@Override
-	public String toString() {
-		return "Subscription [idSubscription=" + idSubscription + ", typeSubscription=" + typeSubscription + ", cost="
-				+ cost + ", state=" + state + ", duration=" + duration + ", payments=" + payments + ", user=" + user
-				+ "]";
+	public int hashCode() {
+		return Objects.hash(cost, duration, idSubscription, payments, state, typeSubscription, user);
 	}
-	
-	
+
+
+
+
 
 	
 
