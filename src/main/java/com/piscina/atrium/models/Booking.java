@@ -14,8 +14,7 @@ import lombok.Data;
 @Entity(name = "bookings")
 @Component
 public class Booking {
-	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idbookings")
@@ -26,16 +25,12 @@ public class Booking {
 
 	@Column(name="day_booking")
 	private String dayBook;
-    
 
 	@Column(name = "hour_booking")
 	private String hourBook;
-	
-	
+
 	@Column(name="booking_status")
 	private String bookingStatus;
-	
-	
 
 	  public String getBookingStatus() {
 		return bookingStatus;
@@ -44,9 +39,6 @@ public class Booking {
 	public void setBookingStatus(String bookingStatus) {
 		this.bookingStatus = bookingStatus;
 	}
-
-	
-
 
 	//Indicate the relation witch Users Class ManyToONe
 	  @ManyToOne()

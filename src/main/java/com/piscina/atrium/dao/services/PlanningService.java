@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.piscina.atrium.dao.PlanningDao;
 import com.piscina.atrium.models.Planning;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PlanningService  implements IplanningService{
 	
 	@Autowired

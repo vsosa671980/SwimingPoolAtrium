@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="modalPlanning">
+    <dialog id= "modalinsert"  >
+
+        <div><button id = "btnCerrar" class="btn btn-danger">Close</button></div>
+
+        <form th:action="@{/planning/save}"  method="post" th:object = "${planningForm}">
+
+            <input type="hidden" name="idPlannning" th:field="*{idPlanning}">
+
+            <div class="mb-4">
+                <label for ="name" >Name</label>
+                <input type="text" th:field="*{namePlanning}" id="name" class="form-control">
+
+                <label for="initTime">Hora de Inicio</label>
+                <input type="time" id="initTime" th:field="*{initTime}">
+
+
+                <label for="FinishTime">Hora de Finalizacion</label>
+                <input type="time" id="FinishTime" th:field="*{FinishTime}">
+
+                <label for="planningDay">Fecha</label>
+                <input type="date" id="planningDay" th:field="*{planningDay}">
+
+                <select name="idStreet">
+                    <option th:each="Item : ${streets}"
+                            th:value="${Item.nameStreet}"
+                            th:text="${Item.nameStreet}"
+                            th:selected="false"
+                    />
+                </select>
+
+                <select name="idActivity">
+                    <option th:each="Item : ${activities}"
+                            th:value="${Item.idActivity}"
+                            th:text="${Item.name}"
+                            th:selected="false"
+                    />
+                </select>
+
+
+
+
+
+            </div>
+
+            <div class="buttonsForms">
+                <input type="Submit" class="btn btn-primary">
+
+            </div>
+        </form>
+
+
+    </dialog>
+
+</div>
+
+
+
+
+</body>
+</html>

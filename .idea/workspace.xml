@@ -5,36 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="997dfd95-b53e-48d7-b3e3-ded7d725604e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/PaymentsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/PaymentsDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/IPayments.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/PaymentsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/web/Julio.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Congratulations/payCorrect.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Prueba/prueba.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Subscription/subscriptionsList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/paymentForm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/ActivitiesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/PlannigController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Activities/activities.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Planifications/planning.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragmentActivities.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragmentPlanning.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragmentStreet.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/StreetControll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/StreetControll.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/SubscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/SubscriptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/PlanningDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/PlanningDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/IstreetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/IstreetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/PlanningService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/PlanningService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/StreetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/StreetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Activities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Activities.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Payments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Payments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Subscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Subscription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Planification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Planification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Planning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Planning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Street.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Street.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/javascript/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/javascript/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Street/streetlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Street/listStreet.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Subscription/subscription.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Subscription/subscription.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Subscription/subscriptionsList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Subscription/subscriptionsList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/listusers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/listusers.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com.swimingpool2/Swiming/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/maven/com.swimingpool2/Swiming/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/StreetControll.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/StreetControll.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/SubscriptionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/SubscriptionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/SubscriptionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/SubscriptionDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/ISubscription.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/ISubscription.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/SubscriptionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/SubscriptionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/PlanningDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/PlanningDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/IstreetService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/IstreetService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/PlanningService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/PlanningService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/StreetService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/StreetService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Activities.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Activities.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Booking.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Booking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Payments.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Payments.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Subscription.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Subscription.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Users.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Planification.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Planification.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Planning.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Planning.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Street.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Street.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/javascript/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/javascript/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Street/streetlist.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/Subscription/subscription.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Subscription/subscription.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Subscription/subscriptionsList.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Subscription/subscriptionsList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/listusers.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/listusers.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +168,12 @@
       <workItem from="1653141713484" duration="708000" />
       <workItem from="1653154001854" duration="436000" />
       <workItem from="1653156815167" duration="404000" />
+      <workItem from="1653217067008" duration="2473000" />
+      <workItem from="1653249378046" duration="6395000" />
+      <workItem from="1653316736878" duration="14897000" />
+      <workItem from="1653334624671" duration="2814000" />
+      <workItem from="1653343619717" duration="38298000" />
+      <workItem from="1653417956864" duration="1349000" />
     </task>
     <servers />
   </component>

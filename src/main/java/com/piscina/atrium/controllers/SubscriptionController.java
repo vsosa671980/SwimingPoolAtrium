@@ -116,14 +116,7 @@ public class SubscriptionController {
        user = serviceUser.foundUserByid(idUser);
        
        payment.setIdu(user);
-       
-       
-       
-       
-       
-       
-       
-		
+
 		
 		return "paymentForm";
 

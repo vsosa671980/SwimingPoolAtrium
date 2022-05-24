@@ -8,9 +8,15 @@
 
 </head>
 
-<header>
+<header th:fragment="navHeader">
 
-	<nav class="container" th:fragment="navHeader">
+	<div class="mainContainerHeader">
+
+		<div > <img src="/images/logo piscina.png" alt="logoPiscina" class="imglogo"></div>
+
+	</div>
+
+	<nav class="container" >
       
 		<li><a th:href="@{/}">Home</a></li>
 
@@ -23,9 +29,11 @@
 
 		<li><a th:href="@{/subscriptions/}">Subscripciones</a></li>
 
-		<li><a href="">Gestion ocupacion</a></li>
+		<li><a  th:href="@{/activities/}">Gestion Actividades</a></li>
 
-		<li><a href="">Gestion Tienda</a></li>
+		<li><a th:href="@{/planning/list}">Gestion Planificaciones</a></li>
+
+		<li><a th:href="@{/street/list}">Calles</a></li>
      
 	
 
@@ -100,12 +108,11 @@
 		<div id="insertBookings"></div>
 
 
-
+           <!-- Template for model Subscription -->
 
        <div th:fragment="formSubscription">
        
       <dialog id= "modalinsert"  >
-      
        <div><button id = "btnCerrar" class="btn btn-danger">Close</button></div>
        
        <form th:action="@{/subscriptions/save}" method="post" th:object = "${subscriptionForm}">
@@ -132,15 +139,14 @@
               
            </div>
      </form>  
-          
-         
-       
-            
-            
-         </dialog>
-                   
-         </div>
-          
+     
+     </dialog>
+     
+     </div>
+     
+     <!-- Template form modal Activities -->
+     
+
         
 
 

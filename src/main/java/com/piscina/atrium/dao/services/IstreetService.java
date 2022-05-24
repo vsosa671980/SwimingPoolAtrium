@@ -1,6 +1,7 @@
 package com.piscina.atrium.dao.services;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,8 @@ public interface IstreetService {
 	public void DeleteStreet(Long id);
 	
 	public void insertStreet(Street street);
+
+	public Optional<Street> foundStreet(Long id);
 	
   
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div th:fragment="modalActivity">
+    <dialog id= "modalinsert"  >
+
+        <div><button id = "btnCerrar" class="btn btn-danger">Close</button></div>
+
+        <form th:action="@{/activities/save}"  method="post" th:object = "${activityForm}">
+
+            <input type="hidden" name="idActivity" th:field="*{idActivity}">
+
+            <div class="mb-4">
+                <label for ="name" >Typo</label>
+                <input type="text" th:field="*{name}" id="name" class="form-control">
+            </div>
+
+            <div class="buttonsForms">
+                <input type="Submit" class="btn btn-primary">
+
+            </div>
+        </form>
+
+
+    </dialog>
+
+</div>
+
+
+
+
+</body>
+</html>

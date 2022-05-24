@@ -23,9 +23,6 @@ import java.util.List;
 @Table(name="planning")
 public class Planning {
 	
-	
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name  ="id_planning")
@@ -35,7 +32,7 @@ public class Planning {
 	@Column(name="name_planing")
 	private String namePlanning;
 	
-    private LocalDate planningDay;
+    private String planningDay;
     
 	
 	@Column(name = "init_time")
@@ -57,8 +54,19 @@ public class Planning {
 	private List<Street> idStreet = new ArrayList<Street>();
 	
 	//Relation Planning witch Booking
-	
-	
+
+
+	public Planning(Long idPlanning, String namePlanning, String planningDay, LocalTime initTime, LocalTime finishTime, List<Street> idStreet, List<Booking> booking, List<Activities> activities) {
+		this.idPlanning = idPlanning;
+		this.namePlanning = namePlanning;
+		this.planningDay = planningDay;
+		this.initTime = initTime;
+		FinishTime = finishTime;
+		this.idStreet = idStreet;
+		this.booking = booking;
+		this.activities = activities;
+	}
+
 	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@JoinTable(
 			name = "planning_Booking",
@@ -70,7 +78,7 @@ public class Planning {
 	
 
 	//Relaation witch Activities Class	
-	@OneToMany(mappedBy = "plannig")
+	@OneToMany(mappedBy = "planning")
 	private List<Activities> activities;
 	
    
@@ -78,7 +86,7 @@ public class Planning {
 		
 	}
 
-	public Planning(Long idPlanning, String namePlanning, LocalDate planningDay, LocalTime initTime,
+	public Planning(Long idPlanning, String namePlanning, String planningDay, LocalTime initTime,
 			LocalTime finishTime) {
 		
 		this.idPlanning = idPlanning;
@@ -90,7 +98,7 @@ public class Planning {
 	
   
 
-	public Planning(Long idPlanning, String namePlanning, LocalDate planningDay, LocalTime initTime,
+	public Planning(Long idPlanning, String namePlanning, String planningDay, LocalTime initTime,
 			LocalTime finishTime, List<Street> idStreet) {
 		
 		this.idPlanning = idPlanning;
@@ -103,7 +111,7 @@ public class Planning {
 	
 	
 
-	public Planning(String namePlanning, LocalDate planningDay, LocalTime initTime, LocalTime finishTime,
+	public Planning(String namePlanning, String planningDay, LocalTime initTime, LocalTime finishTime,
 			List<Street> idStreet, List<Booking> booking, List<Activities> activities) {
 		this.namePlanning = namePlanning;
 		this.planningDay = planningDay;
@@ -138,11 +146,12 @@ public class Planning {
 		this.namePlanning = namePlanning;
 	}
 
-	public LocalDate getPlanningDay() {
+	public String getPlanningDay() {
 		return planningDay;
 	}
 
-	public void setPlanningDay(LocalDate planningDay) {
+	public void setPlanningDay(String planningDay) {
+
 		this.planningDay = planningDay;
 	}
 

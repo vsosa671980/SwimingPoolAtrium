@@ -25,6 +25,10 @@ public class Planification {
     private LocalTime finishtime;
 
 
+    @OneToMany(mappedBy = "planning")
+    private List<Activities> activities;
+
+
     @ManyToMany
     private List<Street> street = new ArrayList<>();
 

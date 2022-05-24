@@ -1,12 +1,10 @@
 package com.piscina.atrium.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.quartz.QuartzTransactionManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.piscina.atrium.dao.services.StreetService;
 import com.piscina.atrium.models.Street;
@@ -17,32 +15,51 @@ public class StreetControll {
 	
 	@Autowired
     private StreetService dao;
-    
+
+
+
+
 	
-	@GetMapping("/create")
-    public String formCreateStreet(Model model) {
+	@GetMapping("/insert")
+    public String formCreateStreet(Model model,Street street) {
     	
-		model.addAttribute("streetform", new Street());
-    	return "updatestreet";
+	    model.addAttribute("streetForm",street);
+
+    	return "fragmentStreet :: modalStreet";
     }
 	
-	@PostMapping("/insert")
-	public String insertStreet(@ModelAttribute("streetform") Street street,Model model) {
+	@PostMapping("/save")
+	public String insertStreet(@ModelAttribute("streetForm") Street street,Model model) {
 		
 		dao.insertStreet(street);
 		
 		
-		return "listUsers";
+		return "redirect:/street/list";
 	}
 	
-	@GetMapping("/listStreet")
+	@GetMapping("/list")
 	public String listStreet(Model model) {
 		
 		model.addAttribute("streets", dao.listStreets());
 		
 	
-		return "/Street/streetlist";
+		return "/Street/listStreet";
 		
+	}
+	@GetMapping("/delete/{id}")
+	public String DeleteStreet(@PathVariable long id){
+
+		dao.DeleteStreet(id);
+
+		return "redirect:/street/list";
+	}
+
+	@GetMapping("/update/{id}")
+	public String UpdateStreet(@PathVariable Long id,Street street,Model model){
+
+		model.addAttribute("streetForm",dao.foundStreet(id));
+
+       return "fragmentStreet :: modalStreet";
 	}
 
 

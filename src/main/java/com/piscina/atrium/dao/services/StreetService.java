@@ -1,6 +1,7 @@
 package com.piscina.atrium.dao.services;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,11 +34,11 @@ public class StreetService implements IstreetService{
 	
 		 dao.save(street);
 	}
-	
-	
-  
-	
-	
-	
+
+	@Override
+	public Optional<Street> foundStreet(Long id) {
+		return dao.findById(id);
+	}
+
 
 }

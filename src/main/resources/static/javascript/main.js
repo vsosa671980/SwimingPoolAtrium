@@ -22,72 +22,66 @@
 	
 //}
 
+const buttonModal = document.querySelector(".modal")
 
-
-
-
-
-function modalform(){
+if (buttonModal) {
+	buttonModal.addEventListener("click", event => modalform(event.target.value))
+}
+function modalform(url){
 	
-	let modal= "";
-	
-	fetch(`/subscriptions/insert`)
+	fetch(url)
 	.then(response => response.text())
 	.then(data=> divdialog.innerHTML = data)
 	.then(()=>createModal())
 	
 }
+const button = document.querySelector(".modal")
+console.log(button)
+//Capture the button 
+const modalSubscriptionInsert = document.getElementById("insertSubscription")
 
-
-const modalSubscriptionInsert = document.getElementById("insertSubscription");
+//Capture the dialog from HMTL
 const modal = document.getElementById("modalinsert");
-
+//Capture the Div where Modal is inserted
 const divdialog = document.getElementById("modalformdialog");
 
 
 function createModal(){
 	const modal = document.getElementById("modalinsert");
-	console.log(modal)
 	const closeModal = document.getElementById("btnCerrar");
 	closeModal.addEventListener("click",()=> modal.close())
-	console.log(closeModal)
 	modal.showModal();
 	
 }
-
-
-modalSubscriptionInsert.addEventListener("click",modalform);
+if (modalSubscriptionInsert) {
+	modalSubscriptionInsert.addEventListener("click", event => modalform(event.target.value))
+}
 
 function createButton(){
 	
 	
-closemodal.addEventListener("click",()=> modal.close())
+modal.addEventListener("click",()=> modal.close())
 
 }
-
 
 const updateButton = document.querySelectorAll(".updateButton")
 
 console.log(updateButton)
 
-updateButton.forEach(button => button.addEventListener("click",updateForm))
+updateButton.forEach(button => button.addEventListener("click",event => updateForm(event.target.value)))
 
-function updateForm ( event){
+console.log(updateButton.value)
 
-	 const id =(event.target.value);
-	console.log(`/la mano que / ${id}`)
-	const url  = `/subscriptions/update/${id}`;
-	console.log(url)
+
+function updateForm ( url){
 
 	fetch(url)
  .then(response => response.text())
 . then(data=> divdialog.innerHTML = data)
  .then(()=>createModal())
 
-
-
-
 }
+
 
 
 

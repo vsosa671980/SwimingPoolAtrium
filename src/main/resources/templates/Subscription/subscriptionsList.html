@@ -10,15 +10,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   <link th:href="@{/styles/Main.css}" rel="stylesheet" />
   <title>Subscription</title>
-</head>
-<body>
 
-
-<header>
-
-  <nav th:replace="~{fragments::navHeader}"></nav>
-
-</header>
+  <header th:replace="~{fragments::navHeader}" ></header>
 
 <section class="mainContainerSubscription">
 
@@ -65,17 +58,9 @@
 
     </ul>
 
-     
-
         <a th:href="@{/subscriptions/comfirmbuy/?user=} + ${userId} + '&' +'subscription=' + ${sub.idSubscription} ">Comprar</a>
         
-        
-        
-
-
     </div>
-
-
 
 
   </div>
@@ -85,13 +70,6 @@
   <table>
 
     <thead>
-
-
-
-
-
-
-
 
 
     <tr>
@@ -116,20 +94,11 @@
     </thead>
 
 
-
-
-
-
   </table>
 
 
 
-
 </div>
-
-
-
-
 
 
 <script src="/javascript/main.js"></script>

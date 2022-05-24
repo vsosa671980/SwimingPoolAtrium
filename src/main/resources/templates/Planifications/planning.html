@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link th:href="@{/styles/Main.css}" rel="stylesheet" />
+</head>
+<body>
+
+<header th:replace="~{fragments::navHeader}" ></header>
+
+  <div>
+
+      <button id="insertSubscription" value="/planning/insert">Crear</button>
+
+  </div>
+
+
+<div id="modalformdialog">
+
+
+</div>
+
+
+<div id="listPlanning">
+
+    <table>
+
+        <tr><
+        <thead>
+
+        <th>Planing Nombre</th>
+        <th>Dia</th>
+        <th>Hora Inicio</th>
+        <th>Hora Fin</th>
+        <th>Calle</th>
+
+
+        </thead>
+
+        </tr>
+
+        <tbody>
+
+      <tr th:each="p : ${planning}">
+         <td th:text="${p.namePlanning}"></td>
+          <td th:text="${p.planningDay}"></td>
+          <td th:text="${p.initTime}"></td>
+          <td th:text="${p.finishTime}"></td>
+
+
+      </tr>
+
+
+
+        </tbody>
+
+
+
+
+
+    </table>
+
+
+</div>
+
+
+
+
+
+<script src="/javascript/main.js"></script>
+
+
+</body>
+</html>

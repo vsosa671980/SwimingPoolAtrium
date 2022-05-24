@@ -30,6 +30,7 @@ public class Street {
 		
 		@Column(name="name_street")
 		private String nameStreet;
+
 		
 		
 		@ManyToMany(mappedBy = "idStreet")
@@ -48,7 +49,6 @@ public class Street {
 		
 		}
 		
-		
 
 		public Street(long idStreet, String nameStreet, List<Planning> planning) {
 			super();
@@ -57,7 +57,9 @@ public class Street {
 			this.planning = planning;
 		}
 
-		public long getIdStreet() {
+
+
+	public long getIdStreet() {
 			return idStreet;
 		}
 
@@ -73,14 +75,15 @@ public class Street {
 			this.nameStreet = nameStreet;
 		}
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
 
+
+
+
+	public List<Planning> getPlanning() {
+		return planning;
+	}
+
+	public void setPlanning(List<Planning> planning) {
+		this.planning = planning;
+	}
 }

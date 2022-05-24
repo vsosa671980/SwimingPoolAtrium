@@ -23,15 +23,16 @@ public class Activities {
 	 //Relation witch Planning class
 	  @ManyToOne(cascade={CascadeType.PERSIST,CascadeType.MERGE})
 	  @JoinColumn(name = "id_planning")
-	  private Planning plannig;
+	  private Planning planning;
 
 	public Activities() {
 	}
 
-	public Activities(String name, Planning plannig) {
+	public Activities(String name, Planning planning) {
 		this.name = name;
-		this.plannig = plannig;
+		this.planning = planning;
 	}
+
 
 	public Long getIdActivity() {
 		return idActivity;
@@ -48,22 +49,4 @@ public class Activities {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public Planning getPlannig() {
-		return plannig;
-	}
-
-	public void setPlannig(Planning plannig) {
-		this.plannig = plannig;
-	}
-
-	@Override
-	public String toString() {
-		return "Activities [idActivity=" + idActivity + ", name=" + name + ", plannig=" + plannig + "]";
-	}
-
-   
-	
-
-	
 }

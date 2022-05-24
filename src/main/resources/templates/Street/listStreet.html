@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+    <link th:href="@{/styles/Main.css}" rel="stylesheet" />
+<title>List Street</title>
+</head>
+<body>
+
+<header th:replace="~{fragments::navHeader}" ></header>
+
+<div>
+
+   <button id="insertSubscription" value="/street/insert">Crear</button>
+
+</div>
+
+<div id="modalformdialog">
+
+
+</div>
+
+    <table>
+    
+    <thead>
+
+     <th>Nombre de la Calle</th>
+    <th>Modificar</th>
+    <th>Eliminar</th>
+
+    </thead>
+    
+    
+    <tr th:each="street : ${streets}">
+    
+    <td th:text="${street.nameStreet}"></td>
+
+        <td><a th:href="@{/street/update/} + ${street.idStreet}">Modificar</a></td>
+        <td><button class="updateButton" value="/street/update/ + ${street.idStreet}"> Update</button></td>
+
+
+    </tr>
+
+    </table>
+ </div>
+
+<script src="/javascript/main.js"></script>
+
+</body>
+</html>

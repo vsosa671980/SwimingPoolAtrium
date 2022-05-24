@@ -14,18 +14,14 @@
 <body>
 
 
-<header>
-
-   <nav th:replace="~{fragments::navHeader}"></nav>
-
-</header>
+<header th:replace="~{fragments::navHeader}" ></header>
 
 <section class="mainContainerSubscription">
 
     <div>
        
      
-        <button id="insertSubscription">Crear</button>
+        <button id="insertSubscription" value="/subscriptions/insert">Crear</button>
            
         
     </div>
@@ -74,11 +70,11 @@
            <td th:text ="${subscription.typeSubscription}"></td>
            <td th:text="${subscription.cost}"></td>
            <td th:text="${subscription.duration}"></td>
-           <td><button th:value ="${subscription.idSubscription} "class="updateButton">Modificar</button></td>
+           <td><button th:value= "'/subscriptions/update/' + ${subscription.idSubscription}" class="updateButton">Modificar</button></td>
            <td><a th:href="@{/subscriptions/delete/} + ${subscription.idSubscription}">Eliminar</a></td>
 
 
-       </tr>
+       </tr>s
        
        
        </thead>
