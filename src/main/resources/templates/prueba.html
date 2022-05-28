@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link th:href="@{/styles/Main.css}" rel="stylesheet" />
 </head>
 <body>
 
-<h1>Hoja de Pruebas</h1>
+<h1 th:text="${iduser}"></h1>
+<h1 th:text="${idplanning}"></h1>
+
 
 </body>
 </html>

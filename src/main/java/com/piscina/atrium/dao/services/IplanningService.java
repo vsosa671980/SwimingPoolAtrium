@@ -16,4 +16,6 @@ public  ArrayList<Planning>listPlanning();
 	
 	public void deletePlanning(Long id);
 
+	public ArrayList<Planning> listPStreet();
+
 }

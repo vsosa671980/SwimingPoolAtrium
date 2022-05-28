@@ -83,6 +83,21 @@ function updateForm ( url){
 }
 
 
+const ocupacion = document.querySelectorAll(".ocupation");
+
+console.log(ocupacion);
+
+ocupacion.forEach( value => {
+
+	console.log(value.value)
+	console.log(value.textContent)
+	if (value.textContent == 0){
+		value.classList.add("alertOcupation");
+		value.parentNode.firstElementChild.firstChild.remove();
+	}
+})
+
+
 
 
 

@@ -9,13 +9,13 @@
 <div th:fragment="modalPlanning">
     <dialog id= "modalinsert"  >
 
-        <div><button id = "btnCerrar" class="btn btn-danger">Close</button></div>
+        <div><button id = "btnCerrar" class="btn red">Close</button></div>
 
-        <form th:action="@{/planning/save}"  method="post" th:object = "${planningForm}">
+        <form th:action="@{/planning/save}"  method="post" th:object = "${planningForm}" class="container form">
 
             <input type="hidden" name="idPlannning" th:field="*{idPlanning}">
 
-            <div class="mb-4">
+            <div class="mb-4 container form">
                 <label for ="name" >Name</label>
                 <input type="text" th:field="*{namePlanning}" id="name" class="form-control">
 
@@ -28,10 +28,15 @@
 
                 <label for="planningDay">Fecha</label>
                 <input type="date" id="planningDay" th:field="*{planningDay}">
-
-                <select name="idStreet">
+                
+                <label for="ocupacion">ocupacion</label>
+                <input type="text" id="ocupacion" th:field="*{ocupacion}">
+                
+                
+                 <label for="idstreet">Calle</label>
+                <select name="idStreet" id="idStreet">
                     <option th:each="Item : ${streets}"
-                            th:value="${Item.nameStreet}"
+                            th:value="${Item.idStreet}"
                             th:text="${Item.nameStreet}"
                             th:selected="false"
                     />
@@ -44,10 +49,6 @@
                             th:selected="false"
                     />
                 </select>
-
-
-
-
 
             </div>
 

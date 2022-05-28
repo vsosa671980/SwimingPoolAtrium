@@ -69,16 +69,23 @@
 
   <table>
 
-    <thead>
-
-
-    <tr>
+    
+<tr>
+<thead>
+    
+    
       <th>UserId</th>
       <th>Typo Subscripcion</th>
       <th>Coste Subscripcion</th>
       <th>Duracion Subscripcion</th>
+      
+      
 
+    
+    </thead>
     </tr>
+    
+    <tbody>
 
     <tr th:each="subscription : ${subscriptions}">
 
@@ -90,8 +97,8 @@
 
     </tr>
 
-
-    </thead>
+   
+    </tbody>
 
 
   </table>

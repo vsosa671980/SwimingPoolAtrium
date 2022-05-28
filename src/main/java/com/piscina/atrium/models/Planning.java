@@ -40,18 +40,25 @@ public class Planning {
     
 	@Column(name = "Finish_time")
     private LocalTime FinishTime;
-	
-	
-	
+
+	private int ocupacion;
+
+	public Long getIdPlanning() {
+		return idPlanning;
+	}
+
+	public void setIdPlanning(Long idPlanning) {
+		this.idPlanning = idPlanning;
+	}
+
 	//Relation ManyToMany Planning Street
 	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-	@JoinTable(
-			name = "planning_Street",
-			joinColumns = @JoinColumn(name ="id_planning"),
-		    inverseJoinColumns = @JoinColumn(name="id_street")
-				
-			)
 	private List<Street> idStreet = new ArrayList<Street>();
+
+
+
+	@OneToMany(mappedBy = "plannings")
+	private List<Booking> bookings = new ArrayList<>();
 	
 	//Relation Planning witch Booking
 
@@ -121,21 +128,20 @@ public class Planning {
 		this.booking = booking;
 		this.activities = activities;
 	}
+	
+	
 
-	public List<Street> getIdStreet() {
-		return idStreet;
-	}
-
-	public void setIdStreet(List<Street> idStreet) {
-		this.idStreet = idStreet;
-	}
-
-	public Long getIdPlanning() {
-		return idPlanning;
-	}
-
-	public void setIdPlanning(Long idPlanning) {
+	public Planning(Long idPlanning, String namePlanning, String planningDay, LocalTime initTime, LocalTime finishTime,
+			int ocupacion, List<Street> idStreet, List<Booking> booking, List<Activities> activities) {
 		this.idPlanning = idPlanning;
+		this.namePlanning = namePlanning;
+		this.planningDay = planningDay;
+		this.initTime = initTime;
+		FinishTime = finishTime;
+		this.ocupacion = ocupacion;
+		this.idStreet = idStreet;
+		this.booking = booking;
+		this.activities = activities;
 	}
 
 	public String getNamePlanning() {
@@ -151,7 +157,6 @@ public class Planning {
 	}
 
 	public void setPlanningDay(String planningDay) {
-
 		this.planningDay = planningDay;
 	}
 
@@ -167,8 +172,20 @@ public class Planning {
 		return FinishTime;
 	}
 
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
+	}
+
 	public void setFinishTime(LocalTime finishTime) {
 		FinishTime = finishTime;
+	}
+
+	public List<Street> getIdStreet() {
+		return idStreet;
+	}
+
+	public void setIdStreet(List<Street> idStreet) {
+		this.idStreet = idStreet;
 	}
 
 	public List<Booking> getBooking() {
@@ -187,36 +204,15 @@ public class Planning {
 		this.activities = activities;
 	}
 
-	@Override
-	public String toString() {
-		return "Planning [idPlanning=" + idPlanning + ", namePlanning=" + namePlanning + ", planningDay=" + planningDay
-				+ ", initTime=" + initTime + ", FinishTime=" + FinishTime + ", idStreet=" + idStreet + ", booking="
-				+ booking + ", activities=" + activities + "]";
+	public int getOcupacion() {
+		return ocupacion;
 	}
-	
-	
 
+	public void setOcupacion(int ocupacion) {
+		this.ocupacion = ocupacion;
+	}
 
-	
-	
-	
-	
-
-
-	
-	
-	
-
-
-
-
-	
-	
-	
-	
-
-    
-
-	
-
+	public List<Booking> getBookings() {
+		return bookings;
+	}
 }

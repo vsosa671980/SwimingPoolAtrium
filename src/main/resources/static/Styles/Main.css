@@ -18,6 +18,17 @@ justify-content: space-around;
 	justify-items: center;
 	margin: 20px;
 
+
+}
+
+.form{
+	flex-direction: column;
+	width: 100%;
+}
+
+.form input{
+	width: 95% ;
+	height: 40px;
 }
 
 .container-left{
@@ -50,6 +61,7 @@ table{
 
  th, td {
     padding: 20px;
+    text-align:center;
   }
   
   
@@ -62,13 +74,10 @@ table{
   }
   
 
-
-
 .rowUser :hover{
 	
-	background-color: fuchsia;
-	cursor:pointer;
-	
+	background-color: blue;
+	cursor:pointer;	
 }
 
 
@@ -87,6 +96,7 @@ table{
 	display:flex;
 	align-items: center;
 	justify-content: space-around;
+
 }
 
 #modalinsert::backdrop{
@@ -96,7 +106,9 @@ table{
 
 #modalinsert{
 	
-	width:600px;
+    width: 600px;
+
+	
 }
 
 .buttonsForms{
@@ -105,3 +117,23 @@ table{
 	justify-content: space-around;
 }
 
+
+.alertOcupation{
+	color: red;
+}
+
+
+button{
+	border-radius: 5px 5px;
+	color:white;
+	cursor: pointer;
+
+	padding: 5px 10px;
+}
+.green{
+	background-color: #085ED6;
+}
+
+.red{
+	background-color: red;
+}

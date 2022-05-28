@@ -86,4 +86,11 @@ public class Street {
 	public void setPlanning(List<Planning> planning) {
 		this.planning = planning;
 	}
+
+	@Override
+	public String toString() {
+		return "Street [idStreet=" + idStreet + ", nameStreet=" + nameStreet + ", planning=" + planning + "]";
+	}
+	
+	
 }

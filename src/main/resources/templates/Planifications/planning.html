@@ -11,7 +11,7 @@
 
   <div>
 
-      <button id="insertSubscription" value="/planning/insert">Crear</button>
+      <button id="insertSubscription" value="/planning/insert" class="green">Crear</button>
 
   </div>
 
@@ -26,14 +26,15 @@
 
     <table>
 
-        <tr><
+        <tr>
         <thead>
-
+        <th>Reservar</th>
         <th>Planing Nombre</th>
         <th>Dia</th>
         <th>Hora Inicio</th>
         <th>Hora Fin</th>
         <th>Calle</th>
+        <th>Ocupacion</th>
 
 
         </thead>
@@ -43,21 +44,19 @@
         <tbody>
 
       <tr th:each="p : ${planning}">
+          <td><a th:href="@{/booking/insert(iduser=${iduser},idplanning = ${p.idPlanning}) }">Reservar</a></td>
          <td th:text="${p.namePlanning}"></td>
           <td th:text="${p.planningDay}"></td>
           <td th:text="${p.initTime}"></td>
           <td th:text="${p.finishTime}"></td>
+           <td th:each="calle :${p.idStreet}">        
+          <span th:text="${calle.nameStreet}"></span></td>
+          <td th:text="${p.ocupacion}" class="ocupation"></td>
 
-
-      </tr>
-
-
+          
+          </tr>
 
         </tbody>
-
-
-
-
 
     </table>
 

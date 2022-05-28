@@ -11,5 +11,8 @@ import java.util.ArrayList;
 
 public interface PlanningDao extends JpaRepository<Planning, Long> {
 
+    @Query(value="select * from planning p inner join planning_street ps on p.id_planning = ps.id_planning join street s on ps.id_street=s.id_street;",nativeQuery = true)
+    ArrayList<Planning> listplanning();
+
 
 }

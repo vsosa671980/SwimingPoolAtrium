@@ -13,9 +13,9 @@
 
 
     <form th:action="@{/street/save}" th:Object="${streetForm}" method="post">
-        <input type="hidden" th:field="*{idStreet}">
-    <label for="swim">Numeracion de la calle :</label>
-    <input type="text" th:field="*{nameStreet}">
+     <input type="hidden" th:field="*{idStreet}">
+    <label for="street">Nombre de la calle :</label>
+    <input type="text" th:field="*{nameStreet}" id="street">
 
 
 
