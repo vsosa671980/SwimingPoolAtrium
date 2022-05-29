@@ -5,7 +5,9 @@ import com.piscina.atrium.dao.PlanningDao;
 import com.piscina.atrium.dao.services.ActivitiesService;
 import com.piscina.atrium.dao.services.PlanningService;
 import com.piscina.atrium.dao.services.StreetService;
+import com.piscina.atrium.dao.services.UserService;
 import com.piscina.atrium.models.Planning;
+import com.piscina.atrium.models.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,12 +28,13 @@ public class PlannigController {
     @Autowired
     private ActivitiesService serviceActivity;
 
+
+
     @GetMapping("/list/{iduser}")
     public String insertPlanning(@PathVariable Long iduser, Model model) {
 
-        model.addAttribute("iduser",iduser);
-        model.addAttribute("planning",service.listPlanning());
-
+            model.addAttribute("iduser", iduser);
+            model.addAttribute("planning", service.listPlanning());
 
 
         return "/Planifications/planning";
@@ -60,6 +63,9 @@ public class PlannigController {
     @PostMapping("/save")
     public String savePlanning(@ModelAttribute("planningForm")Planning planning){
 
+        if(planning.getOcupacion() >0) {
+            planning.setOcupacion(planning.getOcupacion() - 1);
+        }
         service.insertPlanning(planning);
 
         return "redirect:/planning/list";

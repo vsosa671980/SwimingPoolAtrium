@@ -18,7 +18,6 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 
 @Component
-@Data
 @Entity
 public class Users {
 
@@ -45,7 +44,7 @@ public class Users {
 	@NotEmpty
 	private String email;
 
-	@NotBlank
+
 	private String status;
    
 	private String password;
@@ -64,21 +63,47 @@ public class Users {
 	
 	@OneToMany(mappedBy = "user")
 	private List<Bonos> bonos = new ArrayList<>();
-	
-	//Relation ManyToMany witch Subscription Class
-	 @ManyToMany(mappedBy = "user")
-	 private List<Subscription> subscriptions  = new ArrayList<>();
-	
- 
+
+	@OneToMany(mappedBy = "user")
+	private List<Subscription> subscription = new ArrayList<>();
+
+	public Users(String name, String surname, String phone, String DNI, String birthdate, String email, String status, String password, String img, int age, List<Booking> bookings, List<Payments> payment, List<Bonos> bonos, ArrayList<Subscription> subscription) {
+		this.name = name;
+		this.surname = surname;
+		this.phone = phone;
+		this.DNI = DNI;
+		this.birthdate = birthdate;
+		this.email = email;
+		this.status = status;
+		this.password = password;
+		this.img = img;
+		this.age = age;
+		this.bookings = bookings;
+		this.payment = payment;
+		this.bonos = bonos;
+		this.subscription = subscription;
+	}
+
 	// Constructor empty
 
 	public Users() {
 	}
 
+	public Users(String name, String surname, String phone, String DNI, String birthdate, String email, String img, int age) {
+		this.name = name;
+		this.surname = surname;
+		this.phone = phone;
+		this.DNI = DNI;
+		this.birthdate = birthdate;
+		this.email = email;
+		this.img = img;
+		this.age = age;
+	}
+
 	public Users(@NotBlank(message = "El nombre no puede estar vacio cenutrio") String name,
-			@NotBlank(message = "Tienes que indicar un apellido") String surname, @NotBlank String phone,
-			@NotBlank String dNI, String birthdate, @Email @NotEmpty String email, @NotBlank String status,
-			String password, String img, int age, List<Booking> bookings, List<Subscription> subscriptions) {
+				 @NotBlank(message = "Tienes que indicar un apellido") String surname, @NotBlank String phone,
+				 @NotBlank String dNI, String birthdate, @Email @NotEmpty String email, @NotBlank String status,
+				 String password, String img, int age, List<Booking> bookings) {
 		this.name = name;
 		this.surname = surname;
 		this.phone = phone;
@@ -90,7 +115,7 @@ public class Users {
 		this.img = img;
 		this.age = age;
 		this.bookings = bookings;
-		this.subscriptions = subscriptions;
+	
 	}
 
 	public List<Booking> getBookings() {
@@ -101,13 +126,9 @@ public class Users {
 		this.bookings = bookings;
 	}
 
-	public List<Subscription> getSubscriptions() {
-		return subscriptions;
-	}
+	
 
-	public void setSubscriptions(List<Subscription> subscriptions) {
-		this.subscriptions = subscriptions;
-	}
+	
 
 	public void setAge(int age) {
 		this.age = age;
@@ -146,15 +167,29 @@ public class Users {
 		
 	}
 
-
-	// Getters and Setters
-
-	@Override
-	public String toString() {
-		return "Users [idusers=" + idusers + ", name=" + name + ", surname=" + surname + ", phone=" + phone
-				+ ", birthdate=" + birthdate + ", email=" + email + ", status=" + status + ", password=" + password
-				+ ", img=" + img + ", reservas=" + bookings+ "]";
+	public Users(long idusers, String name, String surname, String phone, String DNI, String birthdate, String email, String status, String password, String img, int age, List<Booking> bookings, List<Payments> payment, List<Bonos> bonos) {
+		this.idusers = idusers;
+		this.name = name;
+		this.surname = surname;
+		this.phone = phone;
+		this.DNI = DNI;
+		this.birthdate = birthdate;
+		this.email = email;
+		this.status = status;
+		this.password = password;
+		this.img = img;
+		this.age = age;
+		this.bookings = bookings;
+		this.payment = payment;
+		this.bonos = bonos;
+		
 	}
+
+	public void setSubscription(List<Subscription> subscription) {
+		this.subscription = subscription;
+	}
+// Getters and Setters
+
 
 	public long getIdusers() {
 		return idusers;
@@ -240,8 +275,22 @@ public class Users {
 	public void setDNI(String DNI) {
 		this.DNI = DNI;
 	}
-	
 
+	public List<Payments> getPayment() {
+		return payment;
+	}
+
+	public void setPayment(List<Payments> payment) {
+		this.payment = payment;
+	}
+
+	public List<Bonos> getBonos() {
+		return bonos;
+	}
+
+	public void setBonos(List<Bonos> bonos) {
+		this.bonos = bonos;
+	}
 
 	public void setAge() {
 
@@ -259,6 +308,40 @@ public class Users {
 		this.age = ageNow - edad;
 	}
 
+	public ArrayList<Subscription> getSubscription() {
+		return (ArrayList<Subscription>) subscription;
+	}
+
+	public void setSubscription(ArrayList<Subscription> subscription) {
+		this.subscription = subscription;
+	}
+
+	//public void reviewbonus(Users userfound,Users usersave) {
+
+		//if(userfound.getStatus() != null) {
+		//	List<Bonos> bonos = userfound.getBonos();
+
+		  //  for(Bonos bono : bonos) {
+		    //	System.out.print(bono.getState());
+
+		    //	if(bono.getState().equals("disponible")) {
+		    //	   System.out.println("He encontrado uno");
+
+		    //	   usersave.setStatus("SubscriptionON");
+		    //	}
+		    //}
+
+		//	}else {
+		//		usersave.setStatus("SubscriptionOF");
+		//	}
+
+	}
+
+				
+
+
+
+
 	
 
-}
+

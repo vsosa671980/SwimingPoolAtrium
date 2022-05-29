@@ -22,32 +22,43 @@
 	
 //}
 
-const buttonModal = document.querySelector(".modal")
+//----Process for Create the modals Forms in the app------///
 
+const buttonModal = document.querySelector(".modal")
+console.log(buttonModal)
+
+//Capture the Div where Modal is inserted
+const divdialog = document.getElementById("modalformdialog");
+console.log(divdialog)
+
+//if node exist
 if (buttonModal) {
 	buttonModal.addEventListener("click", event => modalform(event.target.value))
 }
+
+//Do a request to server for import modal form
 function modalform(url){
 	
-	fetch(url)
+	 fetch(url)
 	.then(response => response.text())
 	.then(data=> divdialog.innerHTML = data)
 	.then(()=>createModal())
 	
 }
-const button = document.querySelector(".modal")
-console.log(button)
+//const button = document.querySelector(".modal")
+//console.log(button)
 //Capture the button 
 const modalSubscriptionInsert = document.getElementById("insertSubscription")
+console.log(modalSubscriptionInsert )
 
 //Capture the dialog from HMTL
 const modal = document.getElementById("modalinsert");
-//Capture the Div where Modal is inserted
-const divdialog = document.getElementById("modalformdialog");
+
 
 
 function createModal(){
 	const modal = document.getElementById("modalinsert");
+	console.log(modal)
 	const closeModal = document.getElementById("btnCerrar");
 	closeModal.addEventListener("click",()=> modal.close())
 	modal.showModal();

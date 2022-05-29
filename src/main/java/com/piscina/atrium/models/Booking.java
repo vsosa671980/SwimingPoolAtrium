@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
-@Data
+
 @Entity(name = "bookings")
 @Component
 public class Booking {
@@ -71,12 +71,5 @@ public class Booking {
 		this.plannings = plannings;
 	}
 
-	@Override
-	public String toString() {
-		return "Booking{" +
-				"idbookings=" + idbookings +
-				", idusers=" + idusers +
-				", plannings=" + plannings +
-				'}';
-	}
+
 }

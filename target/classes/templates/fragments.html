@@ -20,14 +20,11 @@
       
 		<li><a th:href="@{/}">Home</a></li>
 
-		<li><a th:href="@{/users/reservas/listall}">Gestion de
-				Reservas</a></li>
 
 		<li><a th:href="@{/users/listusers}">Gestion de Usuarios</a>
 		</li> 
-		
 
-		<li><a th:href="@{/subscriptions/}">Subscripciones</a></li>
+		<li><a th:href="@{/bono/list}">Gestion Bonos</a></li>
 
 		<li><a  th:href="@{/activities/}">Gestion Actividades</a></li>
 
@@ -93,9 +90,14 @@
 				<td><a th:href="@{/users/deleteUser/} + ${user.idusers} "
 					th:text="Delete"></a></td>
 
-				<td><a th:href="@{/planning/list/} + ${user.idusers}"
-					th:text="Reservar"></a></td>
-				<td><a th:href="@{/subscriptions/buy/} + ${user.idusers} ">Comprar</a></td>
+				<td >
+					<span th:if="${user.status == 'SubscriptionON'}"><a th:href="@{/planning/list/} + ${user.idusers}"
+					th:text="Reservar">
+					</a>
+					</span>
+					<span th:if="${user.status != 'SubscriptionON'}"><p th:text="noSubscripcion"></p></span>
+				</td>
+				<td><a th:href="@{/bono/buy/} + ${user.idusers} ">Comprar</a></td>
 
 			</tr>
 			

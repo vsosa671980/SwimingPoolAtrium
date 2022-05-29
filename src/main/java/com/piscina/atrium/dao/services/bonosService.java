@@ -1,6 +1,7 @@
 package com.piscina.atrium.dao.services;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ public class bonosService implements Ibonos{
 	
 	@Autowired
 	private BonosDao dao;
+
 
 	@Override
 	public void insertBonos(Bonos bono) {
@@ -29,6 +31,12 @@ public class bonosService implements Ibonos{
 		
 	}
 
-	
+	@Override
+	public Bonos listById(Long id) {
+		return dao.findById(id).orElse(null);
+	}
+
 
 }
+
+

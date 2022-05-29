@@ -1,49 +1,39 @@
 package com.piscina.atrium.dao.services;
 
-import java.util.ArrayList;
-import java.util.Optional;
-
+import com.piscina.atrium.dao.SubscriptionDao;
+import com.piscina.atrium.models.Subscription;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.piscina.atrium.dao.BookingDao;
-import com.piscina.atrium.dao.SubscriptionDao;
-import com.piscina.atrium.models.Subscription;
+import java.util.ArrayList;
+
 
 @Service
-public class SubscriptionService implements ISubscription {
+public class SubscriptionService implements Isubscription {
 
-	@Autowired
-    private SubscriptionDao dao;
+     @Autowired
+      private SubscriptionDao dao;
 
-	@Override
-	public ArrayList<Subscription> listSubscriptions() {
-		
-		return (ArrayList<Subscription>) dao.findAll();
-	}
+    @Override
+    public void saveSubscription(Subscription sub) {
+         dao.save(sub);
+    }
 
-	@Override
-	public void insertSubscription(Subscription subscription) {
-		
-		
-		dao.save(subscription);
-	}
+    @Override
+    public ArrayList<Subscription> listall() {
+        return (ArrayList<Subscription>) dao.findAll();
+    }
 
-	@Override
-	public void removeSubscription(Long id) {
-		
-		dao.deleteById(id);
-		
-	}
+    @Override
+    public void deleteSubscriprion(Subscription sub) {
 
-	@Override
-	public Subscription foundSubscription(Long id) {
-	
-		return dao.findById(id).orElse(null);
-	}
-	
-	
+        dao.delete(sub);
 
-	
+    }
 
+    @Override
+    public void update(Subscription sub) {
+
+        dao.save(sub);
+    }
 }

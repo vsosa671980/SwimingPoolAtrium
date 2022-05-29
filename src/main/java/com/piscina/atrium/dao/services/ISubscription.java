@@ -1,17 +1,18 @@
 package com.piscina.atrium.dao.services;
 
-import java.util.ArrayList;
-
 import com.piscina.atrium.models.Subscription;
 
-public interface ISubscription {
-	
-	public  ArrayList<Subscription>listSubscriptions();
-	
-	public void insertSubscription(Subscription subscription);
-	
-	public void removeSubscription(Long id);
-	
-	public Subscription foundSubscription(Long id);
+import java.util.ArrayList;
 
+public interface Isubscription {
+
+    public void saveSubscription(Subscription sub);
+
+
+
+    public ArrayList<Subscription> listall();
+
+    public void deleteSubscriprion (Subscription sub);
+
+    public void update(Subscription sub);
 }

@@ -50,14 +50,11 @@
 			de Nombre</span> <br> <label for="address">email:</label> <input
 			type="email" name="email" th:field="*{email}" /> <span
 			th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error
-			de Nombre</span> <br> <br> <label for="status">Status :</label> <input
-			type="text" name="status" th:field="*{status}" /> <span
-			th:if="${#fields.hasErrors('status')}" th:errors="*{status}">Error
-			de Nombre</span>  <br>
+			de Nombre</span> <br> <br>
 		<!-- Input for update photo -->
 		<div>
 			<label for="file">Foto :</label> 
-			<input type="file" name="file">
+			<input type="file" name="file" id="file">
 		</div>
 
 		<div>

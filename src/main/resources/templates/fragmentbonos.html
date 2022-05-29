@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modal Street</title>
+</head>
+<body>
+
+
+<div th:fragment="modalBonus">
+    <dialog id= "modalinsert"  >
+
+        <div><button id="btnCerrar" class="btn btn-danger">Close</button></div>
+
+        <form th:action="@{/bono/save}"  method="post" th:object = "${bonusForm}" enctype="multipart/form-data">
+
+            <input type="hidden" name="idBonos" th:field="*{idBonos}">
+
+            <div class="mb-4">
+                <label for ="bonoName" >Tipo</label>
+                <input type="text" th:field="*{bonoName}" id="bonoName" class="form-control">
+                
+                <label for ="CostBonos" >Precio</label>
+                <input type="text" th:field="*{costBonos}" id="costBonos" class="form-control">
+                
+                <label for ="duration" >Duracion</label>
+                <input type="text" th:field="*{duration}" id="duration" class="form-control">
+
+            </div>
+
+            <div>
+                <label for ="file" >imagen</label>
+                <input type="file"  id="file" class="form-control" name="file">
+
+            </div>
+
+            <div class="buttonsForms">
+                <input type="Submit" class="btn btn-primary">
+
+
+            </div>
+        </form>
+
+
+    </dialog>
+
+</div>
+
+</body>
+</html>

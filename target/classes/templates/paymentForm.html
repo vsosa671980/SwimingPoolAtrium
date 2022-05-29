@@ -18,56 +18,31 @@
 
 </header>
 
-<section class="mainContainerSubscription">
-
-    <div>
-
-
-        <button id="insertSubscription">Crear</button>
-
-
-    </div>
-
-    <div>
-
-        <label for="user">Usuario</label>
-        <input type="search" id="user" name="user" placeholder="DNI o email">
-        <button>Buscar</button>
-
-    </div>
-</section>
-<div id ="listSubscriptions">
-
-
-
-</div>
-
-<div id="modalformdialog">
-
-
-</div>
 
 
 <div id="listSubscription">
 
     <div id="FormPayment">
 
+        <p th:text="${idu}"></p>
+
         <form th:action="@{/payments/save}" th:object="${paymentForm}" method="post">
+
+            <label for="idu">Usuario</label>
+            <input type="text" th:field="*{idu}"  id="idu" name="idu">
              
-            <input type="hidden" th:field="*{idu}">
              
-             
-            <label>Tipo Subscripcion</label>
-            <input type="text" th:field="*{idSubscription}" name="idSubscription"id = "idSubscription">
+            <label for="bono">Tipo Bono</label>
+            <input type="text" th:field="*{bonos}" name="bonos" id="bono">
             
             <label for="date">Fecha de Pago</label>
-            <input type="text" th:field="*{datePay}"  value="{date}" name=date id=date>
 
+            <input type="text" th:field="*{datePay}"  th:value="${date}" name=date id=date>
 
            
             <label>Cantidad de Pago</label>
-            <input type="text" th:field=*{pay} name="pay" id="pay">
-            
+            <input type="text" th:field="*{pay}" name="pay" id="pay">
+
             <label for="contado">Contado</label>
             <input type="checkbox" th:field="*{typePay}" value="Contado" id="contado" class="optionals">
             
@@ -76,27 +51,10 @@
 
             <input type="Submit" value="Pagar">
         </form>
-        
-        
-        <h1 th:text="${date}"></h1>
-
-
-
 
 
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
 
 </div>
 

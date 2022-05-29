@@ -7,9 +7,41 @@
 </head>
 <body>
 
-<h1 th:text="${iduser}"></h1>
-<h1 th:text="${idplanning}"></h1>
+  <h1>Hello</h1>
+  
+  
+  <table>
+  
+  <thead>
+  
+  
+  
+  </thead>
+  
+    <th>Bono</th>
+    <th>Inicio</th>
+    <th>Fin</th>
+    <th>Estado</th>
+    
+   <tbody>
+   
+   <tr th:each="bonus : ${user}">
+   
+    <td th:text="${bonus.bonoName}"></td>
+    <td th:text="${bonus.dateInit}"></td>
+    <td th:text="${bonus.dateFinish}"></td>
+    <td th:text="${bonus.state}"></td>
+    
+ </tr>
+   
+   
+   
+   </tbody>
+  
+  </table>
 
+
+ 
 
 </body>
 </html>

@@ -44,7 +44,11 @@
         <tbody>
 
       <tr th:each="p : ${planning}">
-          <td><a th:href="@{/booking/insert(iduser=${iduser},idplanning = ${p.idPlanning}) }">Reservar</a></td>
+          <td>
+             <span th:if="${p.ocupacion > 0}"> <a th:href="@{/booking/insert(iduser=${iduser},idplanning = ${p.idPlanning}) }">Reservar</a></span>
+              <span th:if="${p.ocupacion <=0}"> <p th:text="Completo"></p></span>
+
+          </td>
          <td th:text="${p.namePlanning}"></td>
           <td th:text="${p.planningDay}"></td>
           <td th:text="${p.initTime}"></td>

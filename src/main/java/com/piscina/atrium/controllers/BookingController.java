@@ -28,7 +28,7 @@ public class BookingController {
 	@Autowired
 	private UserService serveruser;
 	
-	@GetMapping("/&user/reservas/listall")
+	@GetMapping("/user/reservas/listall")
 	public String listReservas(Model model){
 		 		
 		model.addAttribute("Bookings",service.listAllBook());
@@ -42,14 +42,16 @@ public class BookingController {
 	@GetMapping("/booking/insert")
 	public String createBooking(@RequestParam("iduser") Users user,@RequestParam("idplanning")Planning planning,Model model, Booking booking) {
 
-	booking.setIdusers(user);
-	booking.setPlannings(planning);
 
-	planning.setOcupacion(planning.getOcupacion() - 1);
+			booking.setIdusers(user);
+			booking.setPlannings(planning);
 
-   service.insertBooking(booking);
+			planning.setOcupacion(planning.getOcupacion() - 1);
 
-      return "prueba";
+			service.insertBooking(booking);
+			
+			return "Congratulations/payCorrect";
+
 	}
 
 	

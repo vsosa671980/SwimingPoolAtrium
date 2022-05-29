@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Activities</title>
+    <link th:href="@{/styles/Main.css}" rel="stylesheet" />
+</head>
+<body>
+
+
+
+  <nav th:replace="~{fragments::navHeader}"></nav>
+
+  <div>
+
+    <button value="/bono/insert" class="modal">Create</button>
+
+  </div>
+         <!--Div for insert  the modal form -->
+  <div id="modalformdialog"></div>
+
+
+  <div>
+
+
+
+      <table>
+
+          <thead>
+
+          <th>usuario</th>
+            <th>Tipo</th>
+            <th>Duracion</th>
+            <th>Coste</th>
+           <th>Compra</th>
+
+          </thead>
+          <tbody>
+
+             <tr th:each="bono : ${bonos}">
+                 <td th:text="${idu}"></td>
+                 <td th:text="${bono.bonoName}"></td>
+                  <td th:text="${bono.duration}"></td>
+                 <td th:text =" ${bono.costBonos}"></td>
+                 <td><a th:href="@{/bono/payment(iduser=${idu},idbono = ${bono.idBonos})}">Comprar</a></td>
+
+             </tr>
+
+           </tbody>
+
+      </table>
+
+
+
+  </div>
+
+ 
+
+<script src="/javascript/main.js"></script>
+
+
+</body>
+</html>

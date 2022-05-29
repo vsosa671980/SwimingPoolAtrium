@@ -1,13 +1,9 @@
 package com.piscina.atrium.models;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import javax.persistence.*;
-
-import org.apache.catalina.User;
-
-import lombok.CustomLog;
-import lombok.Data;
 
 
 @Entity
@@ -31,8 +27,8 @@ public class Payments {
    private double pay;
 
     @ManyToOne()
-    @JoinColumn(name = "id_subscription")
-    private Subscription idSubscription ;
+    @JoinColumn(name = "idBonos")
+    private Bonos bonos ;
     
     @ManyToOne()
     @JoinColumn(name="idusers")
@@ -41,40 +37,29 @@ public class Payments {
 
    public Payments() {
    }
+   
 
-
-public Payments(Long idPayment, String typePay, LocalDate datePay, String statePay, double pay,
-		Subscription idSubscription, Users idu) {
+public Payments(Long idPayment, String typePay, LocalDate datePay, String statePay, double pay, Bonos bonos,
+		Users idu) {
 	this.idPayment = idPayment;
 	this.typePay = typePay;
 	this.datePay = datePay;
 	this.statePay = statePay;
 	this.pay = pay;
-	this.idSubscription = idSubscription;
+	this.bonos = bonos;
 	this.idu = idu;
 }
 
 
-
-
-public Payments(String typePay, LocalDate datePay, String statePay, double pay, Subscription idSubscription,
-		Users idu) {
+public Payments(String typePay, LocalDate datePay, String statePay, double pay, Bonos bonos, Users idu) {
 	this.typePay = typePay;
 	this.datePay = datePay;
 	this.statePay = statePay;
 	this.pay = pay;
-	this.idSubscription = idSubscription;
+	this.bonos = bonos;
 	this.idu = idu;
 }
 
-
-
-
-public Payments(LocalDate datePay, Subscription idSubscription, Users idu) {
-	this.datePay = datePay;
-	this.idSubscription = idSubscription;
-	this.idu = idu;
-}
 
 
 public Long getIdPayment() {
@@ -127,15 +112,6 @@ public void setPay(double pay) {
 }
 
 
-public Subscription getIdSubscription() {
-	return idSubscription;
-}
-
-
-public void setIdSubscription(Subscription idSubscription) {
-	this.idSubscription = idSubscription;
-}
-
 
 public Users getIdu() {
 	return idu;
@@ -146,15 +122,11 @@ public void setIdu(Users idu) {
 	this.idu = idu;
 }
 
+	public Bonos getBonos() {
+		return bonos;
+	}
 
-
-
-   
-
-
-
-   
-   
-
-
+	public void setBonos(Bonos bonos) {
+		this.bonos = bonos;
+	}
 }

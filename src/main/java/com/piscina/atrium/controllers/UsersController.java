@@ -1,33 +1,26 @@
 package com.piscina.atrium.controllers;
 
-import java.lang.ProcessBuilder.Redirect;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
-import javax.annotation.Resource;
-import javax.persistence.criteria.Path;
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
 
+import com.piscina.atrium.dao.services.SubscriptionService;
+import com.piscina.atrium.models.Subscription;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.piscina.atrium.dao.UsersDao;
 import com.piscina.atrium.dao.services.UserService;
-import com.piscina.atrium.dao.services.UsersServices;
 import com.piscina.atrium.dao.services.bonosService;
 import com.piscina.atrium.models.Bonos;
 import com.piscina.atrium.models.Users;
 import com.piscina.atrium.resources.AdminFiles;
+
+
 
 @Controller
 @RequestMapping("/users")
@@ -41,10 +34,26 @@ public class UsersController {
 	
 	@Autowired
 	private bonosService bono;
+	@Autowired
+	private SubscriptionService serviceSub;
 
 	// For list all Users
 	@GetMapping("/listusers")
 	public String listUser(Model model,@RequestParam(name="value",required=false) String value) {
+
+        ArrayList<Subscription> sub =serviceSub.listall();
+        
+        for (Subscription subscription : sub) {
+			
+        	subscription.CheckStatusBonos();
+        	serviceSub.saveSubscription(subscription);
+        		
+        	System.out.println(subscription.getState());
+        	
+		}
+
+		//For set the status of User (If has a bonos active)
+
 		String userfilter = null;
 		if (value != null) {
 			
@@ -57,20 +66,8 @@ public class UsersController {
 		model.addAttribute("userslist", serveruser.listAllUsers());
 		
 		}
-		
-		ArrayList<Bonos> bonos = bono.listBonos();
-		
-		for (Bonos bonos2 : bonos) {
-			 
-			bonos2.setState();
-			System.out.println(bonos2.getState());
-			
-			bono.insertBonos(bonos2); 
-		}
-		
-		
-		
-		
+
+
 		return "listusers";
 	}
 	// For go to page form create user
@@ -88,6 +85,7 @@ public class UsersController {
 	public String createUser(@Valid @ModelAttribute("empleadoForm") Users user, Errors error,
 			@RequestParam("file") MultipartFile multipart) {
 
+		
 		if (error.hasErrors()) {
 			
 			System.out.println(error);
@@ -102,7 +100,22 @@ public class UsersController {
 			user.setAge();
 			// Guardamos el archivo
 			//files.saveFile(multipart);
-			// Guardamos al usuario
+			// Set the status of user about Bonus has
+			
+			Long identificacion = user.getIdusers();
+			
+			System.out.println(identificacion);
+			
+			
+			//New user Object for found User if exits
+			Users usuario = serveruser.foundUserByid(identificacion);
+			
+			//Obtain the list of Bonus
+
+			List<Bonos> bonos = usuario.getBonos();
+
+            
+		    //save the User
 			serveruser.insertUser(user);
 			
 			Long id = user.getIdusers();
@@ -111,6 +124,7 @@ public class UsersController {
 
 			return "redirect:/users/listusers";
 		}
+		
 	}
 
 	// For Update user
@@ -202,8 +216,12 @@ public class UsersController {
 		return   serveruser.listAllUsers();
 	}
 
+	@GetMapping("/listbonos")
+	public String BonosUsers(Model model){
 
-
+		model.addAttribute("bonos",serveruser.listAllUsers());
+		return "prueba";
+	}
    
     }
     
