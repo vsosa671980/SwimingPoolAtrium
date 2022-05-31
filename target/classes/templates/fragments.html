@@ -31,6 +31,8 @@
 		<li><a th:href="@{/planning/list}">Gestion Planificaciones</a></li>
 
 		<li><a th:href="@{/street/list}">Calles</a></li>
+
+		<li><a th:href="@{/booking/list}">Reservas</a></li>
      
 	
 
@@ -83,7 +85,7 @@
 				<td th:text="${user.email}">Email</td>
 				<td th:text="${user.status}">status</td>
 				<td th:text="${user.age}">status</td> 
-				<td><button th:text="Resevas" th:value="${user.idusers}"></button></td>
+				<td><a th:href="@{/users/userFile/} + ${user.idusers}">Ficha</a></td>
 
 				<td><a th:href="@{/users/updateUser/} + ${user.idusers} "
 					th:text="Update"></a></td>
@@ -104,9 +106,33 @@
 			</tbody>
 
 		</table>
-		
+        <!-- Creamos la paginacion si el numero de paginas es superior a 0-->
+		<div th:if="${userslist.totalPages != 1}">
+           <table>
+
+			<ul>
+				<li ><a th:href="@{/users/listusers/(page=1)}"></a>&laquo</li>
+				<li th:each="page : ${#numbers.sequence(1,userslist.totalPages)}">
+					<a th:href="@{/users/listusers/(page=${page})}" th:text="${page}"> </a>
+				</li>
+				<li th:if="${userslist.number != (userslist.totalPages - 1)} ? disabled"><a th:href="@{/users/listusers/(page =${userslist.totalPages})}"></a>&raquo</li>
+
+			</ul>
+
+
 		</div>
-	</div>	
+
+
+
+		</table>
+
+
+
+	</div>
+
+</div>
+
+
 		<div id="insertBookings"></div>
 
 

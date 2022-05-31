@@ -1,13 +1,13 @@
 package com.piscina.atrium.dao.services;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import com.piscina.atrium.dao.BookingDao;
 import com.piscina.atrium.models.Booking;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 
@@ -19,10 +19,10 @@ public class IBookingService implements BookingService {
     @Autowired
     private BookingDao bookingDao;
 
+
 	@Override
-	public ArrayList<Booking> listAllBookkings() {
-		
-		return (ArrayList<Booking>) bookingDao.findAll();
+	public Page<Booking> listAllBookkings(Pageable pageable, long iduser) {
+		return null;
 	}
 
 	@Override
@@ -47,11 +47,6 @@ public class IBookingService implements BookingService {
 		
 	}
 
-	@Override
-	public ArrayList<Booking> listAllBook() {
-		
-		return bookingDao.findBooking();
-	}
 
 	@Override
 	public ArrayList<Booking> usersBookings(long id) {
@@ -59,11 +54,24 @@ public class IBookingService implements BookingService {
 		return bookingDao.userbookings(id);
 		
 		}
-    
-    
+
+	@Override
+	public Page<Booking> listAllBookPageable(Pageable pageable) {
+
+		return  bookingDao.findAll(pageable);
+	}
+
+	@Override
+	public Page<Booking> listBookings(Pageable pageable) {
+
+		return bookingDao.findAll(pageable);
+	}
+
+	@Override
+	public Page<Booking> listByUser(Long id,Pageable pageable) {
+
+		return bookingDao.findByuser(id,pageable);
+	}
 
 
-
-
-    
 }

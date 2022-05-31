@@ -12,7 +12,7 @@
 
        <form th:action="@{/booking/insert}" method="post" th:object="${bookingForm}">
            <label for="daybook">Day</label>
-           <input type="date" name="dayBook" th:field="*{dayBook}">
+           <input type="date" name="dayBook" th:field="*{dayBook}" id="daybook">
 
            <label for="hourbook">Hour</label>
            <input type="time" name="hourBook" id="hourBook" th:field="*{hourBook}" >
@@ -21,7 +21,7 @@
            <input type="hidden" name="idusers"  th:field="*{idusers}"> 
            
            <label for="idStreet">Calle</label>
-           <input type="text" name="idStreet"  th:field="*{idStreet}"> 
+           <input type="text" name="idStreet"  th:field="*{idStreet}" id="idStreet">
            
            
                   

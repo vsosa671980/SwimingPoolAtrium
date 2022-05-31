@@ -1,19 +1,18 @@
 package com.piscina.atrium.controllers;
 
 
-import com.piscina.atrium.dao.PlanningDao;
 import com.piscina.atrium.dao.services.ActivitiesService;
 import com.piscina.atrium.dao.services.PlanningService;
 import com.piscina.atrium.dao.services.StreetService;
-import com.piscina.atrium.dao.services.UserService;
 import com.piscina.atrium.models.Planning;
-import com.piscina.atrium.models.Users;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import javax.websocket.server.PathParam;
+import java.time.LocalDate;
 
 @Controller
 @RequestMapping("/planning")
@@ -31,7 +30,7 @@ public class PlannigController {
 
 
     @GetMapping("/list/{iduser}")
-    public String insertPlanning(@PathVariable Long iduser, Model model) {
+    public String insertPlanning(@PathVariable Long iduser , Model model) {
 
             model.addAttribute("iduser", iduser);
             model.addAttribute("planning", service.listPlanning());
@@ -41,9 +40,24 @@ public class PlannigController {
     }
 
     @GetMapping("/list")
-    public String insertPlanning(Model model ) {
+    public String insertPlanning(Model model, Pageable pageable,@RequestParam(name ="dateInit",required = false) String dateInit,@RequestParam(name="dateFinish",required = false) String dateFinish) {
 
-        model.addAttribute("planning",service.listPlanning());
+
+        if (dateInit != null && dateFinish != null) {
+
+            model.addAttribute("planning", service.listBydate(dateInit, dateFinish));
+
+        }else{
+
+            LocalDate datenow = LocalDate.now();
+            LocalDate lastdayOfWeek = datenow.plusDays(7);
+
+            String daten = new String(String.valueOf(datenow));
+            String lastday = new String(String.valueOf(lastdayOfWeek));
+
+
+            model.addAttribute("planning",service.listBydate(daten,lastday));
+        }
 
         return "/Planifications/planning";
     }
@@ -70,6 +84,28 @@ public class PlannigController {
 
         return "redirect:/planning/list";
     }
+
+    @GetMapping("/update/{idplanning}")
+    public String updatePlanning(@PathVariable Long idplanning, Model model){
+
+
+        model.addAttribute("planningForm",service.foundPlannning(idplanning));
+        model.addAttribute("streets",serviceStreet.listStreets());
+        model.addAttribute("activities",serviceActivity.listActivities());
+
+        return "fragmentPlanning :: modalPlanning";
+    }
+
+    @GetMapping("/delete/{idPlanning}")
+    public String DeletePlanning(@PathVariable Long idPlanning){
+
+
+        service.deletePlanning(idPlanning);
+
+        return "redirect:/planning/list";
+
+    }
+
 
 
    

@@ -1,24 +1,19 @@
 package com.piscina.atrium.controllers;
 
-import java.awt.print.Book;
-import java.lang.ProcessBuilder.Redirect;
-import java.util.ArrayList;
-
 import com.piscina.atrium.models.Planning;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner.Mode;
-import org.springframework.stereotype.Component;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.piscina.atrium.dao.BookingDao;
 import com.piscina.atrium.dao.services.IBookingService;
 import com.piscina.atrium.dao.services.UserService;
 import com.piscina.atrium.models.Booking;
 import com.piscina.atrium.models.Users;
 
 @Controller
+@RequestMapping("booking")
 public class BookingController {
 	
 	
@@ -28,18 +23,29 @@ public class BookingController {
 	@Autowired
 	private UserService serveruser;
 	
-	@GetMapping("/user/reservas/listall")
-	public String listReservas(Model model){
-		 		
-		model.addAttribute("Bookings",service.listAllBook());
+	@GetMapping("/list/{iduser}")
+	public String listReservas(Model model,@PathVariable Long iduser,Pageable pageable){
+
+        System.out.println(iduser);
+		model.addAttribute("Bookings",service.listByUser(iduser,pageable));
+
+		return "/Bookings/listbooking :: list";
+
+	}
+	@GetMapping("/list")
+	public String listAllBokings(Model model,Pageable pageable){
 
 
-		return "listbooking";
-		
-		
+		model.addAttribute("Bookings",service.listBookings(pageable));
+
+		return "/Bookings/listbooking";
+
 	}
 
-	@GetMapping("/booking/insert")
+
+
+
+	@GetMapping("/insert")
 	public String createBooking(@RequestParam("iduser") Users user,@RequestParam("idplanning")Planning planning,Model model, Booking booking) {
 
 
@@ -55,14 +61,7 @@ public class BookingController {
 	}
 
 	
-	@GetMapping("booking/user/{id}")
-	public String userboookings(@PathVariable long id ,Model model){
-		
-		
-		model.addAttribute("Bookings", service.usersBookings(id)) ;
-		
-		 return "listbooking :: listbooks";
-	}
+
 	
 		
 		

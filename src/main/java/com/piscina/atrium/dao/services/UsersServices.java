@@ -2,6 +2,8 @@ package com.piscina.atrium.dao.services;
 
 import java.util.ArrayList;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,8 @@ public interface UsersServices {
 	public ArrayList<Users> foundActivos();
 	
 	public ArrayList<Users> foundByName(String name);
+
+	public Page<Users> findAllPaginates(Pageable pageable);
 	
 	public ArrayList<Users> foundByStatus(String status);
 	

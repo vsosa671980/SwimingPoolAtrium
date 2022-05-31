@@ -29,7 +29,7 @@ public class Booking {
 	  
 	  //Relation witch Booking and Planning ManyToMany
 	  @ManyToOne()
-	  @JoinColumn (name="bookings")
+	  @JoinColumn (name="plannings")
 	  private Planning plannings;
 
 

@@ -19,18 +19,18 @@ public class AdminFiles {
 	 public boolean saveFile(MultipartFile multipartFile,Long id){
 	        boolean result = false;
 	        //Obtenemos el nombre de el archivo para subir
-	        String fileName  = id + "-" + multipartFile.getOriginalFilename() ;
+	        String fileName  =multipartFile.getOriginalFilename() ;
 	        //Ruta relativa donde se van a guardar los ficheros
-	        String location = "/Users/vicentesosa/Documents/Programacion/Spring/SwimingPool/src/main/resources/static/images/";
+	        String location = "/Users/vicentesosa/Documents/Programacion/Spring/SwimingPool/src/main/resources/static/images/users/";
 	        //Creamos la ruta relativa donde se van a guardar los archivos
-	        File pathFile = new File(location);
+	        File pathFile = new File( location + id);
 	        //Comprobamos si existe el directorio en caso que no exista lo creamos
 	        if(!pathFile.exists()){
 	            pathFile.mkdir();
 	        }
 
 	        //Creamos la ruta absoluta de el archivo
-	        pathFile = new File(location + fileName);
+	         pathFile = new File(pathFile + "/" + fileName);
 	        //Guardamos el archivo en la ruta que le indicamos
 	        try {
 	            multipartFile.transferTo(pathFile);

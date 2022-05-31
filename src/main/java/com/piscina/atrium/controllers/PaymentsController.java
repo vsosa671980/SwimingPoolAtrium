@@ -10,12 +10,10 @@ import com.piscina.atrium.models.Users;
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/payments")
@@ -56,4 +54,16 @@ public class PaymentsController {
     return "/Congratulations/payCorrect";
 
     }
+
+    @GetMapping("/list/{iduser}")
+    public String listPayments(Model model, @PathVariable Long iduser, Pageable pageable){
+
+        System.out.println(iduser);
+        model.addAttribute("payments",service.listPaymentsByUser(iduser));
+
+        return "/Payments/paymentFragment :: list";
+
+    }
+
+
 }

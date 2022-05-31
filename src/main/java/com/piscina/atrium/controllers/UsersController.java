@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import com.piscina.atrium.dao.services.SubscriptionService;
 import com.piscina.atrium.models.Subscription;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -39,18 +40,9 @@ public class UsersController {
 
 	// For list all Users
 	@GetMapping("/listusers")
-	public String listUser(Model model,@RequestParam(name="value",required=false) String value) {
+	public String listUser(Model model, @RequestParam(name="value",required=false) String value, Pageable pageable) {
 
         ArrayList<Subscription> sub =serviceSub.listall();
-        
-        for (Subscription subscription : sub) {
-			
-        	subscription.CheckStatusBonos();
-        	serviceSub.saveSubscription(subscription);
-        		
-        	System.out.println(subscription.getState());
-        	
-		}
 
 		//For set the status of User (If has a bonos active)
 
@@ -63,10 +55,9 @@ public class UsersController {
 			
 		}else {
 		model.addAttribute("filter", userfilter);
-		model.addAttribute("userslist", serveruser.listAllUsers());
+		model.addAttribute("userslist", serveruser.findAllPaginates(pageable));
 		
 		}
-
 
 		return "listusers";
 	}
@@ -105,16 +96,11 @@ public class UsersController {
 			Long identificacion = user.getIdusers();
 			
 			System.out.println(identificacion);
-			
-			
-			//New user Object for found User if exits
-			Users usuario = serveruser.foundUserByid(identificacion);
-			
-			//Obtain the list of Bonus
 
-			List<Bonos> bonos = usuario.getBonos();
 
-            
+            if(user.getImg() == null ){
+				user.setImg("avatar.gif");
+			}
 		    //save the User
 			serveruser.insertUser(user);
 			
@@ -221,6 +207,14 @@ public class UsersController {
 
 		model.addAttribute("bonos",serveruser.listAllUsers());
 		return "prueba";
+	}
+
+	@GetMapping("/userFile/{user}")
+	public String userFile(@PathVariable Long user,Model model){
+
+		model.addAttribute("users",serveruser.foundUserByid(user));
+
+		return "/Users/userfile";
 	}
    
     }

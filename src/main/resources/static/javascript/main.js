@@ -24,7 +24,7 @@
 
 //----Process for Create the modals Forms in the app------///
 
-const buttonModal = document.querySelector(".modal")
+const buttonModal = document.querySelectorAll(".modal")
 console.log(buttonModal)
 
 //Capture the Div where Modal is inserted
@@ -33,7 +33,10 @@ console.log(divdialog)
 
 //if node exist
 if (buttonModal) {
-	buttonModal.addEventListener("click", event => modalform(event.target.value))
+	buttonModal.forEach(button =>{
+		button.addEventListener("click", event => modalform(event.target.value))
+	})
+
 }
 
 //Do a request to server for import modal form
@@ -108,6 +111,26 @@ ocupacion.forEach( value => {
 	}
 })
 
+//Procces for create Tables of UserFile
+
+const buttonRequest = document.querySelectorAll(".buttonRequest");
+console.log((buttonRequest));
+
+const insertUserForm = document.querySelector(".insertUserForm");
+console.log(insertUserForm );
+if (buttonRequest ){
+
+	buttonRequest.forEach(button => button.addEventListener("click", event => insertTable(event.target.value)));
+
+}
+
+function insertTable(url){
+
+	fetch(url)
+		.then(response => response.text())
+		.then(data=> insertUserForm.innerHTML = data)
+
+}
 
 
 

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>List of Booking</title>
+    <link th:href="@{/styles/Main.css}" rel="stylesheet" />
+</head>
+<body>
+
+<nav th:replace="~{fragments::navHeader}"></nav>
+
+
+
+<div class="MainListPayment" th:fragment="list">
+
+    <div>
+        <h1>Lista de Pagos</h1>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+        <tr>
+            <th>Typo de Pago</th>
+            <th>Fecha Pago</th>
+            <th>Pago</th>
+            <th>Bono</th>
+
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr th:each="p : ${payments}">
+
+            <td th:text="${p.typePay}"></td>
+            <td th:text="${p.datePay}"></td>
+            <td th:text="${p.pay}"></td>
+            <td th:text="${p.getBonos().bonoName}"></td>
+            <td th:text="${p.getBonos().costBonos}"></td>
+            <td th:text="${p.getBonos().duration}"></td>
+
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+
+
+</div>
+
+
+
+
+
+
+<script src="/javascript/main.js"></script>
+
+</body>
+</html>

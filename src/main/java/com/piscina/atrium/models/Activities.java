@@ -21,16 +21,28 @@ public class Activities {
 	private String name;
 	
 	 //Relation witch Planning class
-	  @ManyToOne(cascade={CascadeType.PERSIST,CascadeType.MERGE})
-	  @JoinColumn(name = "id_planning")
-	  private Planning planning;
+	  @OneToMany(mappedBy = "activity")
+	  private List<Planning>planning = new ArrayList<>();
 
 	public Activities() {
 	}
 
-	public Activities(String name, Planning planning) {
+	public Activities(String name, List<Planning> planning) {
 		this.name = name;
 		this.planning = planning;
+	}
+
+	public List<Planning> getPlanning() {
+		return planning;
+	}
+
+	public void setPlanning(List<Planning> planning) {
+		this.planning = planning;
+	}
+
+	public Activities(String name) {
+		this.name = name;
+
 	}
 
 

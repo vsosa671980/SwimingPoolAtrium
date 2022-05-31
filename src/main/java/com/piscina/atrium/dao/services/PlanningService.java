@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.piscina.atrium.dao.PlanningDao;
 import com.piscina.atrium.models.Planning;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -47,5 +49,17 @@ public class PlanningService  implements IplanningService{
 
 		return dao.listplanning();
 	}
+
+	@Override
+	public Page<Planning> listPlanningPageable(Pageable pageable) {
+		return dao.findAll(pageable);
+	}
+
+	@Override
+	public ArrayList<Planning> listBydate(String dateInit, String dateFinish) {
+		return dao.listByDate(dateInit,dateFinish);
+	}
+
+
 
 }

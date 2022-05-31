@@ -16,8 +16,6 @@
             <input type="hidden" name="idPlannning" th:field="*{idPlanning}">
 
             <div class="mb-4 container form">
-                <label for ="name" >Name</label>
-                <input type="text" th:field="*{namePlanning}" id="name" class="form-control">
 
                 <label for="initTime">Hora de Inicio</label>
                 <input type="time" id="initTime" th:field="*{initTime}">
@@ -33,7 +31,7 @@
                 <input type="text" id="ocupacion" th:field="*{ocupacion}">
                 
                 
-                 <label for="idstreet">Calle</label>
+                 <label for="idStreet">Calle</label>
                 <select name="idStreet" id="idStreet">
                     <option th:each="Item : ${streets}"
                             th:value="${Item.idStreet}"
@@ -41,8 +39,8 @@
                             th:selected="false"
                     />
                 </select>
-
-                <select name="idActivity">
+                <label for="activity">Actividad</label>
+                <select name="activity" id="activity" >
                     <option th:each="Item : ${activities}"
                             th:value="${Item.idActivity}"
                             th:text="${Item.name}"

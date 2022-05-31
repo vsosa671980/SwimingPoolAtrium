@@ -5,6 +5,8 @@ import com.piscina.atrium.models.Payments;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 
 @Service
 public class PaymentsService implements IPayments {
@@ -21,5 +23,10 @@ public class PaymentsService implements IPayments {
     public void deletePayment(Long id) {
 
         dao.findById(id);
+    }
+
+    @Override
+    public ArrayList<Payments> listPaymentsByUser(Long id) {
+        return dao.listPaymentsByUser(id);
     }
 }

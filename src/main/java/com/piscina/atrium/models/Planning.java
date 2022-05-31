@@ -1,22 +1,12 @@
 package com.piscina.atrium.models;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-import org.hibernate.engine.internal.Cascade;
 import java.util.List;
 
 @Entity
@@ -29,9 +19,7 @@ public class Planning {
 	private Long idPlanning;
 	
 	
-	@Column(name="name_planing")
-	private String namePlanning;
-	
+
     private String planningDay;
     
 	
@@ -56,22 +44,24 @@ public class Planning {
 	private List<Street> idStreet = new ArrayList<Street>();
 
 
-
+	@ManyToOne
+	@JoinColumn(name = "id_activity")
+	private Activities activity;
 	@OneToMany(mappedBy = "plannings")
 	private List<Booking> bookings = new ArrayList<>();
 	
 	//Relation Planning witch Booking
 
 
-	public Planning(Long idPlanning, String namePlanning, String planningDay, LocalTime initTime, LocalTime finishTime, List<Street> idStreet, List<Booking> booking, List<Activities> activities) {
+	public Planning(Long idPlanning,  String planningDay, LocalTime initTime, LocalTime finishTime, List<Street> idStreet, List<Booking> booking) {
 		this.idPlanning = idPlanning;
-		this.namePlanning = namePlanning;
+
 		this.planningDay = planningDay;
 		this.initTime = initTime;
 		FinishTime = finishTime;
 		this.idStreet = idStreet;
 		this.booking = booking;
-		this.activities = activities;
+
 	}
 
 	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
@@ -85,31 +75,35 @@ public class Planning {
 	
 
 	//Relaation witch Activities Class	
-	@OneToMany(mappedBy = "planning")
-	private List<Activities> activities;
-	
-   
+
 	public Planning() {
 		
 	}
 
-	public Planning(Long idPlanning, String namePlanning, String planningDay, LocalTime initTime,
+	public Planning(Long idPlanning,  String planningDay, LocalTime initTime,
 			LocalTime finishTime) {
 		
 		this.idPlanning = idPlanning;
-		this.namePlanning = namePlanning;
+
 		this.planningDay = planningDay;
 		this.initTime = initTime;
 		this.FinishTime = finishTime;
 	}
-	
-  
 
-	public Planning(Long idPlanning, String namePlanning, String planningDay, LocalTime initTime,
-			LocalTime finishTime, List<Street> idStreet) {
+
+	public Activities getActivity() {
+		return activity;
+	}
+
+	public void setActivity(Activities activity) {
+		this.activity = activity;
+	}
+
+	public Planning(Long idPlanning, String planningDay, LocalTime initTime,
+					LocalTime finishTime, List<Street> idStreet) {
 		
 		this.idPlanning = idPlanning;
-		this.namePlanning = namePlanning;
+
 		this.planningDay = planningDay;
 		this.initTime = initTime;
 		FinishTime = finishTime;
@@ -118,39 +112,43 @@ public class Planning {
 	
 	
 
-	public Planning(String namePlanning, String planningDay, LocalTime initTime, LocalTime finishTime,
-			List<Street> idStreet, List<Booking> booking, List<Activities> activities) {
-		this.namePlanning = namePlanning;
+	public Planning( String planningDay, LocalTime initTime, LocalTime finishTime,
+			List<Street> idStreet, List<Booking> booking) {
+
 		this.planningDay = planningDay;
 		this.initTime = initTime;
 		FinishTime = finishTime;
 		this.idStreet = idStreet;
 		this.booking = booking;
-		this.activities = activities;
-	}
-	
-	
 
-	public Planning(Long idPlanning, String namePlanning, String planningDay, LocalTime initTime, LocalTime finishTime,
-			int ocupacion, List<Street> idStreet, List<Booking> booking, List<Activities> activities) {
+	}
+
+
+	public Planning(Long idPlanning, String planningDay, LocalTime initTime, LocalTime finishTime, int ocupacion, List<Street> idStreet, Activities activity, List<Booking> bookings, List<Booking> booking) {
 		this.idPlanning = idPlanning;
-		this.namePlanning = namePlanning;
+		this.planningDay = planningDay;
+		this.initTime = initTime;
+		FinishTime = finishTime;
+		this.ocupacion = ocupacion;
+		this.idStreet = idStreet;
+		this.activity = activity;
+		this.bookings = bookings;
+		this.booking = booking;
+	}
+
+	public Planning(Long idPlanning, String planningDay, LocalTime initTime, LocalTime finishTime,
+					int ocupacion, List<Street> idStreet, List<Booking> booking) {
+		this.idPlanning = idPlanning;
+
 		this.planningDay = planningDay;
 		this.initTime = initTime;
 		FinishTime = finishTime;
 		this.ocupacion = ocupacion;
 		this.idStreet = idStreet;
 		this.booking = booking;
-		this.activities = activities;
+
 	}
 
-	public String getNamePlanning() {
-		return namePlanning;
-	}
-
-	public void setNamePlanning(String namePlanning) {
-		this.namePlanning = namePlanning;
-	}
 
 	public String getPlanningDay() {
 		return planningDay;
@@ -196,13 +194,7 @@ public class Planning {
 		this.booking = booking;
 	}
 
-	public List<Activities> getActivities() {
-		return activities;
-	}
 
-	public void setActivities(List<Activities> activities) {
-		this.activities = activities;
-	}
 
 	public int getOcupacion() {
 		return ocupacion;
@@ -215,4 +207,13 @@ public class Planning {
 	public List<Booking> getBookings() {
 		return bookings;
 	}
+
+	public DayOfWeek getDayOfWeek(String date){
+
+		LocalDate day = LocalDate.parse(date);
+
+
+		return day.getDayOfWeek();
+	}
+
 }

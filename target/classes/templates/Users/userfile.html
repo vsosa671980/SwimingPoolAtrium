@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <link th:href="@{/styles/Main.css}" rel="stylesheet" />
+    <title>Insert title here</title>
+</head>
+<body>
+
+<div class="mainPage">
+    <header>
+
+        <nav th:replace="~{fragments::navHeader}"></nav>
+
+    </header>
+
+    <div th:each="user : ${users}">
+        <div>
+            <ul>
+                <li th:text="${user.name}"></li>
+                <li th:text="${user.surname}"></li>
+                <li th:text="${user.phone}"></li>
+                <li th:text="${user.DNI}"></li>
+                <li th:text="${user.birthdate}"></li>
+                <li th:text="${user.email}"></li>
+                <li th:text="${user.age}"></li>
+                <li th:text ="${user.img}"></li>
+                <li th:text ="${user.idusers}"></li>
+            </ul>
+
+        </div >
+
+
+
+
+        <div th:if="!${user.img}  ">
+            <img th:src= "'/images/users/'+${user.idusers}+'/' + ${user.img}"></img>
+
+        </div>
+
+        <div th:if="${user.img}">
+            <img src= /images/web/avatar.gif/></img>
+
+        </div>
+
+
+    </div>
+
+    <div>
+        <div>
+
+            <button class="buttonRequest" th:value="'/booking/list/' + ${users.idusers}">Reservas</button>
+            <button class="buttonRequest">Subscripciones</button>
+            <button class="buttonRequest"th:value="'/payments/list/' + ${users.idusers}">Pagos</button>
+
+        </div>
+
+    </div>
+
+    <div class="insertUserForm"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<script src="/javascript/main.js"></script>
+
+</body>
+</html>

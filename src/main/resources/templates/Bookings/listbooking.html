@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>List of Booking</title>
+<link th:href="@{/styles/Main.css}" rel="stylesheet" />
+</head>
+<body>
+
+<nav th:replace="~{fragments::navHeader}"></nav>
+
+
+
+<div class="MainListBooking" th:fragment="list">
+
+   <div>
+      <h1>Lista de Reservas</h1>
+   
+   </div>
+
+   <table>
+   
+      <thead>
+      
+         <tr>
+            <th>Usuario</th>
+            <th>Fecha</th>
+            <th>Dia</th>
+            <th>Actividad</th>
+            <th>Hora de Inicio</th>
+            <th>Hora de Fins</th>
+
+         </tr>     
+      
+      </thead>
+
+      <tbody>
+
+    <tr th:each="b: ${Bookings}">
+
+       <td th:text="${b.idusers.name}"></td>
+       <td th:text="${b.plannings.planningDay}"></td>
+       <td th:text="${b.plannings.getDayOfWeek(b.plannings.planningDay)}"></td>
+       <td th:text="${b.plannings.getActivity().getName()}"></td>
+       <td th:text="${b.plannings.initTime}"></td>
+       <td th:text="${b.plannings.finishTime}"></td>
+
+
+    </tr>
+
+      </tbody>
+
+   </table>
+
+
+
+</div>
+
+
+
+
+
+
+	  <script src="/javascript/main.js"></script>
+
+</body>
+</html>
