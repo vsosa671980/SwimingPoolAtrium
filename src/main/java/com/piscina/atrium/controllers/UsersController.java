@@ -42,9 +42,25 @@ public class UsersController {
 	@GetMapping("/listusers")
 	public String listUser(Model model, @RequestParam(name="value",required=false) String value, Pageable pageable) {
 
-        ArrayList<Subscription> sub =serviceSub.listall();
-
-		//For set the status of User (If has a bonos active)
+		String state ="SubscriptionON";
+		String stateOF ="SubscriptionOF";
+		ArrayList<Users> users = serveruser.listAllUsers();
+		
+		for (Users users2 : users) {
+			
+			for (Subscription sub : users2.getSubscription()) {
+				
+				if (sub.getState().contains(state)) {
+					users2.setStatus(state);
+					
+				}else {
+					users2.setStatus(stateOF);
+				}
+			}
+				
+			}
+		
+		
 
 		String userfilter = null;
 		if (value != null) {

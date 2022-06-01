@@ -10,12 +10,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Range;
 import org.springframework.stereotype.Component;
-
-import lombok.Data;
 
 @Component
 @Entity
@@ -308,13 +304,12 @@ public class Users {
 		this.age = ageNow - edad;
 	}
 
-	public ArrayList<Subscription> getSubscription() {
-		return (ArrayList<Subscription>) subscription;
+	public List<Subscription> getSubscription() {
+		return subscription;
 	}
 
-	public void setSubscription(ArrayList<Subscription> subscription) {
-		this.subscription = subscription;
-	}
+	
+	
 
 	//public void reviewbonus(Users userfound,Users usersave) {
 

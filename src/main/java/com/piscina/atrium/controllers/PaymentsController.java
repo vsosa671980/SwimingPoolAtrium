@@ -47,9 +47,9 @@ public class PaymentsController {
           sub.setInitDay(dateInit);
           sub.setFinishday(dayFinish);
           sub.setUser(user.foundUserByid(id));
-          sub.CheckStatusBonos();
-
-        serviceSub.saveSubscription(sub);
+          sub.setState(sub.CheckStatusBonos());
+         System.out.println(sub.getState());
+         serviceSub.saveSubscription(sub);
 
     return "/Congratulations/payCorrect";
 

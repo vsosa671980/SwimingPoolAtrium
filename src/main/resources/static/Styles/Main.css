@@ -6,8 +6,8 @@ font-family: 'Roboto', sans-serif;
 font-family: 'Source Sans Pro', sans-serif;
 justify-content: space-around;
 	align-items: center;
-	
-	
+
+
 }
 
 .container{
@@ -21,15 +21,6 @@ justify-content: space-around;
 
 }
 
-.form{
-	flex-direction: column;
-	width: 100%;
-}
-
-.form input{
-	width: 95% ;
-	height: 40px;
-}
 
 .container-left{
 	display: flex;
@@ -63,21 +54,21 @@ table{
     padding: 20px;
     text-align:center;
   }
-  
-  
+
+
     tbody tr:nth-child(2n-1) {
     background-color: #F2F2F2;
   }
-  
+
   tbody tr:nth-child(2n) {
     background-color: #FFFFFF;
   }
-  
+
 
 .rowUser :hover{
-	
+
 	background-color: blue;
-	cursor:pointer;	
+	cursor:pointer;
 }
 
 
@@ -100,15 +91,15 @@ table{
 }
 
 #modalinsert::backdrop{
-	
+
 	background-color :rgba(0,0,0,.55)
 }
 
 #modalinsert{
-	
+
     width: 600px;
 
-	
+
 }
 
 .buttonsForms{
@@ -154,4 +145,15 @@ ul{
 li{
 	border:2px solid black;
 	display:inline;
+}
+
+
+.mainFormContainer{
+	display: grid;
+	grid-template-columns: repeat(8,1fr);
+}
+
+.mainFormContainer form{
+	grid-column: 2/4;
+	display: grid;
 }

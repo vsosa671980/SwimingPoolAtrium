@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>List of Booking</title>
+    <link th:href="@{/styles/Main.css}" rel="stylesheet" />
+</head>
+<body>
+
+
+
+<div class="MainSubscriptions" th:fragment="list">
+
+    <div>
+        <h1>Subscripciones</h1>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+        <tr>
+            <th>Fecha de Inicio</th>
+            <th>Fecha de Fin</th>
+            <th>Estado</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr th:each="s : ${subscription}">
+
+            <td th:text="${s.initDay}"></td>
+            <td th:text="${s.finishday}"></td>
+            <td th:text="${s.state}"></td>
+
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+
+
+</div>
+
+
+
+
+
+
+<script src="/javascript/main.js"></script>
+
+</body>
+</html>

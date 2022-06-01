@@ -50,7 +50,7 @@
         <div>
 
             <button class="buttonRequest" th:value="'/booking/list/' + ${users.idusers}">Reservas</button>
-            <button class="buttonRequest">Subscripciones</button>
+            <button class="buttonRequest" th:value="'/subscription/list/' + ${users.idusers}">Subscripciones</button>
             <button class="buttonRequest"th:value="'/payments/list/' + ${users.idusers}">Pagos</button>
 
         </div>
@@ -58,17 +58,6 @@
     </div>
 
     <div class="insertUserForm"></div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 </div>

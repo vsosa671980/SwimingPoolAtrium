@@ -9,7 +9,7 @@ public interface Isubscription {
     public void saveSubscription(Subscription sub);
 
 
-
+    public ArrayList<Subscription> listSubscriptionsUser(Long id);
     public ArrayList<Subscription> listall();
 
     public void deleteSubscriprion (Subscription sub);

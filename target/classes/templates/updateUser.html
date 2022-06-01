@@ -13,13 +13,14 @@
 </head>
 <body>
 
-	<h1>Modificacion de Usuarios de la Piscina</h1>
+
+ <div>
 
 	<nav th:replace="~{fragments::navHeader}"></nav>
 
 	<!-- Creamos el formulario de ingreso o modificacion de nuevo usuario -->
 
-
+   <section class="mainFormContainer">
 	<form th:action="@{/users/saveUser}" method="post"
 		enctype="multipart/form-data" th:object="${empleadoForm}" class="form">
 
@@ -39,16 +40,16 @@
 			
 			
 			<label for="surname">Surname :</label> <input
-			type="text" name="surname" th:field="*{surname}" /> <span
+			type="text" name="surname" th:field="*{surname}" id="surname"/> <span
 			th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Error
 			de Nombre</span> <br> <label for="phone">Phone :</label> <input
-			type="text" name="phone" th:field="*{phone}" /> <span
+			type="text" name="phone" th:field="*{phone}" id="phone"/> <span
 			th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Error
 			de Nombre</span> <br> <label for="birthdate">birthdate :</label> <input
-			type="text" name="birthdate" th:field="*{birthdate}" /> <span
+			type="text" name="birthdate" th:field="*{birthdate}" id="birthdate" /> <span
 			th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}">Error
 			de Nombre</span> <br> <label for="address">email:</label> <input
-			type="email" name="email" th:field="*{email}" /> <span
+			type="email" name="email" th:field="*{email}" id="address"/> <span
 			th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error
 			de Nombre</span> <br> <br>
 		<!-- Input for update photo -->
@@ -63,16 +64,10 @@
 
 		</div>
 
-
-
-
-
-
 	</form>
+   </section>
 
-
-
-
+ </div>
 
 
 

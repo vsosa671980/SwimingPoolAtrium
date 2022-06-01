@@ -88,12 +88,16 @@ public class Subscription {
         this.state = state;
     }
 
-    public void CheckStatusBonos(){
+    public String CheckStatusBonos(){
 
         LocalDate date = LocalDate.now();
 
         if(this.finishday.isAfter(date)){
-            this.state = "SubscriptionON";
-        }else this.state = "SubscriptionOF";
+            state =  "SubscriptionON";
+        }else
+            state = "SubscriptionOF";
+
+        return state;
     }
+
 }

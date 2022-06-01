@@ -20,6 +20,11 @@ public class SubscriptionService implements Isubscription {
     }
 
     @Override
+    public ArrayList<Subscription> listSubscriptionsUser(Long id) {
+        return dao.listSubscriptionsByUser(id);
+    }
+
+    @Override
     public ArrayList<Subscription> listall() {
         return (ArrayList<Subscription>) dao.findAll();
     }
