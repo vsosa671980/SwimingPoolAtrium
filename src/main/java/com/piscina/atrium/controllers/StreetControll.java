@@ -16,10 +16,6 @@ public class StreetControll {
 	@Autowired
     private StreetService dao;
 
-
-
-
-	
 	@GetMapping("/insert")
     public String formCreateStreet(Model model,Street street) {
     	

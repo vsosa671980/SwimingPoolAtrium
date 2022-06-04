@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/styles/Main.css}" rel="stylesheet" />
+</head>
+<body>
+
+
+
+	<div id="insercion"></div>
+
+
+	<header th:replace="~{fragments::navHeader}" ></header>
+
+
+	<div class="container mainHedaderUser">
+
+		<p th:type="hidden" th:text="${error}" id="error"></p>
+
+		<div class="container nav">
+
+
+			<div>
+				 <form th:action="@{/users/insert}">
+			   
+			      <input type="Submit" value="Crear Usuario">
+
+				 </form>
+			</div>
+
+			<div id="modalformdialog"></div>
+
+			<div class="container">
+
+				<label for="actives">Usuarios activos</label>
+				<input type="checkbox"
+					name="actives" id="actives">
+
+			</div>
+
+			<div class="container">
+
+				<label for="nonactives">Usuarios de baja
+					<input
+					type="checkbox" name="nonactives" id="nonactives">
+
+				</label>
+			</div>
+		</div>
+
+
+
+		<form th:action="@{/users/listusers}">
+
+			<input type="search" placeholder="Introzca la id/user/busqueda"
+				name="value">
+
+			<button type="submit" class="btn btn-green">Busqueda</button>
+
+		</form>
+	</div>
+
+	<div class="container-left" th:fragment="listusers">
+
+
+		<div id="table">
+			<table class="table">
+
+				<thead>
+
+				<tr class="blue">
+
+					<th>Name</th>
+					<th>Surname</th>
+					<th>DNI</th>
+					<th>Phone</th>
+					<th>birthdate</th>
+					<th>Email</th>
+					<th>Status</th>
+
+					<th>AgeUser</th>
+
+				</tr>
+				</thead>
+
+				<tbody>
+
+				<tr class="table rowUser " th:each="user : ${userslist}">
+					<td class="td" th:text="${user.name}">Name</td>
+					<td th:text="${user.surname}">Surname</td>
+					<td th:text="${user.DNI}">Surname</td>
+					<td th:text="${user.Phone}">Phone</td>
+					<td th:text="${user.birthdate}">age</td>
+					<td th:text="${user.email}">Email</td>
+					<td th:text="${user.status}">status</td>
+					<td th:text="${user.age}">status</td>
+					<td><a th:href="@{/users/userFile/} + ${user.idusers}">Ficha</a></td>
+
+					<td><a th:href="@{/users/updateUser/} + ${user.idusers} "
+						   th:text="Update"></a></td>
+					<td><a th:href="@{/users/deleteUser/} + ${user.idusers} "
+						   th:text="Delete"></a></td>
+
+					<td >
+					<span th:if="${user.status == 'SubscriptionON'}"><a th:href="@{/planning/list/} + ${user.idusers}"
+																		th:text="Reservar">
+					</a>
+					</span>
+						<span th:if="${user.status != 'SubscriptionON'}"><p th:text="noSubscripcion"></p></span>
+					</td>
+					<td><a th:href="@{/bono/buy/} + ${user.idusers} ">Comprar</a></td>
+
+				</tr>
+
+				</tbody>
+
+			</table>
+			<!-- Creamos la paginacion si el numero de paginas es superior a 0-->
+			<div th:if="${userslist.totalPages != 1}">
+				<table>
+
+					<ul>
+						<li ><a th:href="@{/users/listusers/(page=1)}"></a>&laquo</li>
+						<li th:each="page : ${#numbers.sequence(1,userslist.totalPages)}">
+							<a th:href="@{/users/listusers/(page=${page})}" th:text="${page}"> </a>
+						</li>
+						<li th:if="${userslist.number != (userslist.totalPages - 1)} ? disabled"><a th:href="@{/users/listusers/(page =${userslist.totalPages})}"></a>&raquo</li>
+
+					</ul>
+			</div>
+
+			</table>
+
+		</div>
+
+	</div>
+
+
+	<script src="/javascript/main.js"></script>
+	
+
+</body>
+</html>

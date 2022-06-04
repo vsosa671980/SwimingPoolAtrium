@@ -157,3 +157,8 @@ li{
 	grid-column: 2/4;
 	display: grid;
 }
+
+.form{
+	display: grid;
+	gap: 20px;
+}

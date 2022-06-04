@@ -38,9 +38,14 @@ if (buttonModal) {
 	})
 
 }
+const error = document.getElementById("error");
+if (error){
+
+}
 
 //Do a request to server for import modal form
 function modalform(url){
+
 	
 	 fetch(url)
 	.then(response => response.text())
@@ -62,11 +67,34 @@ const modal = document.getElementById("modalinsert");
 function createModal(){
 	const modal = document.getElementById("modalinsert");
 	console.log(modal)
+
+	const formEventDEfault = document.querySelector(".eventDefault");
+	console.log(formEventDEfault);
+
+
 	const closeModal = document.getElementById("btnCerrar");
 	closeModal.addEventListener("click",()=> modal.close())
 	modal.showModal();
-	
+
+	formEventDEfault.addEventListener("submit",event => validateStreet(event));
+
 }
+
+function validateStreet(event) {
+
+	const inputStreet = document.getElementById("idStreet");
+	console.log(inputStreet)
+	if (inputStreet.validity.typeMismatch) {
+		alert("NO has introducido nada guarro")
+		event.preventDefault()
+	} else {
+		alert("Muy bien")
+
+	}
+}
+
+
+
 if (modalSubscriptionInsert) {
 	modalSubscriptionInsert.addEventListener("click", event => modalform(event.target.value))
 }
@@ -124,14 +152,15 @@ if (buttonRequest ){
 
 }
 
-function insertTable(url){
+function insertTable(url) {
 
 	fetch(url)
 		.then(response => response.text())
-		.then(data=> insertUserForm.innerHTML = data)
+		.then(data => insertUserForm.innerHTML = data)
 
 }
 
+	//Capture the form of modal
 
 
 

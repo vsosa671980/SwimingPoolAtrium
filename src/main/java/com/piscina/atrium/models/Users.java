@@ -21,7 +21,7 @@ public class Users {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idusers;
 
-	@NotBlank(message = "El nombre no puede estar vacio cenutrio")
+	@NotBlank(message ="Debes de indicar un nombre")
 	private String name;
 
 	@NotBlank(message = "Tienes que indicar un apellido")

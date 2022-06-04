@@ -9,15 +9,16 @@
 <div th:fragment="modalStreet">
     <dialog id= "modalinsert">
 
-        <div><button id = "btnCerrar" class="btn btn-danger">Close</button></div>
+        <div>
+            <button id = "btnCerrar" class="btn btn-danger">Close</button>
+        </div>
 
-
-    <form th:action="@{/street/save}" th:Object="${streetForm}" method="post">
-     <input type="hidden" th:field="*{idStreet}">
+    <form th:action="@{/street/save}" th:Object="${streetForm}" method="post" class="form eventDefault">
+        <div>
+     <input type="hidden" th:field="*{idStreet}" id="idStreet">
     <label for="street">Nombre de la calle :</label>
     <input type="text" th:field="*{nameStreet}" id="street">
-
-
+        </div>
 
         <div class="buttonsForms">
             <input type="Submit" class="btn btn-primary">

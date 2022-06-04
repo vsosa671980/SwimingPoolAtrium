@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="ISO-8859-1">
   <link th:href="@{/styles/Main.css}" rel="stylesheet" />
@@ -11,6 +12,9 @@
 <header>
 
   <nav th:replace="~{fragments::navHeader}"></nav>
+
+  <p>Ususario:<span sec:authentication="name"></span></p>
+  <p>Roles:<span sec:authentication="principal.authorities"></span></p>
 
 </header>
 

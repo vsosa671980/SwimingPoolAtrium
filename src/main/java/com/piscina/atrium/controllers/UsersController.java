@@ -1,7 +1,6 @@
 package com.piscina.atrium.controllers;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.validation.Valid;
 
@@ -17,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.piscina.atrium.dao.services.UserService;
 import com.piscina.atrium.dao.services.bonosService;
-import com.piscina.atrium.models.Bonos;
 import com.piscina.atrium.models.Users;
 import com.piscina.atrium.resources.AdminFiles;
 
@@ -39,7 +37,7 @@ public class UsersController {
 	private SubscriptionService serviceSub;
 
 	// For list all Users
-	@GetMapping("/listusers")
+	@GetMapping("/list")
 	public String listUser(Model model, @RequestParam(name="value",required=false) String value, Pageable pageable) {
 
 		String state ="SubscriptionON";
@@ -61,7 +59,6 @@ public class UsersController {
 			}
 		
 		
-
 		String userfilter = null;
 		if (value != null) {
 			
@@ -75,29 +72,31 @@ public class UsersController {
 		
 		}
 
-		return "listusers";
+		return "/Users/listusers";
 	}
 	// For go to page form create user
-	@GetMapping("/insertUser")
+	@GetMapping("/insert")
 	public String insertUser(Users user, Model model) {
 
 		model.addAttribute("empleadoForm", new Users());
 
-		return "updateUser";
+		return "/Users/updateUser";
 
 	}
 
 	// For save news users
-	@PostMapping("/saveUser")
+	@PostMapping("/save")
 	public String createUser(@Valid @ModelAttribute("empleadoForm") Users user, Errors error,
-			@RequestParam("file") MultipartFile multipart) {
+			@RequestParam("file") MultipartFile multipart,Model model) {
 
 		
 		if (error.hasErrors()) {
+
+			model.addAttribute("error",error);
 			
 			System.out.println(error);
 
-			return "updateUser";
+			return "redirect:/users/list";
 
 		} else {
 		
@@ -107,12 +106,6 @@ public class UsersController {
 			user.setAge();
 			// Guardamos el archivo
 			//files.saveFile(multipart);
-			// Set the status of user about Bonus has
-			
-			Long identificacion = user.getIdusers();
-			
-			System.out.println(identificacion);
-
 
             if(user.getImg() == null ){
 				user.setImg("avatar.gif");
@@ -124,7 +117,7 @@ public class UsersController {
 			
 			files.saveFile(multipart,id);
 
-			return "redirect:/users/listusers";
+			return "redirect:/users/list";
 		}
 		
 	}
@@ -150,7 +143,7 @@ public class UsersController {
 //	    files.deleteFile(fichero);
 //	    
 		serveruser.deleteUser(id);
-		return "redirect:/users/listusers";
+		return "redirect:/users/list";
 
 	}
 	
