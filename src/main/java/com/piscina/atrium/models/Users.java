@@ -13,8 +13,13 @@ import javax.validation.constraints.NotEmpty;
 
 import org.springframework.stereotype.Component;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 @Component
 @Entity
+@Data
+@AllArgsConstructor
 public class Users {
 
 	@Id
@@ -62,6 +67,10 @@ public class Users {
 
 	@OneToMany(mappedBy = "user")
 	private List<Subscription> subscription = new ArrayList<>();
+	
+	
+	@OneToMany(mappedBy = "iduser")
+    private List<Roles> rols = new ArrayList<>();
 
 	public Users(String name, String surname, String phone, String DNI, String birthdate, String email, String status, String password, String img, int age, List<Booking> bookings, List<Payments> payment, List<Bonos> bonos, ArrayList<Subscription> subscription) {
 		this.name = name;

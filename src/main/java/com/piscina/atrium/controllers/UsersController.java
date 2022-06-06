@@ -2,6 +2,7 @@ package com.piscina.atrium.controllers;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import com.piscina.atrium.dao.services.SubscriptionService;
@@ -38,12 +39,12 @@ public class UsersController {
 
 	// For list all Users
 	@GetMapping("/list")
-	public String listUser(Model model, @RequestParam(name="value",required=false) String value, Pageable pageable) {
+	public String listUser(Model model, @RequestParam(name="value",required=false) String value, Pageable pageable,HttpSession session) {
 
 		String state ="SubscriptionON";
 		String stateOF ="SubscriptionOF";
 		ArrayList<Users> users = serveruser.listAllUsers();
-		
+		session.getLastAccessedTime();
 		for (Users users2 : users) {
 			
 			for (Subscription sub : users2.getSubscription()) {

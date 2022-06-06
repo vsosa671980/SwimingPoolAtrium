@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Quicksand:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Quicksand:wght@600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: green url("/images/web/brian-matangelo-rAn25CLlyLE-unsplash.jpg") no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Dosis', sans-serif;
+
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+.mainDivLogin{
+    background-color:#FFFFFF;
+    opacity: 0.7;
+
+    border-radius: 6px;
+}
+
+.containerFomLogin {
+    block-size: border-box;
+
+
+
+}
+
+.containerFomLogin form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    gap: 20px;
+    border: none;
+
+}
+
+form input{
+
+    width: 100%;
+    border-radius: 4px;
+    height:30px;
+    background-color: #E8F0FE;
+    border: none;
+    width: 100vh;
+
+}
+
+.submit{
+    padding: 20px;
+    background-color: #AED6F1;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 20px;
+}
+.imglogo {
+
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    overflow: auto;
+    background-color: #AED6F1;
+    width: 200px;
+
+}
+
+

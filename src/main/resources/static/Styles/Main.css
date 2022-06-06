@@ -18,7 +18,6 @@ justify-content: space-around;
 	justify-items: center;
 	margin: 20px;
 
-
 }
 
 
@@ -38,9 +37,6 @@ nav{
 	padding: 20px;
 
 }
-
-
-
 
 
 table{
@@ -161,4 +157,24 @@ li{
 .form{
 	display: grid;
 	gap: 20px;
+}
+
+.formLogin{
+	
+	width:600px;
+	border: 2px solid black;
+	display: flex;
+	flex-direction: column;
+
+	
+}
+
+
+.mainDivLogin{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: red;
+	width: 90%;
+
 }
