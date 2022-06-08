@@ -1,12 +1,10 @@
 package com.piscina.atrium.dao.services;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.piscina.atrium.dao.UsersDao;
@@ -16,21 +14,21 @@ import com.piscina.atrium.models.Users;
 public class UserService implements UsersServices {
 
 	@Autowired
-	private UsersDao userdao;
+	private UsersDao dao;
 	
 
     //For list All Users
 	@Override
 	public ArrayList<Users> listAllUsers() {
 
-		return (ArrayList<Users>) userdao.findAll();
+		return (ArrayList<Users>) dao.findAll();
 	}
    
 	
 	//For Save Users
 	@Override
 	public Users insertUser(Users user) {
-		userdao.save(user);
+		dao.save(user);
 		return null;
 	}
     
@@ -48,7 +46,7 @@ public class UserService implements UsersServices {
 	@Override
 	public Users foundUserByid(Long id) {
 
-		return userdao.findById(id).orElse(null);
+		return dao.findById(id).orElse(null);
 
 	}
     
@@ -57,7 +55,7 @@ public class UserService implements UsersServices {
 	@Override
 	public void deleteUser(Long id) {
 
-		userdao.deleteById(id);
+		dao.deleteById(id);
 		
 
 	}
@@ -68,30 +66,28 @@ public class UserService implements UsersServices {
 		return null;
 	}
 
-
-
 	@Override
-	public ArrayList<Users> foundByName(String name) {
-		
-		return userdao.searchByname(name);
+	public Page<Users> foundByName(String name, Pageable pageable) {
+		return dao.searchByname(name,pageable);
 	}
+
 
 	@Override
 	public Page<Users> findAllPaginates(Pageable pageable) {
-		return userdao.findAll(pageable);
+		return dao.findAll(pageable);
 	}
 
 	@Override
 	public ArrayList<Users> foundByStatus(String status) {
 		// TODO Auto-generated method stub
-		return userdao.status(status);
+		return dao.status(status);
 	}
     
 	@Override
 	public Users update(Users user,Long id) {
-	   if (userdao.existsById(id)) {
+	   if (dao.existsById(id)) {
 		   user.setIdusers(id);
-		 return  userdao.save(user);
+		 return  dao.save(user);
 		
 	} else {
 		return null;

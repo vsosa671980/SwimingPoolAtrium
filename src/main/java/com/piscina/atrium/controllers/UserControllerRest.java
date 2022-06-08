@@ -31,13 +31,7 @@ public class UserControllerRest {
 	    	return serveruser.listAllUsers();
 	    	
 	 }
-	 
-	 @GetMapping("/prueba/{name}")
-		public ArrayList<Users> Byname(@PathVariable String name) {
 
-			return serveruser.foundByName(name);
-
-		}
 	 
 	 @Autowired
 	    private PlanningService service;

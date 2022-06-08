@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -13,6 +13,10 @@
 
 
 	<header th:replace="~{fragments::navHeader}" ></header>
+
+
+	<p>Ususario:<span sec:authentication="name"></span></p>
+	<p>Roles:<span sec:authentication="principal.authorities"></span></p>
 
 
 	<div class="container mainHedaderUser">
@@ -52,9 +56,9 @@
 
 
 
-		<form th:action="@{/users/listusers}">
+		<form th:action="@{/users/list}">
 
-			<input type="search" placeholder="Introzca la id/user/busqueda"
+			<input type="search" placeholder="Introzca nombre o DNI"
 				name="value">
 
 			<button type="submit" class="btn btn-green">Busqueda</button>
@@ -87,7 +91,7 @@
 
 				<tbody>
 
-				<tr class="table rowUser " th:each="user : ${userslist}">
+				<tr class="table rowUser " th:each="user : ${pageable}">
 					<td class="td" th:text="${user.name}">Name</td>
 					<td th:text="${user.surname}">Surname</td>
 					<td th:text="${user.DNI}">Surname</td>
@@ -117,21 +121,21 @@
 				</tbody>
 
 			</table>
-			<!-- Creamos la paginacion si el numero de paginas es superior a 0-->
-			<div th:if="${userslist.totalPages != 1}">
+			<!-- Create the table for pagination-->
+			<div th:if="${pageable.totalPages != 1}">
 				<table>
-
 					<ul>
-						<li ><a th:href="@{/users/listusers/(page=1)}"></a>&laquo</li>
-						<li th:each="page : ${#numbers.sequence(1,userslist.totalPages)}">
-							<a th:href="@{/users/listusers/(page=${page})}" th:text="${page}"> </a>
+						<li ><a th:href="@{/users/list/(page=1)}"></a>&laquo</li>
+						<li th:each="page : ${#numbers.sequence(1,pageable.totalPages)}">
+							<a th:href="@{/users/list/(page=${page})}" th:text="${page}"> </a>
 						</li>
-						<li th:if="${userslist.number != (userslist.totalPages - 1)} ? disabled"><a th:href="@{/users/listusers/(page =${userslist.totalPages})}"></a>&raquo</li>
-
+						<li th:if="${pageable.number != (pageable.totalPages - 1)} ? disabled">
+							<a th:href="@{/users/list/(page =${pageable.totalPages})}"></a>&raquo</li>
 					</ul>
+				</table>
 			</div>
 
-			</table>
+
 
 		</div>
 

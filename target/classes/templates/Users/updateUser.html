@@ -22,24 +22,25 @@
 
 		<p th:type="hidden" th:text="${error}"></p>
 
-		<div >
+		<div class="mainFormContainer">
 
-		<form th:action="@{/users/save}"  method="post" th:object = "${empleadoForm}" enctype="multipart/form-data" id="form" class="form">
+		<form th:action="@{/users/save}"  method="post" th:object = "${empleadoForm}" enctype="multipart/form-data" id="form" class="form formInsert">
 
 			<input type="hidden" name="idusers" th:field="*{idusers}">
 
 
 				<label for ="name" >Nombre</label>
-				<input type="text" th:field="*{name}" id="name" class="form-control" th:classappend="${#fields.hasErrors('name')}? 'has-error'">
-
+				<input required type="text" th:field="*{name}" id="name" class="form-control" th:classappend="${#fields.hasErrors('name')}? 'has-error' ">
+			    <span></span>
 				<label for ="surname" >Apellido</label>
-				<input type="text" th:field="*{surname}" id="surname" class="form-control">
+				<input required type="text" th:field="*{surname}" id="surname" class="form-control">
 
 				<label for ="DNI" >DNI</label>
 				<input type="text" th:field="*{DNI}" id="DNI" class="form-control">
 
 				<label for ="birthday" >birthday</label>
-				<input type="text" th:field="*{birthdate}" id="birthday" class="form-control">
+				<input required pattern="\d{4}\d{2}\d{2}"  type="text" th:field="*{birthdate}" id="birthday" class="form-control">
+			    <span></span>
 
 				<label for ="email" >email</label>
 				<input type="text" th:field="*{email}" id="email" class="form-control">
@@ -57,6 +58,9 @@
 			<div class="buttonsForms">
 				<input type="Submit" class="btn btn-primary" id="buttonSubmit">
 
+			</div>
+
+			<div style="width: 5%">
 
 			</div>
 		</form>

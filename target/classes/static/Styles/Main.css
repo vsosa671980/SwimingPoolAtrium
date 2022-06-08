@@ -147,15 +147,19 @@ li{
 .mainFormContainer{
 	display: grid;
 	grid-template-columns: repeat(8,1fr);
+	grid-template-rows : 1fr 0.3fr;
+
 }
 
 .mainFormContainer form{
-	grid-column: 2/4;
+	grid-column: 2/7;
+	grid-row: 1/2;
 	display: grid;
 }
 
 .form{
 	display: grid;
+	grid-row: 1/12;
 	gap: 20px;
 }
 
@@ -165,10 +169,7 @@ li{
 	border: 2px solid black;
 	display: flex;
 	flex-direction: column;
-
-	
 }
-
 
 .mainDivLogin{
 	display: flex;
@@ -177,4 +178,17 @@ li{
 	background-color: red;
 	width: 90%;
 
+}
+
+span::after {
+	padding-left: 5px;
+}
+
+input:invalid + span::after {
+	content: "✖";
+}
+
+input:valid  {
+	content: "✓";
+	background-color: green;
 }

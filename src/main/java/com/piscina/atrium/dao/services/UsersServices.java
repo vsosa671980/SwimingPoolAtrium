@@ -24,14 +24,15 @@ public interface UsersServices {
 	public Users updateUsers(Users user);
 	
 	public ArrayList<Users> foundActivos();
-	
-	public ArrayList<Users> foundByName(String name);
+
+	Page<Users> foundByName(String name, Pageable pageable);
 
 	public Page<Users> findAllPaginates(Pageable pageable);
 	
 	public ArrayList<Users> foundByStatus(String status);
 	
 	public Users update (Users user,Long id);
+
 	
 
 	

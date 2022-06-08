@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -22,19 +23,20 @@ import lombok.Data;
 @AllArgsConstructor
 public class Users {
 
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idusers;
 
 	@NotBlank(message ="Debes de indicar un nombre")
-	private String name;
+	private String username;
 
 	@NotBlank(message = "Tienes que indicar un apellido")
 	private String surname;
 
 	@NotBlank
 	private String phone;
-    
 
 	@NotBlank
 	private String DNI;
@@ -44,7 +46,6 @@ public class Users {
 	@Email
 	@NotEmpty
 	private String email;
-
 
 	private String status;
    
@@ -66,14 +67,31 @@ public class Users {
 	private List<Bonos> bonos = new ArrayList<>();
 
 	@OneToMany(mappedBy = "user")
+	private List<Roles> roles = new ArrayList<>();
+
+	@OneToMany(mappedBy = "user")
 	private List<Subscription> subscription = new ArrayList<>();
-	
-	
-	@OneToMany(mappedBy = "iduser")
-    private List<Roles> rols = new ArrayList<>();
+
+	public Users(String username, String surname, String phone, String DNI, String birthdate, String email, String status, String password, String img, int age, List<Booking> bookings, List<Payments> payment, List<Bonos> bonos, List<Subscription> subscription, List<Roles> roles) {
+		this.username = username;
+		this.surname = surname;
+		this.phone = phone;
+		this.DNI = DNI;
+		this.birthdate = birthdate;
+		this.email = email;
+		this.status = status;
+		this.password = password;
+		this.img = img;
+		this.age = age;
+		this.bookings = bookings;
+		this.payment = payment;
+		this.bonos = bonos;
+		this.subscription = subscription;
+		this.roles = roles;
+	}
 
 	public Users(String name, String surname, String phone, String DNI, String birthdate, String email, String status, String password, String img, int age, List<Booking> bookings, List<Payments> payment, List<Bonos> bonos, ArrayList<Subscription> subscription) {
-		this.name = name;
+		this.username = name;
 		this.surname = surname;
 		this.phone = phone;
 		this.DNI = DNI;
@@ -95,7 +113,7 @@ public class Users {
 	}
 
 	public Users(String name, String surname, String phone, String DNI, String birthdate, String email, String img, int age) {
-		this.name = name;
+		this.username = name;
 		this.surname = surname;
 		this.phone = phone;
 		this.DNI = DNI;
@@ -109,7 +127,7 @@ public class Users {
 				 @NotBlank(message = "Tienes que indicar un apellido") String surname, @NotBlank String phone,
 				 @NotBlank String dNI, String birthdate, @Email @NotEmpty String email, @NotBlank String status,
 				 String password, String img, int age, List<Booking> bookings) {
-		this.name = name;
+		this.username = name;
 		this.surname = surname;
 		this.phone = phone;
 		DNI = dNI;
@@ -123,6 +141,9 @@ public class Users {
 	
 	}
 
+
+
+
 	public List<Booking> getBookings() {
 		return bookings;
 	}
@@ -130,8 +151,6 @@ public class Users {
 	public void setBookings(List<Booking> bookings) {
 		this.bookings = bookings;
 	}
-
-	
 
 	
 
@@ -143,7 +162,7 @@ public class Users {
 			@NotBlank(message = "Tienes que indicar un apellido") String surname, @NotBlank String phone,
 			String birthdate, @Email @NotEmpty String email, @NotBlank String status, String password, String img, String DNI	) {
 		this.idusers = idusers;
-		this.name = name;
+		this.username = name;
 		this.surname = surname;
 		this.phone = phone;
 		this.birthdate = birthdate;
@@ -160,7 +179,7 @@ public class Users {
 			String birthdate, @Email @NotEmpty String email, @NotBlank String status, String password, String img,
 			int age) {
 		this.idusers = idusers;
-		this.name = name;
+		this.username = name;
 		this.surname = surname;
 		this.phone = phone;
 		this.birthdate = birthdate;
@@ -174,7 +193,7 @@ public class Users {
 
 	public Users(long idusers, String name, String surname, String phone, String DNI, String birthdate, String email, String status, String password, String img, int age, List<Booking> bookings, List<Payments> payment, List<Bonos> bonos) {
 		this.idusers = idusers;
-		this.name = name;
+		this.username = name;
 		this.surname = surname;
 		this.phone = phone;
 		this.DNI = DNI;
@@ -205,11 +224,11 @@ public class Users {
 	}
 
 	public String getName() {
-		return name;
+		return username;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.username = name;
 	}
 
 	public String getSurname() {
@@ -317,8 +336,22 @@ public class Users {
 		return subscription;
 	}
 
+	public List<Roles> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Roles> roles) {
+		this.roles = roles;
+	}
+
 	
-	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 	//public void reviewbonus(Users userfound,Users usersave) {
 

@@ -6,9 +6,11 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import com.piscina.atrium.dao.services.SubscriptionService;
+import com.piscina.atrium.models.Roles;
 import com.piscina.atrium.models.Subscription;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -19,6 +21,7 @@ import com.piscina.atrium.dao.services.UserService;
 import com.piscina.atrium.dao.services.bonosService;
 import com.piscina.atrium.models.Users;
 import com.piscina.atrium.resources.AdminFiles;
+import com.piscina.atrium.resources.EncrypPassword;
 
 
 
@@ -39,12 +42,12 @@ public class UsersController {
 
 	// For list all Users
 	@GetMapping("/list")
-	public String listUser(Model model, @RequestParam(name="value",required=false) String value, Pageable pageable,HttpSession session) {
+	public String listUser(Model model, @RequestParam(name="value",required=false) String value, Pageable pageable) {
 
 		String state ="SubscriptionON";
 		String stateOF ="SubscriptionOF";
 		ArrayList<Users> users = serveruser.listAllUsers();
-		session.getLastAccessedTime();
+
 		for (Users users2 : users) {
 			
 			for (Subscription sub : users2.getSubscription()) {
@@ -58,18 +61,17 @@ public class UsersController {
 			}
 				
 			}
-		
-		
+
 		String userfilter = null;
 		if (value != null) {
 			
 			userfilter = "ok";
 			model.addAttribute("filter", userfilter);
-			model.addAttribute("userslist", serveruser.foundByName(value));
+			model.addAttribute("pageable", serveruser.foundByName(value,pageable));
 			
 		}else {
 		model.addAttribute("filter", userfilter);
-		model.addAttribute("userslist", serveruser.findAllPaginates(pageable));
+		model.addAttribute("pageable", serveruser.findAllPaginates(pageable));
 		
 		}
 
@@ -111,6 +113,25 @@ public class UsersController {
             if(user.getImg() == null ){
 				user.setImg("avatar.gif");
 			}
+            //Create the password
+            
+            String password = "1234";
+            
+            //Encript password
+
+			Roles admin = new Roles("Admin");
+			Roles dba = new Roles("DBA");
+
+
+
+			user.getRoles().add(admin);
+			user.getRoles().add(dba);
+
+
+            
+            user.setPassword(EncrypPassword.passwordEncoder(password));
+            
+
 		    //save the User
 			serveruser.insertUser(user);
 			
@@ -131,7 +152,7 @@ public class UsersController {
 
 		model.addAttribute("empleadoForm", serveruser.foundUserByid(idusers));
 
-		return "updateUser";	
+		return "/Users/updateUser";
 	}
 	
 	// For delete Users
@@ -155,20 +176,6 @@ public class UsersController {
 	}
 	
 	
-	//For find byId;
-	@GetMapping("/busqueda")
-	public String busquedaporid(Model modelo,@RequestParam(name="value" ,required=false) String value) {
-		
-		System.out.println(value);
-		
-		modelo.addAttribute("user",serveruser.foundByName(value));
-				
-		return"busqueda";
-		
-	}
-	
-
-	
 
 	// For found users actives
 
@@ -179,15 +186,8 @@ public class UsersController {
 		return serveruser.foundActivos();
 	}
 
-	// For find by name
 
-	@GetMapping("/user/name/{name}")
-	@ResponseBody
-	public ArrayList<Users> Byname(@PathVariable String name) {
 
-		return serveruser.foundByName(name);
-
-	}
 
 	@GetMapping("/user/status/{status}")
 	public ArrayList<Users> ByStatus(@PathVariable String status) {

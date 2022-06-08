@@ -19,6 +19,8 @@
 
 
 	<nav class="container" >
+
+		<div>
       
 		<li><a th:href="@{/}">Home</a></li>
 
@@ -29,13 +31,21 @@
 
 		<li><a  th:href="@{/activities/}">Gestion Actividades</a></li>
 
-		<li><a th:href="@{/planning/list}"><img alt="" src="images/icons/booking.svg"></a></li>
+		<li><a th:href="@{/planning/list}">Planificacion</a></li>
 
 		<li><a th:href="@{/street/list}">Calles</a></li>
 
 		<li><a th:href="@{/booking/list}">Reservas</a></li>
+		</div>
 
+		<div>
+
+			<a th:href="@{/logout}">Salir</a>
+
+		</div>
 	</nav>
+
+
 
 </header>
 

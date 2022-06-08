@@ -1,27 +1,16 @@
 package com.piscina.atrium.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.criteria.Join;
+import lombok.*;
+import org.hibernate.Hibernate;
 
-import org.springframework.beans.factory.annotation.Value;
+import javax.persistence.*;
+import java.util.Objects;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Roles {
-	
-	
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long idRole;
@@ -29,12 +18,41 @@ public class Roles {
 	
    @Column(name ="nameRole")
    private String nameRole;
-   
-   @ManyToOne()
-   @JoinColumn(name ="iduser")
-   private Users iduser;
-   
-   
 
+	@ManyToOne()
+	@JoinColumn(name ="iduser")
+	private Users user;
 
+	public Roles() {
+	}
+
+	public Roles(String nameRole) {
+		this.nameRole = nameRole;
+	}
+
+	public Roles(String nameRole, Users user) {
+		this.nameRole = nameRole;
+		this.user = user;
+	}
+
+	public String getNameRole() {
+		return nameRole;
+	}
+
+	public void setNameRole(String nameRole) {
+		this.nameRole = nameRole;
+	}
+
+	public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
+	}
+	
+
+   
+    
+    
 }
