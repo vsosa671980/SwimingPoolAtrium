@@ -14,11 +14,6 @@
 
 	<header th:replace="~{fragments::navHeader}" ></header>
 
-
-	<p>Ususario:<span sec:authentication="name"></span></p>
-	<p>Roles:<span sec:authentication="principal.authorities"></span></p>
-
-
 	<div class="container mainHedaderUser">
 
 		<p th:type="hidden" th:text="${error}" id="error"></p>
@@ -29,7 +24,7 @@
 			<div>
 				 <form th:action="@{/users/insert}">
 			   
-			      <input type="Submit" value="Crear Usuario">
+			      <input type="Submit" value="Crear Usuario" class="btn btn-green button_general">
 
 				 </form>
 			</div>
@@ -61,7 +56,7 @@
 			<input type="search" placeholder="Introzca nombre o DNI"
 				name="value">
 
-			<button type="submit" class="btn btn-green">Busqueda</button>
+			<button type="submit" class="btn btn-green button_general" >Busqueda</button>
 
 		</form>
 	</div>
@@ -112,7 +107,7 @@
 																		th:text="Reservar">
 					</a>
 					</span>
-						<span th:if="${user.status != 'SubscriptionON'}"><p th:text="noSubscripcion"></p></span>
+						<span th:if="${user.status != 'SubscriptionON'}">noSubscripcion</span>
 					</td>
 					<td><a th:href="@{/bono/buy/} + ${user.idusers} ">Comprar</a></td>
 
@@ -124,13 +119,13 @@
 			<!-- Create the table for pagination-->
 			<div th:if="${pageable.totalPages != 1}">
 				<table>
-					<ul>
-						<li ><a th:href="@{/users/list/(page=1)}"></a>&laquo</li>
+					<ul class="pageable">
+						<li ><a th:href="@{/users/list/(page=1)}"> &laquo</a></li>
 						<li th:each="page : ${#numbers.sequence(1,pageable.totalPages)}">
 							<a th:href="@{/users/list/(page=${page})}" th:text="${page}"> </a>
 						</li>
 						<li th:if="${pageable.number != (pageable.totalPages - 1)} ? disabled">
-							<a th:href="@{/users/list/(page =${pageable.totalPages})}"></a>&raquo</li>
+							<a th:href="@{/users/list/(page =${pageable.totalPages})}">&raquo</a></li>
 					</ul>
 				</table>
 			</div>

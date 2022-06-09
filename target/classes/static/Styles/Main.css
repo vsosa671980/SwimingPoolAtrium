@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro:ital,wght@1,300&display=swap');
 
 
+*{
+	margin:0;
+}
+
 body{
 font-family: 'Roboto', sans-serif;
 font-family: 'Source Sans Pro', sans-serif;
@@ -9,6 +13,40 @@ justify-content: space-around;
 
 
 }
+
+.nav{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+
+}
+
+.nav_var {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+}
+
+.nav_var_a{
+	color: white;
+	font-size: 1.5rem;
+	gap:10px;
+
+}.nav_var_a:hover{
+	cursor: pointer;
+	color: #AED6F1;
+ }
+
+.nav_var_a_p{
+
+	font-size: 1rem;
+	color: #FFFFFF;
+	margin-right: 20px;
+
+}
+
 
 .container{
 
@@ -42,13 +80,15 @@ nav{
 table{
     table-layout: fixed;
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
     border: #F2F2F2 5px solid;
 }
 
+
  th, td {
-    padding: 20px;
-    text-align:center;
+    padding: 30px 50px;
+     text-align:left;
+	 box-sizing: border-box;
   }
 
 
@@ -62,8 +102,7 @@ table{
 
 
 .rowUser :hover{
-
-	background-color: blue;
+	background-color: #AED6F1;
 	cursor:pointer;
 }
 
@@ -74,9 +113,13 @@ table{
 }
 
 .mainContainerHeader{
-
+  display: flex;
+	justify-content: space-between;
     background-color: #AED6F1;
+	align-items: center;
 }
+
+
 
 
 .mainContainerSubscription{
@@ -123,24 +166,16 @@ button{
 
 .red{
 	background-color: red;
-}
+}a{
 
-a{
+	 color: black;
+	 text-decoration:none;
+ }
 
-	padding: 20px;
-	color: black;
-	text-decoration:none;
-	border-radius: 4px 4px;
-}
 
 ul{
 	list-style:none;
 
-}
-
-li{
-	border:2px solid black;
-	display:inline;
 }
 
 
@@ -177,18 +212,37 @@ li{
 	justify-content: center;
 	background-color: red;
 	width: 90%;
-
 }
 
-span::after {
-	padding-left: 5px;
+.pageable{
+	display: flex;
+
+	justify-content: center;
+}
+.pageable li{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: solid 2px #AED6F1;
 }
 
-input:invalid + span::after {
-	content: "✖";
+.pageable li a{
+	font-size: 1.2rem;
+	background-color: #5F9EA0;
 }
 
-input:valid  {
-	content: "✓";
-	background-color: green;
+.pageable li a :hover{
+	cursor: pointer;
+	color: #FFFFFF;
+	font-size: 1.3rem;
+	background-color: #5F9EA0;
 }
+
+.button_general{
+	background-color: #5F9EA0;
+	color: #FFFFFF;
+	padding: 10px;
+	border-radius: 20px;
+}
+
+

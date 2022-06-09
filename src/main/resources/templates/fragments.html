@@ -13,43 +13,47 @@
 
 	<div class="mainContainerHeader">
 
-		<div > <img src="/images/logo piscina.png" alt="logoPiscina" class="imglogo"></div>
-
-	</div>
-
-
-	<nav class="container" >
-
-		<div>
-      
-		<li><a th:href="@{/}">Home</a></li>
-
-		<li><a th:href="@{/users/list}">Gestion de Usuarios</a>
-		</li> 
-
-		<li><a th:href="@{/bono/list}">Gestion Bonos</a></li>
-
-		<li><a  th:href="@{/activities/}">Gestion Actividades</a></li>
-
-		<li><a th:href="@{/planning/list}">Planificacion</a></li>
-
-		<li><a th:href="@{/street/list}">Calles</a></li>
-
-		<li><a th:href="@{/booking/list}">Reservas</a></li>
+		<div >
+			<img src="/images/logo piscina.png" alt="logoPiscina" class="imglogo">
 		</div>
 
 		<div>
 
-			<a th:href="@{/logout}">Salir</a>
+			<p class="nav_var_a_p">  Ususario:<span sec:authentication="name"></span></p>
+			<p class="nav_var_a_p">Roles:<span sec:authentication="principal.authorities"></span></p>
+		</div>
+	</div>
+
+
+	<nav class="nav" >
+
+		<div class="nav_var">
+      
+		    <li><a th:href="@{/}" class="nav_var_a">Home</a></li>
+
+		    <li><a th:href="@{/users/list}" class="nav_var_a">Gestion de Usuarios</a></li>
+
+			<li><a th:href="@{/bono/list}"class="nav_var_a" >Gestion Bonos</a></li>
+
+		    <li><a  th:href="@{/activities/}" class="nav_var_a">Gestion Actividades</a></li>
+
+		    <li><a th:href="@{/planning/list}" class="nav_var_a">Planificacion</a></li>
+
+		    <li><a th:href="@{/street/list}" class="nav_var_a">Calles</a></li>
+
+		    <li><a th:href="@{/booking/list}" class="nav_var_a">Reservas</a></li>
+		</div>
+
+		<div class="nav_var">
+
+			<div>
+			<a th:href="@{/logout}" class="nav_var_a" >Salir</a>
+			</div>
 
 		</div>
 	</nav>
 
-
-
 </header>
-
-
 
 	<div>
 
@@ -58,7 +62,6 @@
 	</div>
 
 <div class="container-left" th:fragment="listusers">
-
 
 
 	<div id="table">
