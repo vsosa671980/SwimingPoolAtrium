@@ -33,13 +33,17 @@ public class PaymentsController {
     @PostMapping("/save")
     public String payDo(@ModelAttribute("paymentForm") Payments payment, Subscription sub){
 
+        payment.setStatePay("correct");
+        //Save the payment
         service.createPayment(payment);
-        
+
+        //Extract data for create Subscription
         LocalDate dateInit =payment.getDatePay();
         long id =payment.getIdu().getIdusers();
         String nameSub =payment.getBonos().getBonoName();
         Long timeSubs =  (long) payment.getBonos().getDuration();
-        
+
+        //For calculate the end of subscription
         LocalDate dayFinish =(dateInit.plusDays(timeSubs));
         System.out.println("Duracion" + payment.getBonos().getDuration());
 

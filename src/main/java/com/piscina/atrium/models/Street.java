@@ -77,8 +77,6 @@ public class Street {
 
 
 
-
-
 	public List<Planning> getPlanning() {
 		return planning;
 	}

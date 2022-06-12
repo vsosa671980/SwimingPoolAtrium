@@ -40,8 +40,7 @@ public class BonosController {
 		user = uservice.foundUserByid(id);
 		
 		modelo.addAttribute("user" ,user.getBonos());
-		
-		
+
 		return "prueba";
 	}
 	
@@ -100,6 +99,7 @@ public class BonosController {
 		LocalDate date = LocalDate.now();
         payment.setDatePay(date);
 
+
 	    Bonos bono = service.listById(idbono);
         payment.setBonos(bono);
 
@@ -116,6 +116,12 @@ public class BonosController {
 		model.addAttribute("paymentForm",payment);
 
 		return "paymentForm";
+	}
+
+	@GetMapping("/delete/{id}")
+	public String DeleteBono(@PathVariable Long id){
+		service.DeleteBono(id);
+		return "/Bono/bono";
 	}
 
 

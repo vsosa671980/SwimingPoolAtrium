@@ -9,9 +9,9 @@
 
 <header th:replace="~{fragments::navHeader}" ></header>
 
-<div>
+<div class="container">
 
-   <button id="insertSubscription" value="/street/insert">Crear</button>
+   <button id="insertSubscription" value="/street/insert" class="modal button_general">Crear</button>
 
 </div>
 
@@ -35,9 +35,8 @@
     
     <td th:text="${street.nameStreet}"></td>
 
-        <td><a th:href="@{/street/update/} + ${street.idStreet}">Modificar</a></td>
-        <td><button class="updateButton" value="/street/update/ + ${street.idStreet}"> Update</button></td>
-
+        <td><button th:value="'/street/update/' + ${street.idStreet}" class="modal button_general button_general_orange">Modificar</button></td>
+        <td><a th:href="@{/street/delete/} + ${street.idStreet}" class="button_general button_general_red">Eliminar</a></td>
 
     </tr>
 

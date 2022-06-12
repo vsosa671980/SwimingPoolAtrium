@@ -36,6 +36,11 @@ public class bonosService implements Ibonos{
 		return dao.findById(id).orElse(null);
 	}
 
+	@Override
+	public void DeleteBono(Long id) {
+		dao.deleteById(id);
+	}
+
 
 }
 

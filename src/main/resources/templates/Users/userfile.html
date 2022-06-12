@@ -7,31 +7,44 @@
 </head>
 <body>
 
-<div class="mainPage">
+<div >
     <header>
 
         <nav th:replace="~{fragments::navHeader}"></nav>
 
     </header>
 
-    <div th:each="user : ${users}">
+    <div th:each="user : ${users}" class="container">
         <div>
-            <ul>
-                <li th:text="${user.name}"></li>
-                <li th:text="${user.surname}"></li>
-                <li th:text="${user.phone}"></li>
-                <li th:text="${user.DNI}"></li>
-                <li th:text="${user.birthdate}"></li>
-                <li th:text="${user.email}"></li>
-                <li th:text="${user.age}"></li>
-                <li th:text ="${user.img}"></li>
+
+            <ul class="user_div_ul">
+
+                <p>Numero Socio </p>
                 <li th:text ="${user.idusers}"></li>
+                <p> Nombre </p>
+                <li th:text="${user.name}"></li>
+                <p>Apellido </p>
+                <li th:text="${user.surname}"></li>
+                <p> Telefono </p>
+                <li th:text="${user.phone}"></li>
+                <p> DNI </p>
+                <li th:text="${user.DNI}"></li>
+                <p> Birthdate</p>
+                <li th:text="${user.birthdate}"></li>
+                <p> Correo Electronico</p>
+                <li th:text="${user.email}"></li>
+                <p>Edad</p>
+                <li th:text="${user.age}"></li>
+
+                <li th:text ="${user.img}"></li>
+
             </ul>
+
 
         </div >
 
 
-
+     <div class="container container_column">
 
         <div th:if="!${user.img}  ">
             <img th:src= "'/images/users/'+${user.idusers}+'/' + ${user.img}"></img>
@@ -43,10 +56,6 @@
 
         </div>
 
-
-    </div>
-
-    <div>
         <div>
 
             <button class="buttonRequest" th:value="'/booking/list/' + ${users.idusers}">Reservas</button>
@@ -55,9 +64,13 @@
 
         </div>
 
+         <div class="insertUserForm"></div>
+
+
+     </div>
+
     </div>
 
-    <div class="insertUserForm"></div>
 
 
 </div>

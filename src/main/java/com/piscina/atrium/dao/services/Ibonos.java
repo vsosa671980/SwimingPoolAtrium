@@ -13,6 +13,8 @@ public interface Ibonos {
 	public ArrayList<Bonos> listBonos();
 
 	public Bonos listById(Long id);
+
+	public void DeleteBono(Long id);
 	
 
 

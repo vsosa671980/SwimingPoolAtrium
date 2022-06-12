@@ -10,23 +10,30 @@
 <div th:fragment="modalActivity">
     <dialog id= "modalinsert"  >
 
-        <div><button id = "btnCerrar" class="btn btn-danger">Close</button></div>
+        <div class="container container_column">
 
-        <form th:action="@{/activities/save}"  method="post" th:object = "${activityForm}">
+        <div>
+            <button id = "btnCerrar"  class="button_general button_general_red">Close</button>
+        </div>
+
+            <div class="container_column">
+
+        <form th:action="@{/activities/save}"  method="post" th:object = "${activityForm}" class="container container_column">
 
             <input type="hidden" name="idActivity" th:field="*{idActivity}">
 
             <div class="mb-4">
-                <label for ="name" >Typo</label>
-                <input type="text" th:field="*{name}" id="name" class="form-control">
+                <label for ="name" >Actividad</label>
+                <input type="text" th:field="*{name}" id="name" required>
             </div>
-
-            <div class="buttonsForms">
-                <input type="Submit" class="btn btn-primary">
+            <div >
+                <input type="Submit" class="button_general" value="Enviar">
 
             </div>
         </form>
 
+            </div>
+        </div>
 
     </dialog>
 

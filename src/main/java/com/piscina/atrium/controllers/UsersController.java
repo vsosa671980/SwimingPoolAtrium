@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import com.piscina.atrium.dao.services.RolesService;
 import com.piscina.atrium.dao.services.SubscriptionService;
 import com.piscina.atrium.models.Roles;
 import com.piscina.atrium.models.Subscription;
@@ -39,6 +40,9 @@ public class UsersController {
 	private bonosService bono;
 	@Autowired
 	private SubscriptionService serviceSub;
+
+	@Autowired
+	private RolesService rolesService;
 
 	// For list all Users
 	@GetMapping("/list")
@@ -79,10 +83,10 @@ public class UsersController {
 	}
 	// For go to page form create user
 	@GetMapping("/insert")
-	public String insertUser(Users user, Model model) {
+	public String insertUser(Users user, Model model,Roles roles) {
 
 		model.addAttribute("empleadoForm", new Users());
-
+		model.addAttribute("roles",rolesService.findRoles());
 		return "/Users/updateUser";
 
 	}
@@ -90,7 +94,7 @@ public class UsersController {
 	// For save news users
 	@PostMapping("/save")
 	public String createUser(@Valid @ModelAttribute("empleadoForm") Users user, Errors error,
-			@RequestParam("file") MultipartFile multipart,Model model) {
+			@RequestParam("file") MultipartFile multipart,@RequestParam("roles") Roles rol, Model model) {
 
 		
 		if (error.hasErrors()) {
@@ -116,22 +120,10 @@ public class UsersController {
             //Create the password
             
             String password = "1234";
-            
-            //Encript password
 
-			Roles admin = new Roles("Admin");
-			Roles dba = new Roles("DBA");
-
-
-
-			user.getRoles().add(admin);
-			user.getRoles().add(dba);
-
-
-            
             user.setPassword(EncrypPassword.passwordEncoder(password));
-            
-
+            Roles rol1 = rol;
+            user.getRoles().add(rol);
 		    //save the User
 			serveruser.insertUser(user);
 			
@@ -151,6 +143,7 @@ public class UsersController {
 	public String updateUser(@PathVariable Long idusers, Model model) {
 
 		model.addAttribute("empleadoForm", serveruser.foundUserByid(idusers));
+		model.addAttribute("roles",rolesService.findRoles());
 
 		return "/Users/updateUser";
 	}

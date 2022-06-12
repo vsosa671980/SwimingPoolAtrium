@@ -4,12 +4,13 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 
 @Entity
 public class Roles {
-
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,20 +20,24 @@ public class Roles {
    @Column(name ="nameRole")
    private String nameRole;
 
-	@ManyToOne()
-	@JoinColumn(name ="iduser")
-	private Users user;
+	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@JoinColumn(name ="idusers")
+	private List<Users> user = new ArrayList<>();
 
 	public Roles() {
 	}
 
-	public Roles(String nameRole) {
-		this.nameRole = nameRole;
-	}
-
-	public Roles(String nameRole, Users user) {
+	public Roles(String nameRole, List<Users> user) {
 		this.nameRole = nameRole;
 		this.user = user;
+	}
+
+	public Long getIdRole() {
+		return idRole;
+	}
+
+	public void setIdRole(Long idRole) {
+		this.idRole = idRole;
 	}
 
 	public String getNameRole() {
@@ -43,16 +48,11 @@ public class Roles {
 		this.nameRole = nameRole;
 	}
 
-	public Users getUser() {
+	public List<Users> getUser() {
 		return user;
 	}
 
-	public void setUser(Users user) {
+	public void setUser(List<Users> user) {
 		this.user = user;
 	}
-	
-
-   
-    
-    
 }

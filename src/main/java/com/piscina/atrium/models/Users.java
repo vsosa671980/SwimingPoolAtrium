@@ -66,12 +66,11 @@ public class Users {
 	@OneToMany(mappedBy = "user")
 	private List<Bonos> bonos = new ArrayList<>();
 
-	@OneToMany(mappedBy = "user")
-	private List<Roles> roles = new ArrayList<>();
+	@ManyToMany(mappedBy = "user")
+	private List<Roles> roles = new ArrayList<Roles>();
 
 	@OneToMany(mappedBy = "user")
 	private List<Subscription> subscription = new ArrayList<>();
-
 	public Users(String username, String surname, String phone, String DNI, String birthdate, String email, String status, String password, String img, int age, List<Booking> bookings, List<Payments> payment, List<Bonos> bonos, List<Subscription> subscription, List<Roles> roles) {
 		this.username = username;
 		this.surname = surname;

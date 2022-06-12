@@ -9,14 +9,18 @@
 
 <div th:fragment="modalBonus">
     <dialog id= "modalinsert"  >
+        <div class="container container_column">
 
-        <div><button id="btnCerrar" class="btn btn-danger">Close</button></div>
+        <div>
+            <button id="btnCerrar" class="button_general button_general_red">Close</button>
+        </div>
+            <div class="container_column">
+        <form th:action="@{/bono/save}"  method="post" th:object = "${bonusForm}" enctype="multipart/form-data" class="container container_column">
+            <div class="container_grid">
 
-        <form th:action="@{/bono/save}"  method="post" th:object = "${bonusForm}" enctype="multipart/form-data">
+                <input type="hidden" name="idBonos" th:field="*{idBonos}">
 
-            <input type="hidden" name="idBonos" th:field="*{idBonos}">
 
-            <div class="mb-4">
                 <label for ="bonoName" >Tipo</label>
                 <input type="text" th:field="*{bonoName}" id="bonoName" class="form-control">
                 
@@ -26,21 +30,23 @@
                 <label for ="duration" >Duracion</label>
                 <input type="text" th:field="*{duration}" id="duration" class="form-control">
 
-            </div>
-
-            <div>
+            <div style="margin-top: 20px">
                 <label for ="file" >imagen</label>
                 <input type="file"  id="file" class="form-control" name="file">
+            </div>
 
             </div>
+
 
             <div class="buttonsForms">
-                <input type="Submit" class="btn btn-primary">
-
+                <input type="Submit" class="button_general">
+            </div>
 
             </div>
+
         </form>
 
+        </div>
 
     </dialog>
 

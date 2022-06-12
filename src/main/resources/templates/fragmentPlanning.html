@@ -7,15 +7,19 @@
 <body>
 
 <div th:fragment="modalPlanning">
-    <dialog id= "modalinsert"  >
+    <dialog id= "modalinsert">
 
-        <div><button id = "btnCerrar" class="btn red">Close</button></div>
+    <div class="container container_column">
 
-        <form th:action="@{/planning/save}"  method="post" th:object = "${planningForm}" class="container form">
+        <div>
+            <button id = "btnCerrar" class="button_general button_general_red">Close</button>
+        </div>
 
-            <input type="hidden" name="idPlannning" th:field="*{idPlanning}">
+        <div class="container_column">
 
-            <div class="mb-4 container form">
+            <form th:action="@{/planning/save}"  method="post" th:object = "${planningForm}" class="container container_column" >
+                <div class="container_grid">
+                <input type="hidden" name="idPlannning" th:field="*{idPlanning}">
 
                 <label for="initTime">Hora de Inicio</label>
                 <input type="time" id="initTime" th:field="*{initTime}">
@@ -32,31 +36,27 @@
                 
                 
                  <label for="idStreet">Calle</label>
-                <select name="idStreet" id="idStreet">
+                 <select name="idStreet" id="idStreet">
                     <option th:each="Item : ${streets}"
                             th:value="${Item.idStreet}"
                             th:text="${Item.nameStreet}"
-                            th:selected="false"
-                    />
+                            th:selected="false"/>
                 </select>
                 <label for="activity">Actividad</label>
                 <select name="activity" id="activity" >
                     <option th:each="Item : ${activities}"
                             th:value="${Item.idActivity}"
                             th:text="${Item.name}"
-                            th:selected="false"
-                    />
+                            th:selected="false"/>
                 </select>
+                </div>
+                <div>
+                    <input type="Submit"  class="button_general" value="Enviar">
+                </div>
 
-            </div>
-
-            <div class="buttonsForms">
-                <input type="Submit" class="btn btn-primary">
-
-            </div>
         </form>
-
-
+        </div>
+    </div>
     </dialog>
 
 </div>

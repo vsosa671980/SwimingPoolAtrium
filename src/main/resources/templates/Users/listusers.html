@@ -95,21 +95,21 @@
 					<td th:text="${user.email}">Email</td>
 					<td th:text="${user.status}">status</td>
 					<td th:text="${user.age}">status</td>
-					<td><a th:href="@{/users/userFile/} + ${user.idusers}">Ficha</a></td>
+					<td><a th:href="@{/users/userFile/} + ${user.idusers}" class="button_general button_general_blue">Ficha</a></td>
 
 					<td><a th:href="@{/users/updateUser/} + ${user.idusers} "
-						   th:text="Update"></a></td>
+						   th:text="Update" class="button_general"></a></td>
 					<td><a th:href="@{/users/deleteUser/} + ${user.idusers} "
-						   th:text="Delete"></a></td>
+						   th:text="Delete" class="button_general button_general_red"></a></td>
 
 					<td >
 					<span th:if="${user.status == 'SubscriptionON'}"><a th:href="@{/planning/list/} + ${user.idusers}"
-																		th:text="Reservar">
+																		th:text="Reservar" class="button_general">
 					</a>
 					</span>
 						<span th:if="${user.status != 'SubscriptionON'}">noSubscripcion</span>
 					</td>
-					<td><a th:href="@{/bono/buy/} + ${user.idusers} ">Comprar</a></td>
+					<td><a th:href="@{/bono/buy/} + ${user.idusers} " class="button_general">Comprar</a></td>
 
 				</tr>
 

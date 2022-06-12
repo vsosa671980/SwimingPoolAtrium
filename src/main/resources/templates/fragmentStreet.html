@@ -10,7 +10,7 @@
     <dialog id= "modalinsert">
 
         <div>
-            <button id = "btnCerrar" class="btn btn-danger">Close</button>
+            <button id = "btnCerrar" class="button_general button_general_red">Close</button>
         </div>
 
     <form th:action="@{/street/save}" th:Object="${streetForm}" method="post" class="form eventDefault">
@@ -20,8 +20,8 @@
     <input type="text" th:field="*{nameStreet}" id="street">
         </div>
 
-        <div class="buttonsForms">
-            <input type="Submit" class="btn btn-primary">
+        <div class="button_general">
+            <input type="Submit" class="button_general" value="Enviar">
 
         </div>
 

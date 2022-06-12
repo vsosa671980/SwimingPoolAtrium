@@ -22,12 +22,13 @@
 
 <div id="listSubscription">
 
-    <div id="FormPayment">
+    <div id="FormPayment" class="container">
 
-        <p th:text="${idu}"></p>
 
-        <form th:action="@{/payments/save}" th:object="${paymentForm}" method="post">
 
+        <form th:action="@{/payments/save}" th:object="${paymentForm}" method="post" class="container">
+
+            <div>
             <label for="idu">Usuario</label>
             <input type="text" th:field="*{idu}"  id="idu" name="idu">
              
@@ -48,8 +49,10 @@
             
             <label for="targeta">Targeta</label>
             <input type="checkbox" th:field="*{typePay}" value="Targeta" id="targeta" class="optionals">
-
-            <input type="Submit" value="Pagar">
+            </div>
+            <div>
+            <input type="Submit" value="Pagar" class="button_general">
+            </div>
         </form>
 
 
