@@ -20,8 +20,7 @@ public class Roles {
    @Column(name ="nameRole")
    private String nameRole;
 
-	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-	@JoinColumn(name ="idusers")
+	@ManyToMany()
 	private List<Users> user = new ArrayList<>();
 
 	public Roles() {

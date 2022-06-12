@@ -122,14 +122,13 @@ public class UsersController {
             String password = "1234";
 
             user.setPassword(EncrypPassword.passwordEncoder(password));
-            Roles rol1 = rol;
-            user.getRoles().add(rol);
-		    //save the User
-			serveruser.insertUser(user);
+
 			
 			Long id = user.getIdusers();
 			
 			files.saveFile(multipart,id);
+
+			serveruser.insertUser(user);
 
 			return "redirect:/users/list";
 		}

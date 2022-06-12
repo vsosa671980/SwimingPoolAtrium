@@ -11,6 +11,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
 
@@ -40,17 +42,21 @@ public class Users {
 
 	@NotBlank
 	private String DNI;
-
+	
+    @NotBlank   
 	private String birthdate;
 
 	@Email
 	@NotEmpty
 	private String email;
-
+    
+	
 	private String status;
    
+	
 	private String password;
 
+	
 	private String img;
 
 	private int age;
@@ -66,7 +72,7 @@ public class Users {
 	@OneToMany(mappedBy = "user")
 	private List<Bonos> bonos = new ArrayList<>();
 
-	@ManyToMany(mappedBy = "user")
+	@ManyToMany()
 	private List<Roles> roles = new ArrayList<Roles>();
 
 	@OneToMany(mappedBy = "user")
@@ -139,8 +145,6 @@ public class Users {
 		this.bookings = bookings;
 	
 	}
-
-
 
 
 	public List<Booking> getBookings() {

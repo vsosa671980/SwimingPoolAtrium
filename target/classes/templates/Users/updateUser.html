@@ -48,15 +48,15 @@
 				<label for ="phone" >Movil</label>
 				<input type="text" th:field="*{phone}" id="phone" class="form-control">
 
-
+             <div sec:authorize="hasAnyAuthority('ADMIN')">
 			  <label for="roles" >Rol</label>
-			  <select name="roles" id="roles" >
+			  <select th:field="*{roles}" name="roles" id="roles"  >
 				<option th:each="Item : ${roles}"
 						th:value="${Item.idRole}"
 						th:text="${Item.nameRole}"
 						th:selected="false"/>
 			  </select>
-
+			 </div>
 
 			<div>
 				<label for ="file" >imagen</label>
