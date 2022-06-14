@@ -10,17 +10,14 @@ import com.piscina.atrium.models.Activities;
 
 @Service
 public class ActivitiesService  implements IActivitiesService{
-	
-	
+
 	@Autowired
 	private ActivitiesDao dao;
-
 	@Override
 	public ArrayList<Activities> listActivities() {
 		
 		return (ArrayList<Activities>) dao.findAll() ;
 	}
-
 	@Override
 	public void insertActivity(Activities activity) {
 		

@@ -7,10 +7,7 @@
 </head>
 <body>
 
-
-
 	<div id="insercion"></div>
-
 
 	<header th:replace="~{fragments::navHeader}" ></header>
 
@@ -31,25 +28,7 @@
 
 			<div id="modalformdialog"></div>
 
-			<div class="container">
-
-				<label for="actives">Usuarios activos</label>
-				<input type="checkbox"
-					name="actives" id="actives">
-
-			</div>
-
-			<div class="container">
-
-				<label for="nonactives">Usuarios de baja
-					<input
-					type="checkbox" name="nonactives" id="nonactives">
-
-				</label>
-			</div>
 		</div>
-
-
 
 		<form th:action="@{/users/list}">
 

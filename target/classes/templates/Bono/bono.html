@@ -22,13 +22,9 @@
 
   <div>
 
-
-
       <table>
 
           <thead>
-
-
 
             <th>Tipo</th>
             <th>Duracion</th>
@@ -45,7 +41,7 @@
                   <td th:text="${bono.duration}"></td>
                  <td th:text =" ${bono.costBonos}"></td>
                  <td><a th:href="@{/bono/delete/} + ${bono.idBonos}" class="button_general button_general_red" > Eliminar</a><td>
-                 <td th:if="${idu != null}" ><a th:href="@{/bono/payment(iduser=${idu},idbono = ${bono.idBonos})}">Comprar</a></td>
+                 <td th:if="${idu != null}" ><a th:href="@{/bono/payment(iduser=${idu},idbono = ${bono.idBonos})}" class="button_general">Comprar</a></td>
 
              </tr>
 

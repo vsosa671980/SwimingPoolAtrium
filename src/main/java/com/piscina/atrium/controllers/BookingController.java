@@ -43,8 +43,6 @@ public class BookingController {
 	}
 
 
-
-
 	@GetMapping("/insert")
 	public String createBooking(@RequestParam("iduser") Users user,@RequestParam("idplanning")Planning planning,Model model, Booking booking) {
 
@@ -52,8 +50,9 @@ public class BookingController {
 			booking.setIdusers(user);
 			booking.setPlannings(planning);
 
+		  if(planning.getOcupacion() >0) {
 			planning.setOcupacion(planning.getOcupacion() - 1);
-
+		}
 			service.insertBooking(booking);
 			
 			return "Congratulations/payCorrect";

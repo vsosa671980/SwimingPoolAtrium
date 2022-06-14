@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -13,7 +14,8 @@ public class Payments {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name="id_payment")
    private Long idPayment;
-   
+
+   @NotNull
    @Column(name = "type_pay")   
    private String typePay;
    
@@ -22,7 +24,7 @@ public class Payments {
    
    @Column(name="state_pay")
    private String statePay;
-   
+	@NotNull
    @Column(name = "pay")
    private double pay;
 

@@ -14,8 +14,8 @@
 
     </header>
 
-    <div th:each="user : ${users}" class="container">
-        <div>
+    <div th:each="user : ${users}" class="container ">
+        <div class="container_blue ">
 
             <ul class="user_div_ul">
 
@@ -36,7 +36,6 @@
                 <p>Edad</p>
                 <li th:text="${user.age}"></li>
 
-                <li th:text ="${user.img}"></li>
 
             </ul>
 
@@ -46,21 +45,20 @@
 
      <div class="container container_column">
 
-        <div th:if="!${user.img}  ">
-            <img th:src= "'/images/users/'+${user.idusers}+'/' + ${user.img}"></img>
+        <div th:if="${user.img}  ">
+            <img th:src= "'/images/users/'+${user.idusers}+'/' + ${user.img}" class="imgUser">
 
         </div>
 
-        <div th:if="${user.img}">
+        <div th:if="!${user.img}">
             <img src= /images/web/avatar.gif/></img>
 
         </div>
 
         <div>
-
-            <button class="buttonRequest" th:value="'/booking/list/' + ${users.idusers}">Reservas</button>
-            <button class="buttonRequest" th:value="'/subscription/list/' + ${users.idusers}">Subscripciones</button>
-            <button class="buttonRequest"th:value="'/payments/list/' + ${users.idusers}">Pagos</button>
+            <button class="buttonRequest button_general" th:value="'/booking/list/' + ${users.idusers}" >Reservas</button>
+            <button class="buttonRequest button_general" th:value="'/subscription/list/' + ${users.idusers}">Subscripciones</button>
+            <button class="buttonRequest button_general" th:value="'/payments/list/' + ${users.idusers}">Pagos</button>
 
         </div>
 

@@ -16,4 +16,11 @@ public class RolesService implements IRoles {
     public ArrayList<Roles> findRoles() {
         return (ArrayList<Roles>) dao.findAll();
     }
+
+    @Override
+    public Roles findRoleByName(String name) {
+        return dao.findByNameRole(name);
+    }
+
+
 }

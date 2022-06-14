@@ -9,4 +9,6 @@ import java.util.ArrayList;
 public interface IRoles {
 
     public ArrayList<Roles> findRoles();
+
+    public Roles findRoleByName(String name);
 }

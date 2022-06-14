@@ -47,37 +47,33 @@
 
         <tr>
         <thead>
-        <th>Accion</th>
-        <th th:if="!${iduser}">Eliminar</th>
-        <th>Dia</th>
-        <th>Fecha</th>
-        <th>Hora Inicio</th>
-        <th>Hora Fin</th>
-        <th>Calle</th>
-        <th>Plazas Libres</th>
-
-
+            <th>Accion</th>
+            <th th:if="!${iduser}">Eliminar</th>
+            <th>Dia</th>
+            <th>Fecha</th>
+            <th>Hora Inicio</th>
+            <th>Hora Fin</th>
+            <th>Actividad</th>
+            <th>Calle</th>
+            <th>Plazas Libres</th>
         </thead>
-
         </tr>
 
         <tbody>
 
       <tr th:each="p : ${planning}">
           <td th:if="${iduser}">
-
-              <span th:if="${p.ocupacion > 0}"> <a th:href="@{/booking/insert(iduser=${iduser},idplanning = ${p.idPlanning}) }">Reservar</a></span>
+              <span th:if="${p.ocupacion > 0}"> <a th:href="@{/booking/insert(iduser=${iduser},idplanning = ${p.idPlanning}) }" class="button_general">Reservar</a></span>
               <span th:if="${p.ocupacion <=0}"> <p th:text="Completo"></p></span>
+          </td>
+          <td th:if="!${iduser}">
+
+              <button th:value=" '/planning/update/' + ${p.idPlanning}" th:text="Actualizar" class="modal button_general button_general_orange">Update</button>
 
           </td>
           <td th:if="!${iduser}">
 
-              <button th:value=" '/planning/update/' + ${p.idPlanning}" th:text="Actualizar" class="modal">Update</button>
-
-          </td>
-          <td th:if="!${iduser}">
-
-              <a th:href="@{/planning/delete/} + ${p.idPlanning}" th:text="Eliminar"></a>
+              <a th:href="@{/planning/delete/} + ${p.idPlanning}" th:text="Eliminar" class="button_general button_general_red"></a>
           </td>
           <td th:text="${p.getDayOfWeek(p.planningDay)}"></td>
           <td th:text="${p.planningDay}"></td>

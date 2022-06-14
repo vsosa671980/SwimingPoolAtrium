@@ -17,14 +17,6 @@ public class SwimingApplication {
 
 		SpringApplication.run(SwimingApplication.class, args);
 
-		Tiempo tiempo = new Tiempo();
-
-		tiempo.exectask();
 	}
-
-
-
-
 	
-
 }

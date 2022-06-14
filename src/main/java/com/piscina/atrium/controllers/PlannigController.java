@@ -77,9 +77,7 @@ public class PlannigController {
     @PostMapping("/save")
     public String savePlanning(@ModelAttribute("planningForm")Planning planning){
 
-        if(planning.getOcupacion() >0) {
-            planning.setOcupacion(planning.getOcupacion() - 1);
-        }
+
         service.insertPlanning(planning);
 
         return "redirect:/planning/list";

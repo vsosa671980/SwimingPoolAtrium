@@ -28,29 +28,29 @@
 
         <form th:action="@{/payments/save}" th:object="${paymentForm}" method="post" class="container">
 
-            <div>
+            <div class="container container_column container_blue">
             <label for="idu">Usuario</label>
-            <input type="text" th:field="*{idu}"  id="idu" name="idu">
+            <input type="text" th:field="*{idu}"  id="idu" name="idu" readonly>
              
              
             <label for="bono">Tipo Bono</label>
-            <input type="text" th:field="*{bonos}" name="bonos" id="bono">
+            <input type="text" th:field="*{bonos}" name="bonos" id="bono" readonly>
             
             <label for="date">Fecha de Pago</label>
 
-            <input type="text" th:field="*{datePay}"  th:value="${date}" name=date id=date>
+            <input type="text" th:field="*{datePay}"  th:value="${date}" name=date id=date readonly>
 
            
             <label>Cantidad de Pago</label>
-            <input type="text" th:field="*{pay}" name="pay" id="pay">
+            <input type="text" th:field="*{pay}" name="pay" id="pay" readonly>
 
             <label for="contado">Contado</label>
-            <input type="checkbox" th:field="*{typePay}" value="Contado" id="contado" class="optionals">
+            <input type="checkbox" th:field="*{typePay}" value="Contado" id="contado" class="optionals" readonly>
             
             <label for="targeta">Targeta</label>
-            <input type="checkbox" th:field="*{typePay}" value="Targeta" id="targeta" class="optionals">
-            </div>
-            <div>
+            <input type="checkbox" th:field="*{typePay}" value="Targeta" id="targeta" class="optionals" readonly>
+
+
             <input type="Submit" value="Pagar" class="button_general">
             </div>
         </form>

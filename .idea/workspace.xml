@@ -5,38 +5,84 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="997dfd95-b53e-48d7-b3e3-ded7d725604e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/users/0/9-Best-Online-Avatars-and-How-to-Make-Your-Own-for-Free-image1-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/users/0/avatar_3_crop1591241236156.jpg_423682103.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/users/18/yupiramos200436847.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/users/19/avatar_3_crop1591241236156.jpg_423682103.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/users/19/yupiramos200436847.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/users/2/9-Best-Online-Avatars-and-How-to-Make-Your-Own-for-Free-image1-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/users/2/avatar_3_crop1591241236156.jpg_423682103.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/users/2/yupiramos200436847.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/SwimingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/SwimingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/PaymentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/PaymentsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/PlannigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/PlannigController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Roles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Roles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/RolesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/RolesDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/ActivitiesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/ActivitiesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/IRoles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/IRoles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/RolesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/dao/services/RolesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Payments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/models/Payments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/resources/EncriptPassword.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/resources/EncrypPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/resources/EncrypPassword.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/security/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/security/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/piscina/atrium/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Styles/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Styles/Main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/users/1/avatar.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/javascript/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/javascript/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Bono/bono.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Bono/bono.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Congratulations/payCorrect.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Congratulations/payCorrect.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Planifications/planning.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Planifications/planning.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Users/listusers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Users/listusers.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Users/updateUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Users/updateUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Users/userfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Users/userfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/paymentForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/paymentForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com.swimingpool2/Swiming/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/maven/com.swimingpool2/Swiming/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/BonosController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/BonosController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/SwimingApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/SwimingApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/BookingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/BookingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/HomeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/PaymentsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/PaymentsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/PlannigController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/PlannigController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/RolesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/RolesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/UserControllerRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/UserControllerRest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/UsersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/controllers/UsersController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/BookingDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/BookingDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/BonosDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/BonosDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/PaymentsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/PaymentsDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/PlanningDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/PlanningDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/RolesDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/RolesDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/UsersDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/UsersDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/UsersSecurityDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/UsersSecurityDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/SubscriptionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/SubscriptionDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/ActivitiesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/ActivitiesService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/BookingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/BookingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/IBookingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/IBookingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/IPayments.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/IPayments.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/IRoles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/IRoles.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/ISubscription.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/ISubscription.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/Ibonos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/Ibonos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/PaymentsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/PaymentsService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/RolesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/RolesService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/UsersDetailsImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/UsersDetailsImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/UsersServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/UsersServices.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Bonos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Bonos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Booking.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Booking.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/SubscriptionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/SubscriptionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/bonosService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/dao/services/bonosService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Payments.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Payments.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Subscription.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Subscription.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/resources/AdminFiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/resources/AdminFiles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/resources/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/resources/Task.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Planning.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/models/Planning.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/resources/EncriptPassword.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/resources/Tiempo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/resources/Tiempo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/security/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/security/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/security/WebConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/piscina/atrium/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/piscina/atrium/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/Styles/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/Styles/Main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/users/1/avatar.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/javascript/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/javascript/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Bono/bono.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Bono/bono.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Congratulations/payCorrect.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Congratulations/payCorrect.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Planifications/planning.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Planifications/planning.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Users/listusers.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Users/listusers.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/Users/updateUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Users/updateUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Users/userfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Users/userfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/paymentForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/paymentForm.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,6 +261,10 @@
       <workItem from="1654941216876" duration="25923000" />
       <workItem from="1654988607984" duration="2372000" />
       <workItem from="1655022867083" duration="5067000" />
+      <workItem from="1655132504532" duration="16514000" />
+      <workItem from="1655219631399" duration="213000" />
+      <workItem from="1655223007820" duration="455000" />
+      <workItem from="1655228143918" duration="905000" />
     </task>
     <servers />
   </component>
@@ -239,40 +289,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/PaymentsController.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/PaymentsController.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/PaymentsController.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/PaymentsController.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/BonosController.java</url>
           <line>96</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/piscina/atrium/controllers/UsersController.java</url>
-          <line>130</line>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="com.piscina.atrium.models.Users" memberName="roles" />
         <PinnedItemInfo parentTag="com.piscina.atrium.models.Roles" memberName="user" />
+        <PinnedItemInfo parentTag="com.piscina.atrium.dao.services.RolesService" memberName="dao" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
